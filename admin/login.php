@@ -77,17 +77,6 @@
     </style>
 </head>
 <body id="login-body">
-    <div class="login-header">
-        <div class="alert alert-success alert-custom">
-            <h3>Cần hỗ trợ kỹ thuật, quý khách vui lòng thực hiện:</h3>
-            <div class="huong-dan">
-                <ul>
-                    <li>Gửi yêu cầu vào email: <span class="red">kythuat@phuongnamvina.vn</span></li>
-                    <li>Gọi số Hotline HTKH: 0915 101 017 - 0912 817 117</li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div id="login">
         <form id="loginform" class="form-vertical no-padding no-margin" action=""  method="post"/>
@@ -141,7 +130,6 @@
     <input type="button" id="forget-btn" class="btn btn-block login-btn" value="Submit" />
 </form>
 </div>
-<div id="login-copyright"> <a href="http://phuongnamvina.vn/" rel="nofollow" target="_blank" title="Thiết kế website: Phương Nam Vina">Thiết kế website: Phương Nam Vina</a> </div>
 <script src="./js/jquery-1.8.3.min.js"></script><script src="./assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="./js/jquery.blockui.js"></script>
 

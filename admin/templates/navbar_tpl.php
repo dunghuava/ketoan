@@ -33,14 +33,6 @@
 	            <?php }  ?>
 	            </a>
 	        </div>
-
-	        <div class="thongbao_lienhe">
-	            <a href="?p=danh-sach-don-hang&a=man"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Đơn hàng</span>
-                <?php if($c_donhang > 0){ ?>
-                    <span class="notify_contact"><?=$c_donhang?></span>
-                <?php }  ?>
-                </a>
-	        </div>
 	    </div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

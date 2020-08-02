@@ -29,7 +29,7 @@
                         if($d->checkUserPermission($_SESSION['id_user'],'san-pham') > 0 || $_SESSION['is_admin'] == 1 ){
                     ?>
                     <li class="list-group-item <?php if($_GET['p'] == 'san-pham') echo "active"?>">
-                        <a href="?p=san-pham&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Sản phẩm</span></a>
+                        <a href="?p=san-pham&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Dự án</span></a>
                     </li>
                     <?php } ?>
                     <?php

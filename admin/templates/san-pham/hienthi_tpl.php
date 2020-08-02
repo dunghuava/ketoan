@@ -1,7 +1,7 @@
 <ol class="breadcrumb">
   <li><a href="<?=urladmin ?>"><i class="glyphicon glyphicon-home"></i> Trang chủ</a></li>
   <li class="active"><a href="<?=urladmin ?>">Danh mục</a></li>
-  <li class="active"><a href="<?=urladmin ?>index.php?p=san-pham&a=man">Sản phẩm</a></li>
+  <li class="active"><a href="<?=urladmin ?>index.php?p=san-pham&a=man">Dự án</a></li>
 </ol>
 
 <div class="col-xs-12">
@@ -81,7 +81,7 @@
 		<?php $count=count($items); for($i=0; $i<$count; $i++){ ?>
 		<tr>
 			<td>
-				<input class="chk_box" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
+				<input class="chk_box checkall" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
 			</td>
 			<td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_sanpham" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td>
 			
