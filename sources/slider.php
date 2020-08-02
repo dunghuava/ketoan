@@ -51,6 +51,53 @@
         $(window).bind("orientationchange", ScaleSlider);
     });
 </script>
+<style type="text/css">
+    .slide{
+        position: relative;
+    }
+    #form_center_top{
+        position: absolute;
+        position: absolute;
+        bottom: 35%;
+        width: 100%;
+    }
+    #form_center_top input{
+        border: 0px;
+        height: 50px;
+        background: #fff;
+        width: 75%;
+        color: #000;
+        font-size: 18px;
+        padding: 0px 10px;
+        outline: none;
+    }
+    #form_center_top button.btn_search{
+        height: 50px;
+        padding: 10px 20px;
+        background:#02AD88;
+        border: none;
+        margin-left: -5px;
+        position: relative;
+        color: #fff;
+    }
+    #form_center_top .btn_type{
+        background:#02ad88c9;
+        border: none;
+        transition: all 0.3s;
+        padding:10px 18px;
+        color: #fff;
+        border: 1px solid #ccc;
+    }
+    #form_center_top .btn_type:hover{
+        background:orange;
+    }
+    .flex{
+        display: flex;
+    }
+    .btn_type.no-right{
+        border-right: 0px !important;
+    }
+</style>
 <div class="slide">
     <div class="p0">
         <div class="wrap-slide">
@@ -109,4 +156,23 @@
             </div>
         </div>
     </div>
+    <!-- form-search -->
+        <form id="form_center_top" action="" method="get" accept-charset="utf-8">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-md-2"></div>
+                     <div class="col-md-8">
+                          <div class="flex">
+                              <button class="btn_type no-right">Dự án</button>
+                              <button class="btn_type no-right">Cho thuê</button>
+                              <button class="btn_type">Mua bán</button>
+                          </div>
+                         <input placeholder="Nhập địa điểm từ khóa (Ví dụ : Landmark 81)" type="search" name="">
+                         <button class="btn_search" type="submit"><span class="fa fa-search"></span></button>
+                     </div>
+                      <div class="col-md-2"></div>
+                 </div>
+             </div>
+        </form>
+    <!-- form-search -->
 </div>

@@ -49,11 +49,7 @@ img{
 }
 
 a{
-	color:#333;
-	transition:all 0.5s;
-	-webkit-transition:all 0.5s;
-	-moz-transition:all 0.5s;
-	-o-transition:all 0.5s;
+	color:#000;
 }
 a:hover,a:focus{
 	color:#ff9600;

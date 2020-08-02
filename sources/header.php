@@ -4,11 +4,20 @@
 ?>
 <style type="text/css">
     .sticky {
-        position: fixed;
+        position: fixed !important;
         top: 0;
         width: 100%;
-        background: white;
+        background: white !important;
+        animation: fade-down 0.2s;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    }
+    @keyframes fade-down{
+        from{
+            top:-50px;
+        }
+        to{
+            top:0px;
+        }
     }
     .sticky .navbar-nav>li>a{
         color:black !important;
