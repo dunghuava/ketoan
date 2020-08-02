@@ -16,13 +16,14 @@ $nav        = $d->o_fet("select * from #_category where tieu_bieu=1 and hien_thi
                 <?=$item['ten_'.$lang]?>
             </a>
             <?php if(count($sub)>0) {?>
+               <span style="color: #fff" class="fa fa-angle-down"></span> 
                <ul class="dropdown-menu fadeInUp animate1">
                     <?php foreach($sub as $item1) {
                     $sub1=$d->o_fet("select * from #_category where id_loai={$item1['id']} and hien_thi=1 order by so_thu_tu asc, id desc");
                     ?>
                         <li class="<?php if(count($sub1)>0) echo "dropdown-submenu"?>">
                             <a href="<?=URLPATH.$item1['alias_'.$lang] ?>.html" title="<?=$item1['ten_'.$lang]?>"><?=$item1['ten_'.$lang]?></a>                                                    
-                            <?php if(count($sub1)>0) {?>                                                    
+                            <?php if(count($sub1)>0) {?>                                                  
                             <ul class="dropdown-menu fadeInUp animate1">    
                                 <?php foreach($sub1 as $item2) { 
                                     $sub2=$d->o_fet("select * from #_category where id_loai={$item2['id']} and hien_thi=1 order by so_thu_tu asc, id desc");
@@ -48,6 +49,16 @@ $nav        = $d->o_fet("select * from #_category where tieu_bieu=1 and hien_thi
             <?php } ?>
         </li>
     <?php } ?>
+    <li class="">
+        <a href="<?=URLPATH?>" title="">
+           Đăng nhập / đăng ký
+        </a>
+    </li>
+    <li class="">
+        <a href="<?=URLPATH?>" title="">
+           Đăng tin nhà đất
+        </a>
+    </li>
 <!--     <li>
         <a href="javascript:" class="show-search">
             <i class="fa fa-search"></i>

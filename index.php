@@ -98,9 +98,9 @@ echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 			$slide=$d->getSlider();
 			include _source.'slider.php';
 		?>
-		<?php include _source.$source.".php"; ?>
+		<?php 
+			include _source.$source.".php"; ?>
 		<?php include _source."footer.php";?>
-		<?php //include _source."alert.php" ?>
 	</div>
 	<script src="<?=URLPATH?>templates/js/detect.js"></script>
 	<script src="<?=URLPATH?>templates/extra/bootstrap/js/bootstrap.min.js"></script>

@@ -22,6 +22,9 @@
     .sticky .navbar-nav>li>a{
         color:black !important;
     }
+    .sticky .fa-angle-down{
+        color:black !important;
+    }
 </style>
 <header>
     <div class="top-header" id="navbar_fix_top">

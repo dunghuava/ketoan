@@ -35,7 +35,7 @@
 			<?php for($i=0;$i<9;$i++){ ?>
 			<div class="col-md-4">
 				<div class="item-project">
-					<a href="" title="">
+					<a style="color: #000" href="" title="">
 						<div class="img_project">
 							<img src="<?=URLPATH?>img_data/b4838409525722.jpg" alt="">
 						</div>

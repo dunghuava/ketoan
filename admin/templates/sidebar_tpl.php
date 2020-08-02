@@ -83,9 +83,9 @@
                 <?php
                     if($d->checkUserPermission($_SESSION['id_user'],'ho-tro-truc-tuyen') > 0 || $_SESSION['is_admin'] == 1 ){
                 ?>
-                <li class="list-group-item <?php if($_GET['p'] == 'ho-tro-truc-tuyen') echo "active"?>">
+<!--                 <li class="list-group-item <?php if($_GET['p'] == 'ho-tro-truc-tuyen') echo "active"?>">
                     <a href="?p=ho-tro-truc-tuyen&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Hỗ trợ trực tuyến</span></a>
-                </li>
+                </li> -->
                 <?php } ?>
                 <?php
                     if($d->checkUserPermission($_SESSION['id_user'],'video') > 0 || $_SESSION['is_admin'] == 1 ){
@@ -105,9 +105,9 @@
                 <?php
                     if($d->checkUserPermission($_SESSION['id_user'],'ql-thongtin') > 0 || $_SESSION['is_admin'] == 1 ){
                 ?>
-                <li class="list-group-item <?php if($_GET['p'] == 'ql-thongtin') echo "active"?>">
+<!--                 <li class="list-group-item <?php if($_GET['p'] == 'ql-thongtin') echo "active"?>">
                     <a href="?p=ql-thongtin&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Thông tin</span></a>
-                </li>
+                </li> -->
                 <?php } ?>
                 <?php
                     if($d->checkUserPermission($_SESSION['id_user'],'giaodien') > 0 || $_SESSION['is_admin'] == 1 ){
@@ -194,9 +194,9 @@
                     <li class="list-group-item <?php if($_GET['p'] == 'ql-user' && $_GET['a'] == 'man') echo "active"?>">
                         <a href="?p=ql-user&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Quản lý user</span></a>
                     </li>
-                    <li class="list-group-item <?php if($_GET['p'] == 'permission' && $_GET['a'] == 'man') echo "active"?>">
+<!--                     <li  class="list-group-item <?php if($_GET['p'] == 'permission' && $_GET['a'] == 'man') echo "active"?>">
                         <a href="?p=permission&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Danh sách quyền</span></a>
-                    </li>
+                    </li> -->
                 <?php } ?>
                 <li class="list-group-item <?php if($_GET['p'] == 'ql-user' && $_GET['a'] == 'change-pass') echo "active"?>">
                     <a href="?p=ql-user&a=change-pass"><i class="glyphicon glyphicon-chevron-right"></i> <span>Thông tin user</span></a>
