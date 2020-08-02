@@ -86,6 +86,7 @@
         transition: all 0.3s;
         padding:10px 18px;
         color: #fff;
+        outline: none;
         border: 1px solid #ccc;
     }
     #form_center_top .btn_type:hover{
@@ -163,9 +164,9 @@
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
                           <div class="flex">
-                              <button class="btn_type no-right">Dự án</button>
-                              <button class="btn_type no-right">Cho thuê</button>
-                              <button class="btn_type">Mua bán</button>
+                              <button type="button" class="btn_type no-right">Dự án</button>
+                              <button type="button" class="btn_type no-right">Cho thuê</button>
+                              <button type="button" class="btn_type">Mua bán</button>
                           </div>
                          <input placeholder="Nhập địa điểm từ khóa (Ví dụ : Landmark 81)" type="search" name="">
                          <button class="btn_search" type="submit"><span class="fa fa-search"></span></button>

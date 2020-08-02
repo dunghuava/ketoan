@@ -103,23 +103,22 @@
 		min-width: 225px;
 		border-radius: 0; 
 		z-index: 9999;
-		background: #A1261E;
+		background: #fff;
 	}
 	nav.nav .dropdown-menu li a {
-		color: #fff;
+		color: #000;
 		padding: 10px 15px; 
-		transition:all 0.5s ease;
-		-webkit-transition:all 0.5s ease;
-		-moz-transition:all 0.5s ease;
-		-o-transition:all 0.5s ease;
+		transition:all 0.2s ease;
+		-webkit-transition:all 0.2s ease;
+		-moz-transition:all 0.2s ease;
+		-o-transition:all 0.2s ease;
 	}
 	nav.nav .dropdown-menu .active > a,
 	nav.nav .dropdown-menu li > a:focus,
 	nav.nav .dropdown-menu li > a:hover {
 		color: #fff;
 		filter: none;
-		background: #033651;
-		padding: 10px 20px; 
+		background: #02AD88;
 	}	
 	.dropdown-submenu { 
 		position: relative; 

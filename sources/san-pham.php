@@ -22,8 +22,6 @@
 <section>
 	<div class="container bg-white">
 		<div class="row10">		
-			<?php include 'left.php'; ?>
-			<div class="col-md-9 plr10">
 				<div class="page-title">
 					<div class="col-md-12 plr0">
 						<ul class="breadcrumb">
@@ -32,22 +30,7 @@
 						</ul>
 					</div>
 				</div>
-				<!-- <?php if(!empty($query['mo_ta_'.$lang])){ ?>	
-					<div class="des-module mb10">
-						<?= $query['mo_ta_'.$lang]; ?>			
-					</div>
-				<?php } ?> -->
 				<div class="clearfix"></div>
-				<div class="row10">
-					<?php 
-						if(!empty($sanpham)){
-							include("ct_product.php");
-						}
-						else{
-							
-						}
-					 ?>
-				</div>
 				<div class="clearfix"></div>
 				<div class="pagination-page">
 				<?php echo @$phantrang['paging']?>

@@ -28,8 +28,7 @@
 <section>
 	<div class="container bg-white">	        
 		<div class="row10">       	
-			<?php include("left.php"); ?>			
-			<div class="col-md-9 plr10">
+			<div class="col-md-12 plr10">
 				<div class="page-title">
 					<div class="col-md-12 plr0">
 						<ul class="breadcrumb">
