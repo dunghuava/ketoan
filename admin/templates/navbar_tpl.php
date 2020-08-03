@@ -6,7 +6,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand a-admin" href="index.php"><i class="glyphicon glyphicon-th-large"></i> Administrator</a>
+			<a style="color:#fff" class="navbar-brand a-admin" href="index.php"><i class="glyphicon glyphicon-th-large"></i> myAdmin</a>
 		</div>
 
 		<div class="class_conghau">
@@ -105,4 +105,10 @@
         td.tv{ display: none; }
         td.td_left{ width: 33%; font-size: 12px; }
     }
+	.navbar-inverse{
+		background-color:#075a63 !important;
+	}
+	.navbar-inverse a{
+		color:#fff;
+	}
 </style>

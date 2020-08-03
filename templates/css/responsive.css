@@ -86,8 +86,7 @@
 	nav.nav .open>a, nav.nav .open>a:focus, nav.nav .open>a:hover,
 	nav.nav .navbar-nav>li>a:focus,
 	nav.nav .navbar-nav>li:hover>a{
-		color: #c30404;
-		/*background: url(../images/menu-bg.jpg); background-size: auto 100%;*/
+		color: #02AD88;
 		background: transparent;
 	}
 	nav.nav .navbar-nav>li.active>a{

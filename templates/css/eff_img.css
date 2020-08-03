@@ -286,7 +286,7 @@
 
 .img-shine-4 img{ border: 2px solid #f1f1f1; transition: 0.5s all; }
 .img-shine-4:hover img{
-    border-color: #2196f3;
+    border-color: #02AD88;
 }
 
 
@@ -321,7 +321,7 @@
 .ripple-out:before {
     content: '';
     position: absolute;
-    border: #0bb0d0 solid 6px;
+    border: #FFA500 solid 6px;
     top: 0;
     right: 0;
     bottom: 0;

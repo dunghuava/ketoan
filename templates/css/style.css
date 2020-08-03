@@ -653,6 +653,8 @@ section a{
 	background: white;
 	border-radius: 8px;
 	margin-bottom: 20px;
+	box-shadow: 0px 0px 21px 4px rgba(0,0,0,0.08);
+    transition: 0.3s all;
 }
 .item-project .img_project img{
 	border-radius: 8px;

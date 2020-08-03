@@ -84,6 +84,8 @@
 	.item_new_big{
 		border-radius: 8px;
 		position: relative;
+		box-shadow: 0px 0px 21px 4px rgba(0,0,0,0.08);
+    	transition: 0.3s all;
 	}
 	.item_new_big img{
 		border-radius: 8px;
@@ -106,14 +108,14 @@
 	}
 	.item_news_small .c_left{
 		float:left;
-		width: 280px;
+		width: 105px;
 	}
 	.item_news_small .c_left img{
 		border-radius: 8px;
 	}
 	.item_news_small .c_right{
 		padding: 0px 10px;
-		float:right;
+		float:left;
 	}
 	.item_news_small .c_right .title{
 		margin: 0px;
@@ -136,25 +138,25 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<div class="item_new_big">
-					<a style="color:#fff" href="" title="">
+				<div class="item_new_big img-shine-3">
+					<a style="color:#fff" href="<?=$data_tintuc[0]['alias_vn']?>.html" title="<?=$data_tintuc[0]['ten_vn']?>">
 						<div class="img_new_big">
-							<img src="<?=URLPATH?>img_data/img.jpg" alt="">
+							<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$data_tintuc[0]['hinh_anh']?>&w=800&h=450&zc=0">
 						</div>
 						<div class="content_new_big">
-							<h3 class="title">Dự án căn hộ Q2 Thao Dien chính thức được cất nóc sau gần 2 năm thi công</h3>
-							<p>02/08/2020</p>
+							<h3 class="title"><?=$data_tintuc[0]['ten_vn']?></h3>
+							<p><?=date('d-m-Y',$data_tintuc[0]['ngay_dang'])?></p>
 						</div>
 					</a>
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="slick_news_small_">
+				<div class="slick_news_small">
 					<?php foreach ($data_tintuc as $tin){ ?>
-						<div class="item_news_small">
-							<a style="display: inline-flex;color: #000" href="" title="">
+						<div class="item_news_small img-shine-4">
+							<a style="display: inline-flex;color: #000" href="<?=$tin['alias_vn']?>.html" title="<?=$tin['ten_vn']?>">
 								<div class="c_left">
-									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=200&h=120">
+									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=200&h=120&zc=0">
 								</div>
 								<div class="c_right">
 									<h3 class="title"><?=$tin['ten_vn']?></h3>
@@ -177,7 +179,7 @@
 	    autoplay:true,
 	    prevArrow: false,
 	    nextArrow: false,
-	    slidesToShow: 3,
+	    slidesToShow: 4,
 	    slidesToScroll: 1,
 	    verticalSwiping: false,
 	  });
