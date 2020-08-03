@@ -1,8 +1,0 @@
-<?php 
-
-?>
-
-				
-<div class="clearfix"></div>
-
-<div class="clearfix"></div>

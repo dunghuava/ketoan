@@ -1,41 +1,47 @@
 <?php
-	$query=$d->simple_fetch("select id,ten_vn,alias_vn,mo_ta_vn from #_category where alias_{$_SESSION['lang']}='$com'");
-	$id_loai=$query['id'];
-	$all_id=$id_loai.$d->findIdSub($id_loai);
-
-	if($id_loai == '') {
-		$d->location(URLPATH."404.html");
-	}
-	$sanpham = $d->o_fet("select * from #_sanpham where hien_thi = 1  and id_loai in ( $all_id ) and style=0 order by so_thu_tu asc, id desc");
-
-	if(isset($_GET['page']) && !is_numeric(@$_GET['page'])) {
-		$d->location(URLPATH."404.html");
-	}
-	$curPage = isset($_GET['page']) ? addslashes($_GET['page']) : 1;
-	$url= $d->fullAddress();
-	$maxR= 24;
-	$maxP=3;
-	$phantrang=$d->phantrang($sanpham, $url, $curPage, $maxR, $maxP,'classunlink','classlink','page');
-	$sanpham=$phantrang['source'];
-	
+	$loai = $d->simple_fetch("select * from #_category where hien_thi = 1 and alias_{$lang} = '$com'");
+	if(count($loai) == 0) $d->location(URLPATH."404.html");
+	$id_loai = $loai['id'];
+	$id_sub=substr($d->findIdSub($loai['id'],1),1);
 ?>
-<section>
-	<div class="container bg-white">
-		<div class="row10">		
-				<div class="page-title">
-					<div class="col-md-12 plr0">
-						<ul class="breadcrumb">
-							<li><a href="<?=URLPATH ?>" title="<?=_trangchu?>"><?=_trangchu?></a></li>
-							<?=$d->breadcrumb($id_loai,$_SESSION['lang'],URLPATH)?>
-						</ul>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-				<div class="clearfix"></div>
-				<div class="pagination-page">
-				<?php echo @$phantrang['paging']?>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+
+<style>
+	.title_main_page{
+		text-transform:uppercase;
+		font-weight:bold;
+		padding-bottom:8px;
+		border-bottom:1px solid #dcdcdc;
+		position:relative;
+	}
+	.title_main_page::after{
+		content:'';
+		position:absolute;
+		bottom:-2px;
+		left:0px;
+		width:150px;
+		height:3px;
+		background:#02AD88;
+	}
+</style>
+<div class="container">
+	<h3 class="title_main_page"><span class="fa fa-home"></span>&nbsp;<?=$loai['ten_vn']?></h3>
+</div>
+<?php 
+	if ($id_sub!=''){
+		$sql= "select * from #_category where hien_thi=1 and id in ($id_sub) order by so_thu_tu asc";
+		$data = $d->o_fet($sql);
+		include ('item_category.php');
+	}else{
+		$sql= "select * from #_category where hien_thi=1 and id = $id_loai order by id desc";
+        $data = $d->o_fet($sql);
+        ?>
+        <div class="container">
+            <div class="row">
+                <?php
+                    include ('item_project.php');
+                ?>
+            </div>
+        </div>
+        <?php
+	}
+?>

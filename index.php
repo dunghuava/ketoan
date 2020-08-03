@@ -93,7 +93,9 @@ echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 <body class="<?php if($com!='') echo 'module'?>">
 <div class="fback-top"><i class="fa fa-angle-up"></i></div>
 	<div id="container">
-		<?php include _source."header.php"; ?>
+		<?php 
+			echo $source;
+			include _source."header.php"; ?>
 		<?php 
 			$slide=$d->getSlider();
 			include _source.'slider.php';

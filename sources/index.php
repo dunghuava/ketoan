@@ -1,30 +1,4 @@
-<style type="text/css">
-	section a{
-		color: #000;
-	}
-	.sec-projects{
-		background: #F4F6FD;
-	}
-	.item-project{
-		background: white;
-		border-radius: 8px;
-		margin-bottom: 20px;
-	}
-	.item-project .img_project img{
-		border-radius: 8px;
-	}
-	.item-project .content_project{
-		padding: 15px;
-	}
-	.content_project .title{
-		font-size: 18px;
-		margin-top: 0px;
-	}
-	.content_project .extends li{
-		display: inline-flex;
-		width: 30%;
-	}
-</style>
+
 <section class="sec-projects">
 	<div class="container">
 		<div class="text-center">
@@ -32,27 +6,11 @@
 			<p>Dự án đang cho thuê, chuyển nhượng giá tốt</p>
 		</div>
 		<div class="row">
-			<?php for($i=0;$i<9;$i++){ ?>
-			<div class="col-md-4">
-				<div class="item-project">
-					<a style="color: #000" href="" title="">
-						<div class="img_project">
-							<img src="<?=URLPATH?>img_data/b4838409525722.jpg" alt="">
-						</div>
-						<div class="content_project">
-							<h3 class="title">Luxury Apartment In Chelsea</h3>
-							<p class="price">$ 450,000 $777 m<sup>2</sup></p>
-							<hr style="margin: 5px">
-							<div class="extends">
-								<li>3 phòng ngủ</li>
-								<li>2 wc</li>
-								<li>5 chỗ để xe</li>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		   <?php } ?>
+			<?php
+				$sql= "select * from #_category where hien_thi=1 and id_loai=0  order by id desc";
+				$data = $d->o_fet($sql);
+				include ('item_project.php') 
+			?>
 		</div>
 	</div>
 </section>
@@ -147,6 +105,7 @@
 		margin-bottom: 10px;
 	}
 	.item_news_small .c_left{
+		float:left;
 		width: 280px;
 	}
 	.item_news_small .c_left img{
@@ -154,12 +113,17 @@
 	}
 	.item_news_small .c_right{
 		padding: 0px 10px;
+		float:right;
 	}
 	.item_news_small .c_right .title{
 		margin: 0px;
 		font-size: 18px;
 	}
 </style>
+<?php 
+	$sql = "select * from #_tintuc where hien_thi=1 order by id desc limit 0,6";
+	$data_tintuc = $d->o_fet($sql);
+?>
 <section class="sec-news">
 	<div class="container">
 		<div class="row">
@@ -173,7 +137,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="item_new_big">
-					<a href="" title="">
+					<a style="color:#fff" href="" title="">
 						<div class="img_new_big">
 							<img src="<?=URLPATH?>img_data/img.jpg" alt="">
 						</div>
@@ -185,16 +149,16 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="slick_news_small">
-					<?php for($i=0;$i<5;$i++){ ?>
+				<div class="slick_news_small_">
+					<?php foreach ($data_tintuc as $tin){ ?>
 						<div class="item_news_small">
-							<a style="display: inline-flex;" href="" title="">
+							<a style="display: inline-flex;color: #000" href="" title="">
 								<div class="c_left">
-									<img src="<?=URLPATH?>img_data/img.jpg" alt="">
+									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=200&h=120">
 								</div>
 								<div class="c_right">
-									<h3 class="title">Dự án căn hộ Q2 Thao Dien chính thức được cất nóc sau gần 2 năm thi công</h3>
-									<p>02/08/2020</p>
+									<h3 class="title"><?=$tin['ten_vn']?></h3>
+									<p><?=date('d-m-Y',$tin['ngay_dang'])?></p>
 								</div>
 							</a>
 						</div>

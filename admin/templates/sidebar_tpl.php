@@ -36,7 +36,7 @@
                         if($d->checkUserPermission($_SESSION['id_user'],'bai-viet') > 0 || $_SESSION['is_admin'] == 1 ){
                     ?>
                     <li class="list-group-item <?php if($_GET['p'] == 'bai-viet') echo "active"?>">
-                        <a href="?p=bai-viet&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Bài viết</span></a>
+                        <a href="?p=bai-viet&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Tin tức</span></a>
                     </li>
                     <?php } ?>                    
                 </ul>

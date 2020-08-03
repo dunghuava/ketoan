@@ -642,6 +642,32 @@ min-width: 100%; background: #ebebeb; border: 0px; display: none;}
     top: 0;
     left: 0;
 }
+
+section a{
+	color: #000;
+}
+.sec-projects{
+	background: #F4F6FD;
+}
+.item-project{
+	background: white;
+	border-radius: 8px;
+	margin-bottom: 20px;
+}
+.item-project .img_project img{
+	border-radius: 8px;
+}
+.item-project .content_project{
+	padding: 15px;
+}
+.content_project .title{
+	font-size: 18px;
+	margin-top: 0px;
+}
+.content_project .extends li{
+	display: inline-flex;
+	width: 30%;
+}
 /*TICH CUSTOM*/
 
 .thong-tin-gio a { color: #fff; }

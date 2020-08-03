@@ -39,9 +39,6 @@
 		}
 		else if($query[0]['module']==3) {
 			$source = 'san-pham';
-			if($query[0]['id_loai'] == 0 || $query[0]['id_loai'] == 1098 ){
-				$source = 'san-pham-cate';
-			}
 		}
 		else if($query[0]['module']==4) {
 			$source = 'tu-van';
