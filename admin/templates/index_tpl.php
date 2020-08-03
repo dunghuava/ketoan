@@ -1,32 +1,11 @@
 <?php
-$sql = "select id from #_dathang where tinh_trang = 0 and trang_thai = 1";
-$c_donhang = count($d->o_fet($sql));
-
-$sql = "select id from #_lienhe where trang_thai = 0";
-$c_lienhe = count($d->o_fet($sql));
-
-$sql = "select id from #_dknhamau where hien_thi = 0";
-$c_nhamau = count($d->o_fet($sql));
-
 
 ?>
 <ol class="breadcrumb">
   	<li>
   		<a href="<?=URLPATH?>">
 	  		<i class="glyphicon glyphicon-home"></i> Trang chủ website
-	  	</a>  
-  		<!-- <?php if($c_donhang>0){ ?>
-	  		<img src="./img/new.gif"> 
-	  		<a href="./index.php?p=danh-sach-don-hang&a=man"><?php echo $c_donhang ?> Đơn hàng mới</a>
-  		<?php } ?>
-  		<?php if($c_lienhe>0){ ?>
-  		 <img src="./img/new2.gif"> 
-  		 <a href="./index.php?p=lien-he&a=man"><?php echo $c_lienhe ?> Tin nhắn mới</a>
-  		<?php } ?>
-  		<?php if($c_nhamau>0){ ?>
-  		 <img src="./img/new2.gif"> 
-  		 <a href="./index.php?p=dk-xem-nha-mau&a=man"><?php echo $c_nhamau ?> ĐK xem nhà mẫu</a>
-  		<?php } ?> -->
+	  	</a> 
   	</li>
 </ol>
 <style type="text/css">

@@ -18,13 +18,8 @@
 			<!-- thông báo -->
 			<?php  
 				// đơn hàng
-				$sql = "select id from #_dathang where tinh_trang = 0 and trang_thai = 0";
-	    		$c_donhang = count($d->o_fet($sql));
 
 	    		// liên hệ
-				$sql = "select id from #_lienhe where trang_thai = 0";
-			    $c_lienhe = count($d->o_fet($sql));
-			    $total = $c_donhang + $c_lienhe;
 			?>
 			<div class="thongbao_lienhe">
 	            <a href="?p=lien-he&a=man"><i class="fa fa-comments" aria-hidden="true"></i> <span>Liên hệ</span>

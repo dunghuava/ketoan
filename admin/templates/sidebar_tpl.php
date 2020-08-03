@@ -119,16 +119,6 @@
             </ul>
         </li>
         <?php } ?>
-<?php
-    $sql = "select id from #_dathang where tinh_trang = 0 and trang_thai = 0";
-    $c_donhang = count($d->o_fet($sql));
-
-    $sql = "select id from #_lienhe where trang_thai = 0";
-    $c_lienhe = count($d->o_fet($sql));
-
-    $total = $c_donhang + $c_lienhe;
-
-?>
      <?php if($d->checkChildPermission($_SESSION['id_user'],'quan-tri-thong-tin') > 0 || (int)$_SESSION['is_admin'] == 1 ){ ?>
         <li class="list-group-item <?php if($_GET['p'] == 'lien-he' || $_GET['p'] == 'ql-email' || $_GET['p'] == 'danh-sach-don-hang') echo "active" ?>">
             <a href="#"><i class="glyphicon glyphicon-usd"></i> <span>Quản trị thông tin <i class="caret"></i></span></span>
