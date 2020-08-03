@@ -106,14 +106,14 @@
 	}
 	.item_news_small .c_left{
 		float:left;
-		width: 280px;
+		width: 105px;
 	}
 	.item_news_small .c_left img{
 		border-radius: 8px;
 	}
 	.item_news_small .c_right{
 		padding: 0px 10px;
-		float:right;
+		float:left;
 	}
 	.item_news_small .c_right .title{
 		margin: 0px;
@@ -149,12 +149,12 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="slick_news_small_">
+				<div class="slick_news_small">
 					<?php foreach ($data_tintuc as $tin){ ?>
 						<div class="item_news_small">
 							<a style="display: inline-flex;color: #000" href="" title="">
 								<div class="c_left">
-									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=200&h=120">
+									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=200&h=120&zc=0">
 								</div>
 								<div class="c_right">
 									<h3 class="title"><?=$tin['ten_vn']?></h3>
@@ -177,7 +177,7 @@
 	    autoplay:true,
 	    prevArrow: false,
 	    nextArrow: false,
-	    slidesToShow: 3,
+	    slidesToShow: 4,
 	    slidesToScroll: 1,
 	    verticalSwiping: false,
 	  });
