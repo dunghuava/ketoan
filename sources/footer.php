@@ -6,7 +6,7 @@
     list-style: none;
    }
    .footer{
-      background: #000000;
+      background: #5f8640;
       background-attachment: fixed;
    }
    .title_footer{
@@ -14,7 +14,7 @@
        font-size:19px;
    }
    hr{
-    border-top: 1px solid #404040;
+    border-top: 1px solid #fff;
    }
 </style>
 <footer class="footer">

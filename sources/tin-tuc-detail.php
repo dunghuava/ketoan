@@ -41,6 +41,7 @@
 			<div class="contents">
 				<span><?=$tintuc['noi_dung_vn']?></span>
 			</div>
+			<br>
 		</div>
 		<div class="col-md-3">
 			<h4 class="title_news">Dự án liên quan</h4>

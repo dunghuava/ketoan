@@ -116,7 +116,7 @@
 	.item_news_small .c_right{
 		padding: 0px 10px;
 		float:left;
-		width:200px;
+		width:280px;
 	}
 	.item_news_small .c_right .title{
 		margin: 0px;
