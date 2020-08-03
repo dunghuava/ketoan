@@ -28,11 +28,11 @@
 </div>
 <?php 
 	if ($id_sub!=''){
-		$sql= "select * from #_category where hien_thi=1 and id in ($id_sub) order by id desc";
+		$sql= "select * from #_category where hien_thi=1 and id in ($id_sub) order by id asc";
 		$data = $d->o_fet($sql);
 		include ('item_category.php');
 	}else{
-		$sql= "select * from #_tintuc where hien_thi=1 and id_loai = $id_loai order by id desc";
+		$sql= "select * from #_tintuc where hien_thi=1 and id_loai = $id_loai order by id asc";
 		$data = $d->o_fet($sql);
 		include ('item_category.php');
 	}

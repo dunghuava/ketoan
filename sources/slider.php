@@ -57,7 +57,6 @@
     }
     #form_center_top{
         position: absolute;
-        position: absolute;
         bottom: 35%;
         width: 100%;
     }
@@ -97,6 +96,17 @@
     }
     .btn_type.no-right{
         border-right: 0px !important;
+    }
+    @media screen and (max-width:680px){
+        #form_center_top{
+            /* position: relative;
+            width: 95%;
+            padding: 10px 0px;
+            border: 1px solid #ccc;
+            margin: 10px auto;
+            border-radius: 8px; */
+            display:none;
+        }
     }
 </style>
 <div class="slide">

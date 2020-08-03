@@ -554,6 +554,10 @@
 }
 
 @media(max-width:767px) {
+	.title_main{font-size: 25px;}
+	.title_main_page{
+		font-size: 15px;
+	}
 	.title_nhantin{ font-size: 16px; }
 	.logo-left{ padding-left: 10px; }
 	.img-home{ margin-bottom: 10px; }

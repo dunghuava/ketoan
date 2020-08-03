@@ -89,16 +89,43 @@ echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 </script>
 
 </head>
-<?php include ("limit.php") ?>
+<style>
+	.mm-menu{
+		background:#f4f4f4;
+		color: rgb(220 217 217 / 75%);
+	}
+	.mm-menu .mm-navbar a, .mm-menu .mm-navbar>* {
+		color: #9c9c9c;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.mm-menu .mm-listview>li .mm-next:after, .mm-menu .mm-btn:after, .mm-menu .mm-btn:before {
+    	border-color: #9c9c9c;
+	}
+	.mm-menu .navbar-nav>li>a,.mm-menu .dropdown-menu>li>a {
+		color: #9c9c9c;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.mm-menu .dropdown-menu{
+		box-shadow:none;
+		border:0px;
+	}
+	.mm-listview .mm-next:before{
+		border-width:0px;
+	}
+</style>
 <body class="<?php if($com!='') echo 'module'?>">
 <div class="fback-top"><i class="fa fa-angle-up"></i></div>
 	<div id="container">
 		<?php 
-			echo $source;
+			//echo $source;
 			include _source."header.php"; ?>
 		<?php 
-			$slide=$d->getSlider();
-			include _source.'slider.php';
+			if ($source!='tin-tuc-detail'){
+				$slide=$d->getSlider();
+				include _source.'slider.php';
+			}
 		?>
 		<?php 
 			include _source.$source.".php"; ?>

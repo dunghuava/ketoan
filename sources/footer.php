@@ -6,8 +6,12 @@
     list-style: none;
    }
    .footer{
-      background: url('<?=URLPATH?>/img_data/5.jpg');
+      background: #02AD88;
       background-attachment: fixed;
+   }
+   .title_footer{
+       font-weight:bold;
+       font-size:19px;
    }
 </style>
 <footer class="footer">
@@ -36,13 +40,8 @@
                 </ul> 
              </div>
              <div class="col-md-3">
-                <h3 class="title_footer">Thông tin</h3>
-                <ul class="list_footer">
-                    <li>menu</li>
-                    <li>menu</li>
-                    <li>menu</li>
-                    <li>menu</li>
-                </ul> 
+                <h3 class="title_footer">Facebook page</h3>
+                <?php include ('fanpage.php') ?>
              </div>
              <div class="col-md-12">
                  <hr>

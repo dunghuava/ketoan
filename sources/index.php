@@ -104,11 +104,12 @@
 	}
 	.item_news_small{
 		display: inline-flex;
-		margin-bottom: 10px;
+		margin-top:10px;
+		margin-bottom: -10px;
 	}
 	.item_news_small .c_left{
 		float:left;
-		width: 105px;
+		width:160px !important;
 	}
 	.item_news_small .c_left img{
 		border-radius: 8px;
@@ -116,10 +117,11 @@
 	.item_news_small .c_right{
 		padding: 0px 10px;
 		float:left;
+		width:250px !important;
 	}
 	.item_news_small .c_right .title{
 		margin: 0px;
-		font-size: 18px;
+		font-size: 17px;
 	}
 </style>
 <?php 
@@ -149,14 +151,15 @@
 						</div>
 					</a>
 				</div>
+				<br>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 hidden-xs">
 				<div class="slick_news_small">
 					<?php foreach ($data_tintuc as $tin){ ?>
-						<div class="item_news_small img-shine-4">
-							<a style="display: inline-flex;color: #000" href="<?=$tin['alias_vn']?>.html" title="<?=$tin['ten_vn']?>">
+						<div style="display:flex" class="item_news_small img-shine-4">
+							<a style="color: #000;display:flex" href="<?=$tin['alias_vn']?>.html" title="<?=$tin['ten_vn']?>">
 								<div class="c_left">
-									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=200&h=120&zc=0">
+									<img src="<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>">
 								</div>
 								<div class="c_right">
 									<h3 class="title"><?=$tin['ten_vn']?></h3>
@@ -179,9 +182,8 @@
 	    autoplay:true,
 	    prevArrow: false,
 	    nextArrow: false,
-	    slidesToShow: 4,
+	    slidesToShow: 3,
 	    slidesToScroll: 1,
-	    verticalSwiping: false,
 	  });
 	});
 </script>

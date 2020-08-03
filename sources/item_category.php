@@ -18,7 +18,9 @@
 				<div class="col-md-4">
 					<div class="item_category">
 						<a style="color:#000" href="<?=$value['alias_vn']?>.html" title="<?=$value['ten_vn']?>">
-							<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/b4838409525722.jpg&w=600&h=420&zc=2">
+							<div class="img-shine-3">
+								<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/b4838409525722.jpg&w=600&h=420&zc=2">
+							</div>
 							<h3 class="title_cate"><?=$value['ten_vn']?></h3>
 							<p><?=$value['mo_ta_vn']?>&nbsp;&nbsp;[...]</p>
 						</a>

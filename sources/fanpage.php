@@ -1,0 +1,3 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0" nonce="lAiRQcl0"></script>
+<div class="fb-page" data-href="https://www.facebook.com/chinhphucnhama/" data-tabs="" data-width="300" data-height="" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/chinhphucnhama/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/chinhphucnhama/">Hoàng Nam - Hãy Thách Thức Tôi</a></blockquote></div>

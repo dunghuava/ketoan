@@ -4,64 +4,63 @@
 	if(count($tintuc) == 0) {
 		$d->location(URLPATH."404.html");
 	}
-	$tintuc_lienquan = $d->o_fet("select * from #_tintuc where hien_thi = 1 and id <> '".@$tintuc['id']."' and id_loai = '".$tintuc['id_loai']."' order by id desc limit 0,12");
+	$tin_lienquan = $d->o_fet("select * from #_tintuc where hien_thi = 1 and id <> '".@$tintuc['id']."' and id_loai = '".$tintuc['id_loai']."' order by id desc limit 0,6");
 	
 	$loai=$d->simple_fetch("select * from #_category where id = '".$tintuc['id_loai']."'");
 	$hinh_anh_slide = $d->o_fet("select * from #_baiviet_hinhanh where id_baiviet = '".$tintuc['id']."' order by id desc");
 
 ?>
-<style type="text/css">
-	.text-contents .relative-contents ul{ padding-left: 0px; }
-	.text-contents .relative-contents ul li i{ font-size: 7px; position: absolute; top: 7px; left: 0; }
-	.text-contents .relative-contents li{ position: relative; padding-left: 14px; }
-	
+<style>
+	.title_news{
+		font-weight:bold;
+		padding-bottom:5px;
+		position:relative;
+	}
+	.title_news::after{
+		content:'';
+		width:50px;
+		height:3px;
+		background:#E5E5E5;
+		position:absolute;
+		bottom:-5px;
+		left:0px;
+	}
 </style>
-<section class="module">
-	<div class="container bg-white">
-		<div class="row5">
-			<?php include "left.php"; ?>						
-			<div class="col-md-9 plr5">
-				<div class="page-title">
-					<div class="col-md-12 plr0">
-						<ul class="breadcrumb">
-							<li><a href="<?=URLPATH ?>" title="<?=_trangchu?>"><?=_trangchu?></a></li>
-							<?=$d->breadcrumb($tintuc['id_loai'],$lang,URLPATH)?>
-						</ul>
-					</div>
-				</div>
-				<div class="clearfix"></div>							
-				<div class="box-item module">
-					<?php if(count($hinh_anh_slide>0) && $hinh_anh_slide[0]['hinh_anh']!='') {?>
-						<div class="box-show-img">
-							<div class="owl-detail-content owl-carousel owl-theme">
-								<?php foreach($hinh_anh_slide as $item) {?>
-									<figure>
-										<a href="<?=URLPATH ?>img_data/images/<?=$item['hinh_anh'] ?>" title="<?=$item['title'] ?>" class="fancybox" rel="fan1">
-										<img onerror="this.src='<?=URLPATH ?>templates/error/error.jpg';"  src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$item['hinh_anh'] ?>&w=400&h=300">
-										</a>
-									</figure>
-								<?php } ?>
-							</div>
-						</div>
-					<?php } ?>									
-					<div class="text-contents">
-						<h1 class="name"><?=@$tintuc['ten_'.$lang]?></h1>
-						<div class="text-pages">
-							<?=@$tintuc['noi_dung_'.$lang]?>
-						</div>
-						<?php include("ct_social.php"); ?>														
-						<div class="clearfix"></div>	
-						<div class="relative-contents">
-							<h3><?=_baivietlienquan ?> | <a href="<?=URLPATH.$loai['alias_'.$lang]?>.html" title="Xem tất cả">Xem tất cả</a></h3>
-							<ul>
-							<?php foreach ($tintuc_lienquan as $tt) { ?>
-								<li><i class="fa fa-circle"></i> <a href="<?=URLPATH.$d->create_long_link($tt['alias_'.$_SESSION['lang']],$_SESSION['lang']) ?>.html" title="<?=$tt['ten_'.$_SESSION['lang']]?>"><?=$tt['ten_'.$_SESSION['lang']]?></a></li>
-								<?php } ?>
-							</ul>
-						</div>
-					</div>
-				</div>
+<div class="hidden-xs">
+	<br><br><br>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<h3 class="title_news"><?=$tintuc['ten_vn']?></h3>
+			<p style="margin-bottom:0px;color:#8a8a8a;font-family: monospace;">POST ON <?=date('d/m/Y H:i',$tintuc['ngay_dang'])?> BỞI ADMIN</p>
+			<div class="text-left" style="height:30px">
+				<?php include ('shares.php') ?>
+			</div>
+			<hr style="margin:5px;">
+			<div class="contents">
+				<span><?=$tintuc['noi_dung_vn']?></span>
 			</div>
 		</div>
+		<div class="col-md-3">
+			<h4 class="title_news">Dự án liên quan</h4>
+			<?php foreach ($tin_lienquan as $tin){ ?>
+				<div class="news_relate" style="margin-bottom:10px">
+					<a style="color:#000" href="<?=$tin['alias_vn']?>.html" title="<?=$tin['ten_vn']?>">
+						<div class="img-shine-3">
+							<img style="border-radius:8px;" src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=400&h=220&zc=0">
+						</div>
+						<h5 style="font-size:15px;font-weight:bold"><?=$tin['ten_vn']?></h5>
+						<p style="color:gray;"><span class="fa fa-calendar"></span>&nbsp;&nbsp;<?=date('d/m/Y',$tin['ngay_dang'])?></p>
+					</a>
+				</div>
+			<?php } ?>
+		</div>
 	</div>
-</section>
+</div>
+<script>
+	$(document).ready(function () {
+		$('#navbar_fix_top').addClass('sticky');
+	});
+	window.onscroll = function() {}
+</script>

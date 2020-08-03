@@ -30,7 +30,7 @@
     <div class="top-header" id="navbar_fix_top">
         <div class="container" style="padding:0px">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 hidden-xs">
                     <div class="logo-top">
                         <a data-aos="fade-down" href="<?=URLPATH?>" title="Home">
                             <img src="<?=URLPATH?>img_data/images/<?=@$banner['hinh_anh']?>" alt="banner">
@@ -52,15 +52,20 @@
             </div>
         </div>
     </div>
-    <div class="clearfix"></div>        
+    <div class="clearfix"></div>  
+    <style>
+        #mobile_menu{
+            box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+        }
+    </style>      
     <div id="mobile_menu">
         <div class="header">
             <a href="#menu"><span class="fa fa-bars" title="Danh mục sản phẩm"></span></a>
-            <form method="get" action="index.php">
-                <input type="hidden" name="com" value="search">
-                <input type="text" name="textsearch" onfocus="this.placeholder = ''" onblur="this.placeholder = '<?=_typekey?>'" placeholder="<?=_typekey?>" class="form-control">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+            <div class="text-center">
+                <a style="width:50%;margin-top: -10px;" data-aos="fade-down" href="<?=URLPATH?>" title="Home">
+                    <img src="<?=URLPATH?>img_data/images/<?=@$banner['hinh_anh']?>" alt="banner">
+                </a>
+            </div>
         </div>
         <nav id="menu">
             <?php include 'mmenu.php'; ?>

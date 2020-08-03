@@ -1,4 +1,22 @@
-<nav class="navbar navbar-inverse" role="navigation">
+<style>
+    .sticky {
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        animation: fade-down 0.2s;
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+		z-index:9999;
+    }
+    @keyframes fade-down{
+        from{
+            top:-50px;
+        }
+        to{
+            top:0px;
+        }
+    }
+</style>
+<nav class="navbar navbar-inverse" role="navigation" id="navbar_fix_top">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 			<span class="sr-only">Toggle navigation</span>
@@ -112,3 +130,17 @@
 		color:#fff;
 	}
 </style>
+<script>
+	window.onscroll = function() {
+		//myFunction()
+	};
+    var navbar = document.getElementById("navbar_fix_top");
+    var sticky = navbar.offsetTop+50;
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+</script>

@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('ul#menu>li>a[href="#"]').click(function(){
-        $(this).next('ul').slideToggle();
+		$(this).next('ul').slideToggle();
+		$(this).parents('.list-group-item').find('.caret').css({'transform':'rotate(180deg)'});
         return false;
     });
 	
