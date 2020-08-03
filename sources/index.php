@@ -56,7 +56,7 @@
 		<div class="col-md-2"></div>
 		<div class="row">
 			<?php for($i=0;$i<6;$i++){ ?>
-				<div class="col-md-4">
+				<div class="col-md-3">
 	                <div class="item-area">
 	                	<a href="" title="">
 	                		<div class="img_area">
@@ -104,8 +104,7 @@
 	}
 	.item_news_small{
 		display: inline-flex;
-		margin-top:10px;
-		margin-bottom: -10px;
+		margin-bottom: 10px;
 	}
 	.item_news_small .c_left{
 		float:left;
@@ -117,7 +116,7 @@
 	.item_news_small .c_right{
 		padding: 0px 10px;
 		float:left;
-		width:250px !important;
+		width:200px;
 	}
 	.item_news_small .c_right .title{
 		margin: 0px;
@@ -125,7 +124,7 @@
 	}
 </style>
 <?php 
-	$sql = "select * from #_tintuc where hien_thi=1 order by id desc limit 0,6";
+	$sql = "select * from #_tintuc where hien_thi=1 order by id desc limit 0,4";
 	$data_tintuc = $d->o_fet($sql);
 ?>
 <section class="sec-news">
@@ -153,13 +152,15 @@
 				</div>
 				<br>
 			</div>
-			<div class="col-md-6 hidden-xs">
-				<div class="slick_news_small">
-					<?php foreach ($data_tintuc as $tin){ ?>
+			<div class="col-md-6">
+				<div class="slick_news_small_">
+					<?php foreach ($data_tintuc as $key => $tin){ 
+						if ($key>0){	
+					?>
 						<div style="display:flex" class="item_news_small img-shine-4">
 							<a style="color: #000;display:flex" href="<?=$tin['alias_vn']?>.html" title="<?=$tin['ten_vn']?>">
 								<div class="c_left">
-									<img src="<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>">
+									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=200&h=120&zc=0">
 								</div>
 								<div class="c_right">
 									<h3 class="title"><?=$tin['ten_vn']?></h3>
@@ -167,7 +168,7 @@
 								</div>
 							</a>
 						</div>
-					<?php } ?>
+					<?php } } ?>
 				</div>
 			</div>
 		</div>

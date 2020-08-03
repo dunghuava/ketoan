@@ -558,6 +558,9 @@
 	.title_main_page{
 		font-size: 15px;
 	}
+	.item_news_small .c_right{
+		width:80% !important;
+	}
 	.title_nhantin{ font-size: 16px; }
 	.logo-left{ padding-left: 10px; }
 	.img-home{ margin-bottom: 10px; }

@@ -21,7 +21,7 @@
     .mm-listview>li{ width: 100%; }
     #mobile_menu .header{ margin-bottom: 2px; background: #02AD88; color: #fff; padding: 20px 10px; float: left; width: 100%; }
     #mobile_menu .header a{ color: #fff; display: inline-block; float: left; width: 15%; height: 30px; line-height: 30px; font-size: 20px; }
-    #mobile_menu .header a span{ display: inline-block; padding: 3px 8px; border-radius: 3px; border: 0px solid #ccc; }
+    #mobile_menu .header a span{ display: inline-block; padding: 6px 8px; border-radius: 4px; border: 1px solid #ccc; }
     #mobile_menu .header form{ float: left; width: 85%; position: relative; margin: 0; }
     #mobile_menu .header form input{ height: 30px; font-size: 12px; }
     .after-taisao{ margin-top: -1px; }

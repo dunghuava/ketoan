@@ -61,6 +61,7 @@
     <div id="mobile_menu">
         <div class="header">
             <a href="#menu"><span class="fa fa-bars" title="Danh mục sản phẩm"></span></a>
+            <a></a>
             <div class="text-center">
                 <a style="width:50%;margin-top: -10px;" data-aos="fade-down" href="<?=URLPATH?>" title="Home">
                     <img src="<?=URLPATH?>img_data/images/<?=@$banner['hinh_anh']?>" alt="banner">
