@@ -113,34 +113,16 @@ function luudulieu(){
 		$data['id_loai'] = addslashes($_POST['id_loai']);
 
 		$data['ten_vn'] = $d->clear(addslashes($_POST['ten_vn']));
-		$data['ten_us'] = $d->clear(addslashes($_POST['ten_us']));
-		$data['ten_ch'] = $d->clear(addslashes($_POST['ten_ch']));
 		$data['mo_ta_vn'] = $d->clear(addslashes($_POST['mo_ta_vn']));
-		$data['mo_ta_us'] = $d->clear(addslashes($_POST['mo_ta_us']));
-		$data['mo_ta_ch'] = $d->clear(addslashes($_POST['mo_ta_ch']));
 		$data['noi_dung_vn'] = $d->clear(addslashes($_POST['noi_dung_vn']));
-		$data['noi_dung_us'] = $d->clear(addslashes($_POST['noi_dung_us']));
-		$data['noi_dung_ch'] = $d->clear(addslashes($_POST['noi_dung_ch']));
 		
 		$data['alias_vn'] = $d->clear(addslashes($_POST['alias_vn']));
 		if($d->checkLink($data['alias_vn'],"alias_vn",$id ) && $data['alias_vn']!='') {
 			$data['alias_vn'].="-".rand(10,999);
 		}
 
-		$data['alias_us'] = $d->clear(addslashes($_POST['alias_us']));
-		if($d->checkLink($data['alias_us'],"alias_us",$id ) && $data['alias_us']!='') {
-			$data['alias_us'].="-".rand(10,999);
-		}	
-		
-		$data['alias_ch'] = $d->clear(addslashes($_POST['alias_ch']));
-		if($d->checkLink($data['alias_ch'],"alias_ch",$id ) && $data['alias_ch']!='') {
-			$data['alias_ch'].="-".rand(10,999);
-		}
-		
 		
 		$data['title_vn'] = $d->clear(addslashes($_POST['title_vn']));
-		$data['title_us'] = $d->clear(addslashes($_POST['title_us']));
-		$data['title_ch'] = $d->clear(addslashes($_POST['title_ch']));
 		$data['keyword'] = $d->clear(addslashes($_POST['keyword']));
 		$data['tags_hienthi'] = addslashes($_POST['tags_hienthi']);
 		//xu ly tags
@@ -281,34 +263,17 @@ function luudulieu(){
 		$data['id_loai'] = addslashes($_POST['id_loai']);
 		
 		$data['ten_vn'] = $d->clear(addslashes($_POST['ten_vn']));
-		$data['ten_us'] = $d->clear(addslashes($_POST['ten_us']));
-		$data['ten_ch'] = $d->clear(addslashes($_POST['ten_ch']));
 		$data['mo_ta_vn'] = $d->clear(addslashes($_POST['mo_ta_vn']));
-		$data['mo_ta_us'] = $d->clear(addslashes($_POST['mo_ta_us']));
-		$data['mo_ta_ch'] = $d->clear(addslashes($_POST['mo_ta_ch']));
 		$data['noi_dung_vn'] = $d->clear(addslashes($_POST['noi_dung_vn']));
-		$data['noi_dung_us'] = $d->clear(addslashes($_POST['noi_dung_us']));
-		$data['noi_dung_ch'] = $d->clear(addslashes($_POST['noi_dung_ch']));
 		
 		$data['alias_vn'] = $d->clear(addslashes($_POST['alias_vn']));
 		if($d->checkLink($data['alias_vn'],"alias_vn",$id ) && $data['alias_vn']!='') {
 			$data['alias_vn'].="-".rand(10,999);
 		}
 
-		$data['alias_us'] = $d->clear(addslashes($_POST['alias_us']));
-		if($d->checkLink($data['alias_us'],"alias_us",$id ) && $data['alias_us']!='') {
-			$data['alias_us'].="-".rand(10,999);
-		}	
-		
-		$data['alias_ch'] = $d->clear(addslashes($_POST['alias_ch']));
-		if($d->checkLink($data['alias_ch'],"alias_ch",$id ) && $data['alias_ch']!='') {
-			$data['alias_ch'].="-".rand(10,999);
-		}
 		
 		
 		$data['title_vn'] = $d->clear(addslashes($_POST['title_vn']));
-		$data['title_us'] = $d->clear(addslashes($_POST['title_us']));
-		$data['title_ch'] = $d->clear(addslashes($_POST['title_ch']));
 		$data['keyword'] = $d->clear(addslashes($_POST['keyword']));
 		$data['tags_hienthi'] = addslashes($_POST['tags_hienthi']);
 
