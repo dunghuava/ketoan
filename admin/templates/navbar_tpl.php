@@ -6,7 +6,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand a-admin" href="index.php"><i class="glyphicon glyphicon-th-large"></i> Administrator</a>
+			<a style="color:#fff" class="navbar-brand a-admin" href="index.php"><i class="glyphicon glyphicon-th-large"></i> myAdmin</a>
 		</div>
 
 		<div class="class_conghau">
@@ -109,6 +109,6 @@
 		background-color:#075a63 !important;
 	}
 	.navbar-inverse a{
-		color:#fff !important;
+		color:#fff;
 	}
 </style>

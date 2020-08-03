@@ -81,9 +81,9 @@
 		<li role="presentation" class="active">
 			<a href="#id_viet" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Ngôn ngữ VN</a>
 		</li>
-		<li role="presentation" class="">
+		<!--<li role="presentation" class="">
 			<a href="#id_us" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Ngôn ngữ EN</a>
-		</li>
+		</li>-->
 		<!-- <li role="presentation" class="">
 			<a href="#id_ch" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Ngôn ngữ Japan</a>
 		</li> -->
