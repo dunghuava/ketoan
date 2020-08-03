@@ -1,0 +1,9 @@
+CREATE TABLE `db_show_region` (
+ `id_show_region` int(11) NOT NULL AUTO_INCREMENT,
+ `id_categort` int(11) NOT NULL,
+ `id_district` int(11) NOT NULL,
+ `image_path` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+ `stt` int(11) NOT NULL,
+ `active` int(11) NOT NULL,
+ PRIMARY KEY (`id_show_region`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
