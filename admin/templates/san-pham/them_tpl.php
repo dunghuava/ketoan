@@ -1,14 +1,45 @@
 <?php @include "sources/editor.php" ?>
-<?php
+<style type="text/css">
+	.dv-img-ad {
+    	width: 260px;
+	}
 
-	$nhacungcap = $d->o_fet("select * from #_extra where type = 0 order by stt asc");
-	$nhasanxuat = $d->o_fet("select * from #_extra where type = 1 order by stt asc");
+	a.delete-img {
+    display: inline-block;
+    clear: both;
+    padding: 3px 5px;
+    background: #cb0606;
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    border-radius: 4px;
+}
 
-?>
+.img_addimage {
+    position: relative;
+    height: 100%;
+}
+
+.img_addimage img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    margin-left: 6px;
+    width: 32px;
+}
+
+</style>
+
 <ol class="breadcrumb">
   <li><a href="<?=urladmin ?>"><i class="glyphicon glyphicon-home"></i> Trang chủ</a></li>
    <li class="active"><a href="<?=urladmin ?>index.php">Danh mục</a></li>
-  <li class="active"><a href="<?=urladmin ?>index.php?p=san-pham&a=man">Sản phẩm</a></li>
+  <li class="active"><a href="<?=urladmin ?>index.php?p=san-pham&a=man">Dự án</a></li>
   <li class="active"><a href="#"><?php if(isset($_GET['id'])) echo "Sửa"; else echo "Thêm mới" ?></a></li>
 </ol>
 <div class="col-xs-12">
@@ -80,72 +111,18 @@
 					</select>
 				</td>
 			</tr>
-			<tr>
-				<td class="td_left">
-					Mã sản phẩm:
-				</td>
-				<td class="td_right">
-					<?php if(isset($_GET['id'])){ ?>
-						<input class="input width400 form-control" type="text" name="ma_sp" value="<?php echo @$items[0]['ma_sp']?>"  />
-					<?php }else{ ?>
-						<input class="input width400 form-control" type="text" name="ma_sp" value="<?=$d->chuoird(4); ?>"  />
-					<?php } ?>
-				</td>
-			</tr>
 			
-			<tr>
-				<td class="td_left">
-					Giá:
-				</td>
-				<td class="td_right">
-					<input class="input width400 form-control" autocomplete="off" OnkeyUp="gia_khuyen_mai(this,'#gia_km')" type="text" name="gia" id="gia" value="<?php echo @$items[0]['gia']?>"  />
-					<font id="gia_km"><p style="margin-top:5px;color:red"><?php if(!empty($items[0]['gia'])) echo $d->vnd($items[0]['gia']) ?></p></font>
-				</td>
-			</tr>
-			<!-- <tr>
-				<td class="td_left">
-					Thời gian:
-				</td>
-				<td class="td_right">
-					<input class="input width400 form-control" id="thoi_gian" name="thoi_gian" value="<?php echo @$items[0]['thoi_gian']?>"  />
-				</td>
-			</tr>
-			<tr>
-				<td class="td_left">
-					Phương tiện:
-				</td>
-				<td class="td_right">
-					<input class="input width400 form-control" id="phuong_tien" name="phuong_tien" value="<?php echo @$items[0]['phuong_tien']?>"  />
-				</td>
-			</tr>
-			<tr>
-				<td class="td_left">
-					Khởi hành:
-				</td>
-				<td class="td_right">
-					<input class="input width400 form-control" id="khoi_hanh" name="khoi_hanh" value="<?php echo @$items[0]['khoi_hanh']?>"  />
-				</td>
-			</tr> -->
-			<!-- <tr>
-				<td class="td_left">
-					Khuyến mãi:
-				</td>
-				<td class="td_right">
-					<input class="input width400 form-control" autocomplete="off" OnkeyUp="gia_khuyen_mai(this,'#km')" type="text" name="khuyen_mai" id="khuyen_mai" value="<?php echo @$items[0]['khuyen_mai']?>"  />
-					<font id="km"><p style="margin-top:5px;color:red"><?php if(!empty($items[0]['khuyen_mai'])) echo $d->vnd($items[0]['khuyen_mai']) ?></p></font>
-				</td>
-			</tr> -->
 		</tbody>
 	</table>
 </div>
 <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
 	<ul id="myTabs" class="nav nav-tabs" role="tablist">
 		<li role="presentation" class="active">
-			<a href="#id_viet" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Ngôn ngữ VN </a>
+			<a href="#id_viet" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Thông tin chi tiết</a>
 		</li>
-		<li role="presentation" class="">
+		<!-- <li role="presentation" class="">
 			<a href="#id_us" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Ngôn ngữ EN</a>
-		</li>
+		</li> -->
 		<!--li role="presentation" class="">
 			<a href="#id_ch" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Ngôn ngữ Japan</a>
 		</li-->
@@ -184,6 +161,93 @@
 							<textarea class="input width400 form-control" style="height:80px" name="mo_ta_vn" id="mo_ta_vn"><?=@$items[0]['mo_ta_vn']?></textarea>
 						</td>
 					</tr>
+
+					<tr>
+							<td class="td_left">Địa chỉ</td>
+							<td class="td_right">
+								<div >
+									<input style="margin:0px;" name="project_address" value="<?=@$items[0]['address']?>" type="text" class="input width400 form-control">
+								</div>
+								<br>
+								<div>
+									<select name="province_id" id="province_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;">
+										<option value="">Chọn Thành phố - Tỉnh</option>
+										<?php foreach ($list_province as $prv){ ?>
+											<option value="<?=$prv['province_id']?>"><?=$prv['province_name']?></option>
+										<?php } ?>
+									</select>
+									<span>&nbsp;</span>
+									<select name="district_id" id="district_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;">
+										<option value="">Chọn Quận - Huyện</option>
+									</select>
+									<span>&nbsp;</span>
+									<select name="ward_id" id="ward_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;">
+										<option value="">Chọn Phường - Xã</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+
+
+						<tr>
+							<td class="td_left">Tiện ích</td>
+							<td class="td_right">
+								<select multiple="multiple" name="project_extend_text[]" id="project_extend_text" class="input width400 form-control tags-field">
+									
+									<?php
+										$project_extend_text = explode(',', @$items[0]['extend_text']);
+											foreach ($project_extend_text as $pr){
+											if ($pr!=''){
+									?>
+											<option selected value="<?=$pr?>"><?=$pr?></option>
+									<?php 
+											} 
+										}
+									?>
+								</select>
+								<p style="fonr-size:12px;margin-top:5px;color:#9d9d9d9d;margin-bottom:0px">Ví dụ: Chỗ đậu xe, Hồ bơi, Công viên, Wifi ... </p>
+							</td>
+						</tr>
+						<tr>
+							<td class="td_left">Tòa nhà</td>
+							<td class="td_right">
+								<select multiple="multiple" name="project_building[]" id="project_building" class="input width400 form-control tags-field">
+									<?php
+										$project_building = explode(',',@$items[0]['building']);
+										foreach ($project_building as $pr){
+											if ($pr!=''){
+									?>
+											<option selected value="<?=$pr?>"><?=$pr?></option>
+									<?php 
+											}
+										}
+									?>
+								</select>
+								<p style="fonr-size:12px;margin-top:5px;color:#9d9d9d9d;margin-bottom:0px">Ví dụ: Vinhome, Gigamall ... </p>
+							</td>
+						</tr>
+
+
+						<tr>
+							<td class="td_left">Tổng quan dự án</td>
+							<td class="td_right" id="form_add_row">
+								<div class="form-row">
+									<input value="<?=@$extend[0]['extend_key']?>" placeholder="Tên loại" name="extend_key[]" type="text" class="input width400 form-control" style="width: 30%;display: inline-block;">
+									<input value="<?=@$extend[0]['extend_value']?>" placeholder="Nội dung" name="extend_value[]" type="text" class="input width400 form-control" style="width: 30%;display: inline-block;">
+									<input id="btn_add_row" type="button" value="+" class="btn btn-primary" autocomplete="off">
+								</div>
+									<?php foreach ($extend as $key => $ex){
+									  if ($key>0){ 
+								?>
+										<div class="form-row">
+											<input placeholder="Tên loại" name="extend_key[]" type="text"   value="<?=$ex['extend_key']?>" class="input width400 form-control" style="width: 30%;display: inline-block;">
+											<input placeholder="Nội dung" name="extend_value[]" type="text" value="<?=$ex['extend_value']?>" class="input width400 form-control" style="width: 30%;display: inline-block;">
+											<input type="button" class="btn btn-danger btn_delete_row" value="-">
+										</div>
+								<?php } } ?>
+								
+							</td>
+						</tr>
 
 		
 					<tr>
@@ -358,7 +422,7 @@
 							Tác vụ: 
 						</td>
 						<td class="td_right">
-							<input type="checkbox" class="chkbox" name="sp_hot" <?php if(isset($items[0]['sp_hot'])) { if(@$items[0]['sp_hot']==1) echo 'checked="checked"';else echo'';	}?> id="sp_hot"><label class="lb_nut" for="sp_hot">Home</label> 
+							<!-- <input type="checkbox" class="chkbox" name="sp_hot" <?php if(isset($items[0]['sp_hot'])) { if(@$items[0]['sp_hot']==1) echo 'checked="checked"';else echo'';	}?> id="sp_hot"><label class="lb_nut" for="sp_hot">Home</label>  -->
 
 							<!-- <input type="checkbox" class="chkbox" name="sp_moi" <?php if(isset($items[0]['sp_moi'])) { if(@$items[0]['sp_moi']==1) echo 'checked="checked"';else echo'';	}?> id="sp_moi"><label class="lb_nut" for="sp_moi">Nổi bật</label> -->
 							<!-- <input type="checkbox" class="chkbox" name="tieu_bieu" <?php if(isset($items[0]['tieu_bieu'])) { if(@$items[0]['tieu_bieu']==1) echo 'checked="checked"';else echo'';	}?> id="tieu_bieu"><label class="lb_nut" for="tieu_bieu">Bánh khác</label> -->
@@ -381,8 +445,92 @@
 </div>
 </form>
 </div>
-
 <script>
+
+	$('#btn_add_row').click(function (e) { 
+			e.preventDefault();
+		    var html ='<div class="form-row">';
+				html+='<input placeholder="Tên loại" autocomplete="off" name="extend_key[]" type="text" class="input width400 form-control" style="width: 30%;display: inline-block;"> ';
+				html+='<input placeholder="Nội dung" autocomplete="off" name="extend_value[]" type="text" class="input width400 form-control" style="width: 30%;display: inline-block;"> ';
+				html+='<input type="button" value="-" class="btn btn-danger btn_delete_row" autocomplete="off"></div>';
+				$('#form_add_row').append(html);
+		});
+
+	$(document).on('click','.btn_delete_row',function(e){
+			if (confirm('delete ?')){
+				$(this).parents('.form-row').remove();
+			}
+		});
+
+
+		var province_id = <?=@$items[0]['province_id'] !='' ? @$items[0]['province_id']:0 ?>;
+		var district_id = <?=@$items[0]['district_id'] !='' ? @$items[0]['district_id']:0?>;
+		var ward_id 	= <?=@$items[0]['ward_id']     !='' ? @$items[0]['ward_id']:0?>;
+
+		$('#province_id').val(province_id);
+		if (district_id>0){
+			$.ajax({
+				type: "post",
+				url: "./sources/ajax_province.php",
+				data: {'district_id':district_id, 'province_id':province_id},
+				success: function (response) {
+					$('#district_id').html(response);
+				}
+			});
+		}
+		if (ward_id>0){
+			$.ajax({
+				type: "post",
+				url: "./sources/ajax_district.php",
+				data: {'ward_id':ward_id,'district_id':district_id},
+				success: function (response) {
+					$('#ward_id').html(response);
+				}
+			});
+		}
+
+
+
+
+	$('#province_id').change(function (e) { 
+		var district_id = '';
+			e.preventDefault();
+			$.ajax({
+				type: "post",
+				url: "./sources/ajax_province.php",
+				data: {'district_id':district_id,'province_id':$(this).val()},
+				success: function (response) {
+					$('#district_id').html(response);
+					$('#district_id').trigger('change');
+				}
+			});
+		});
+
+
+	$('#district_id').change(function (e) { 
+		var ward_id = '';
+			e.preventDefault();
+			$.ajax({
+				type: "post",
+				url: "./sources/ajax_district.php",
+				data: {'ward_id':ward_id,'district_id':$(this).val()},
+				success: function (response) {
+					$('#ward_id').html(response);
+				}
+			});
+		});
+		
+
+
+	$(document).ready(function () {
+        $('.select2').select2();
+        $(".tags-field").select2({
+            tokenSeparators: [','],
+            tags: true,
+        });
+
+        $('input').attr('autocomplete','off');
+    });
 
 	function addText(text,target,title) {
 		var str=$(text).val();
@@ -406,7 +554,7 @@
 	function them_anh(){
 		fs_img++;
 		if(fs_img < 16){
-			$(".add_img").append('<div class="dv-img-ad hide_js_'+fs_img+'"><input type="hidden" name="txt_up_'+fs_img+'" class="txt_up_'+fs_img+'"  value="1"><input type="file" class="file_img" name="file_'+fs_img+'"><input type="text" name="title'+fs_img+'" placeholder="Tên sản phẩm" style="margin-top:5px;"/><a class="delete-img" href="javascript:;" onclick="xoa_anh_up(\''+fs_img+'\')"> Xóa </a></div>');
+			$(".add_img").append('<div class="dv-img-ad hide_js_'+fs_img+'"><input type="hidden" name="txt_up_'+fs_img+'" class="txt_up_'+fs_img+'"  value="1"><input type="file" class="file_img" name="file_'+fs_img+'"><a class="delete-img" href="javascript:;" onclick="xoa_anh_up(\''+fs_img+'\')"> Xóa </a></div>');
 		}else{
 			alert("Mỗi lần up tối đa 15 ảnh.");
 		}

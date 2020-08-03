@@ -23,10 +23,10 @@
             $('#search').click(function(e){
                $('#product_form').submit();   
             });
-			$('.select2').select2();
-			$("select").on("select2:close", function (e) {  
-				$(this).valid(); 
-			});	
+			// $('.select2').select2();
+			// $("select").on("select2:close", function (e) {  
+			// 	$(this).valid(); 
+			// });	
         });
     </script>
 </body>

@@ -13,7 +13,7 @@
 		</select>
 	</div>
 
-	<div class="btn-group">
+	<!-- <div class="btn-group">
 		<input id="search" name="search" type="text" class="form-control" placeholder="Tìm kiếm"/>
 	</div>
 	<div class="btn-group">
@@ -23,7 +23,7 @@
 			<option value="3">Mã SP</option>
 			<option value="2">Tên</option>
 		</select>
-	</div>
+	</div> -->
 	<script type="text/javascript">
 	    jQuery(document).ready(function($) {
 	        $('input#search').keypress(function (e) {

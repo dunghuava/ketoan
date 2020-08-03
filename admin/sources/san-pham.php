@@ -8,12 +8,16 @@ switch($a){
 		$template = @$_REQUEST['p']."/hienthi";
 		break;
 	case "add":
-		$extra=getExtra();
+		$list_province=getlistProvince();
 		showdulieu();
 		$template = @$_REQUEST['p']."/them";
 		break;
 	case "edit":
-		$extra=getExtra();
+		if(isset($_REQUEST['id'])){
+			@$id = addslashes($_REQUEST['id']);
+			$extend = $d->o_fet("select * from #_project_extend where project_id =  '".$id."'");
+		}
+		$list_province=getlistProvince();
 		showdulieu();
 		$template = @$_REQUEST['p']."/them";
 		break;
@@ -34,11 +38,9 @@ switch($a){
 }
 
 
-function getExtra() {
+function getlistProvince() {
 	global $d;
-	$str['thuonghieu'] = $d->o_fet("select * from #_extra where type = 0 and hide=1 order by stt asc,id desc");
-	$str['model'] = $d->o_fet("select * from #_extra where type = 1 and hide=1 order by stt asc,id desc");
-	$str['nam'] = $d->o_fet("select * from #_extra where type = 2 and hide=1 order by stt asc,id desc");
+	$str = $d->o_fet("select * from #_province");
 	return $str;
 }
 
@@ -113,24 +115,33 @@ function luudulieu(){
 			// $d->create_thumb($file,200,200,'../img_data/images/',time(),'../img_data/thumb/');
 		}
 
+		$data['extend_text'] = implode(',',$_POST['project_extend_text']);
+		$data['building'] = implode(',',$_POST['project_building']);
+		$data['address'] = $_POST['project_address'];
+		$data['province_id'] = $d->clear(addslashes($_POST['province_id']));
+		$data['district_id'] = $d->clear(addslashes($_POST['district_id']));
+		$data['ward_id'] = $d->clear(addslashes($_POST['ward_id']));
+
+		$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&address=' . urlencode($_POST['project_address']) . '&sensor=true';
+            $json = @file_get_contents($url);
+            $position = json_decode($json);
+            if ($position->status == "OK") {
+                $data['lat'] = $position->results[0]->geometry->location->lat;
+                $data['lng'] = $position->results[0]->geometry->location->lng;
+            } else {
+                // $this->_data['error'] = 'Chúng tôi không tìm thấy địa chỉ này. Vui lòng nhập đúng địa chỉ';
+                $data['lat'] = NULL;
+                $data['lng'] = NULL;
+            }
+
 		$data['id_loai'] = addslashes($_POST['id_loai']);
-		$data['ma_sp'] = $d->clear(addslashes($_POST['ma_sp']));
 
 		$data['ten_vn'] = $d->clear(addslashes($_POST['ten_vn']));
-		$data['ten_us'] = $d->clear(addslashes($_POST['ten_us']));
-		$data['ten_ch'] = $d->clear(addslashes($_POST['ten_ch']));
 
 		$data['mo_ta_vn'] = $d->clear(addslashes($_POST['mo_ta_vn']));
-		$data['mo_ta_us'] = $d->clear(addslashes($_POST['mo_ta_us']));
-		$data['mo_ta_ch'] = $d->clear(addslashes($_POST['mo_ta_ch']));
 
-		$data['gia'] = $d->clear(addslashes($_POST['gia']));
-		$data['khuyen_mai'] = $d->clear(addslashes($_POST['khuyen_mai']));
 
 		$data['thong_tin_vn'] = $d->clear(addslashes($_POST['thong_tin_vn']));
-		$data['thoi_gian'] = $d->clear(addslashes($_POST['thoi_gian']));
-		$data['phuong_tien'] = $d->clear(addslashes($_POST['phuong_tien']));
-		$data['khoi_hanh'] = $d->clear(addslashes($_POST['khoi_hanh']));
 
 
 		$data['alias_vn'] = $d->clear(addslashes($_POST['alias_vn']));
@@ -138,29 +149,14 @@ function luudulieu(){
 			$data['alias_vn'].="-".rand(10,999);
 		}
 
-		$data['alias_us'] = $d->clear(addslashes($_POST['alias_us']));
-		if($d->checkLink($data['alias_us'],"alias_us",$id ) && $data['alias_us']!='') {
-			$data['alias_us'].="-".rand(10,999);
-		}	
-		
-		$data['alias_ch'] = $d->clear(addslashes($_POST['alias_ch']));
-		if($d->checkLink($data['alias_ch'],"alias_ch",$id ) && $data['alias_ch']!='') {
-			$data['alias_ch'].="-".rand(10,999);
-		}
 
 		$data['title_vn'] = $d->clear(addslashes($_POST['title_vn']));
-		$data['title_us'] = $d->clear(addslashes($_POST['title_us']));
-		$data['title_ch'] = $d->clear(addslashes($_POST['title_ch']));
 
 		$data['keyword'] = $d->clear(addslashes($_POST['keyword']));
 		$data['des'] = $d->clear(addslashes($_POST['des']));
 		
-		$data['extra2'] = addslashes($_POST['nam']);
 		$data['hien_thi'] = isset($_POST['hien_thi']) ? 1 : 0;
 		$data['tieu_bieu'] = isset($_POST['tieu_bieu']) ? 1 : 0;
-		$data['sp_moi'] = isset($_POST['sp_moi']) ? 1 : 0;
-		$data['sp_hot'] = isset($_POST['sp_hot']) ? 1 : 0;
-		$data['con_hang'] = isset($_POST['con_hang']) ? 1 : 0;
 
 		$d->reset();
 		$d->setTable('#_sanpham');
@@ -182,32 +178,30 @@ function luudulieu(){
 					}
 	    		}
 	    	}
-	    	$mau = $_POST['extra0'];
-			$text_mau = '';
-			if(is_array($mau) && !empty($mau)){
-				$d->o_que("delete from #_sanpham_phienban where id_sanpham = '".$id."' and type=0");
-				foreach ($mau as $key => $value) {
-					$data_extra['id_extra'] = $value;
-		    		$data_extra['id_sanpham'] = $id;
-					$d->reset();
-					$d->setTable('#_sanpham_phienban');
-					$d->insert($data_extra);
+	    	
+			$count 		  = count($_POST['extend_key']);
+			$extend_key   = $_POST['extend_key'];
+			$extend_value = $_POST['extend_value'];
+			if ($count>0){
+				$d->o_que("delete from #_project_extend where project_id = '".$id."'");
+				for ($i=0;$i<$count;$i++){
+					if (!empty($extend_key[$i])){
+						$extend=array(
+							'extend_key'	=>$extend_key[$i],
+							'extend_value'	=>$extend_value[$i],
+							'project_id'	=>$id,
+							'created_at' 	=>date('Ymd'),
+							'updated_at'	=>date('Ymd')
+						);
+
+						$d->reset();
+						$d->setTable('#_project_extend');
+						$d->insert($extend);
+					}
+					
 				}
 			}
-			$size = $_POST['extra1'];
-			$text_size = '';
-			if(is_array($size) && !empty($size)){
-				$d->o_que("delete from #_sanpham_phienban where id_sanpham = '".$id."' and type=1");
-				foreach ($size as $key => $value) {
-					$data_extra['id_extra'] = $value;
-		    		$data_extra['id_sanpham'] = $id;
-		    		$data_extra['type'] = 1;
-					$d->reset();
-					$d->setTable('#_sanpham_phienban');
-					$d->insert($data_extra);
-				}
-			}
-        	///
+
 			$d->redirect("index.php?p=san-pham&a=man&page=".@$_REQUEST['page']."");
 		}
 		else{
@@ -221,43 +215,52 @@ function luudulieu(){
 			$data['hinh_anh'] = $file;
 			// watermark_image($file, '../img_data/images/');
 		}
+
+		// print_r(implode(',',$_POST['project_extend_text']));die();
+
+		$data['extend_text'] = implode(',',$_POST['project_extend_text']);
+		$data['building'] = implode(',',$_POST['project_building']);
+		$data['address'] = $_POST['project_address'];
+		$data['province_id'] = $d->clear(addslashes($_POST['province_id']));
+		$data['district_id'] = $d->clear(addslashes($_POST['district_id']));
+		$data['ward_id'] = $d->clear(addslashes($_POST['ward_id']));
+
+		$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&address=' . urlencode($_POST['project_address']) . '&sensor=true';
+            $json = @file_get_contents($url);
+            $position = json_decode($json);
+            if ($position->status == "OK") {
+                $data['lat'] = $position->results[0]->geometry->location->lat;
+                $data['lng'] = $position->results[0]->geometry->location->lng;
+            } else {
+                // $this->_data['error'] = 'Chúng tôi không tìm thấy địa chỉ này. Vui lòng nhập đúng địa chỉ';
+                $data['lat'] = NULL;
+                $data['lng'] = NULL;
+            }
+
+
 		$data['id_loai'] = addslashes($_POST['id_loai']);
-		$data['ma_sp'] = $d->clear(addslashes($_POST['ma_sp']));
+		
 
 		$data['ten_vn'] = $d->clear(addslashes($_POST['ten_vn']));
-		$data['ten_us'] = $d->clear(addslashes($_POST['ten_us']));
-		$data['ten_ch'] = $d->clear(addslashes($_POST['ten_ch']));
+		
 
 		$data['mo_ta_vn'] = $d->clear(addslashes($_POST['mo_ta_vn']));
-		$data['mo_ta_us'] = $d->clear(addslashes($_POST['mo_ta_us']));
-		$data['mo_ta_ch'] = $d->clear(addslashes($_POST['mo_ta_ch']));
+		
 
-		$data['gia'] = $d->clear(addslashes($_POST['gia']));
-		$data['khuyen_mai'] = $d->clear(addslashes($_POST['khuyen_mai']));
+		
 
 		$data['thong_tin_vn'] = $d->clear(addslashes($_POST['thong_tin_vn']));
-		$data['thoi_gian'] = $d->clear(addslashes($_POST['thoi_gian']));
-		$data['phuong_tien'] = $d->clear(addslashes($_POST['phuong_tien']));
-		$data['khoi_hanh'] = $d->clear(addslashes($_POST['khoi_hanh']));
+		
 		
 		$data['alias_vn'] = $d->clear(addslashes($_POST['alias_vn']));
 		if($d->checkLink($data['alias_vn'],"alias_vn",$id ) && $data['alias_vn']!='') {
 			$data['alias_vn'].="-".rand(10,999);
 		}
 
-		$data['alias_us'] = $d->clear(addslashes($_POST['alias_us']));
-		if($d->checkLink($data['alias_us'],"alias_us",$id ) && $data['alias_us']!='') {
-			$data['alias_us'].="-".rand(10,999);
-		}	
 		
-		$data['alias_ch'] = $d->clear(addslashes($_POST['alias_ch']));
-		if($d->checkLink($data['alias_ch'],"alias_ch",$id ) && $data['alias_ch']!='') {
-			$data['alias_ch'].="-".rand(10,999);
-		}
 
 		$data['title_vn'] = $d->clear(addslashes($_POST['title_vn']));
-		$data['title_us'] = $d->clear(addslashes($_POST['title_us']));
-		$data['title_ch'] = $d->clear(addslashes($_POST['title_ch']));
+		
 
 		$data['keyword'] = $d->clear(addslashes($_POST['keyword']));
 		$data['des'] = $d->clear(addslashes($_POST['des']));
@@ -265,9 +268,7 @@ function luudulieu(){
 		$data['style'] = 0;	
 		$data['hien_thi'] = isset($_POST['hien_thi']) ? 1 : 0;
 		$data['tieu_bieu'] = isset($_POST['tieu_bieu']) ? 1 : 0;
-		$data['sp_moi'] = isset($_POST['sp_moi']) ? 1 : 0;
-		$data['sp_hot'] = isset($_POST['sp_hot']) ? 1 : 0;
-		$data['con_hang'] = isset($_POST['con_hang']) ? 1 : 0;
+		
 
 		$data['ngay_dang'] = time();
 
@@ -290,27 +291,25 @@ function luudulieu(){
 					}
 	    		}
 	    	}
-	    	$mau = $_POST['extra0'];
-			$text_mau = '';
-			if(is_array($mau) && !empty($mau)){
-				foreach ($mau as $key => $value) {
-					$data_extra['id_extra'] = $value;
-		    		$data_extra['id_sanpham'] = $idsp;
-					$d->reset();
-					$d->setTable('#_sanpham_phienban');
-					$d->insert($data_extra);
-				}
-			}
-			$size = $_POST['extra1'];
-			$text_size = '';
-			if(is_array($size) && !empty($size)){
-				foreach ($size as $key => $value) {
-					$data_extra['id_extra'] = $value;
-		    		$data_extra['id_sanpham'] = $idsp;
-		    		$data_extra['type'] = 1;
-					$d->reset();
-					$d->setTable('#_sanpham_phienban');
-					$d->insert($data_extra);
+	    	$count 		  = count($_POST['extend_key']);
+			$extend_key   = $_POST['extend_key'];
+			$extend_value = $_POST['extend_value'];
+			if ($count>0){
+				for ($i=0;$i<$count;$i++){
+					if ($extend_key[$i]!=''){
+						$extend=array(
+							'extend_key'	=>$extend_key[$i],
+							'extend_value'	=>$extend_value[$i],
+							'project_id'	=>$idsp,
+							'created_at' 	=>date('Ymd'),
+							'updated_at'	=>date('Ymd')
+						);
+
+						$d->reset();
+						$d->setTable('#_project_extend');
+						$d->insert($extend);
+					}
+					
 				}
 			}
         	///

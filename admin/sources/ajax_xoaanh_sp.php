@@ -26,7 +26,13 @@ if(!isset($_SESSION))
 	foreach ($hinhanh as $val) {
 ?>
 <div class="dv-img-ad">
-	<img src="../img_data/images/<?php echo @$val['hinh_anh']?>" style="width:70px;height:70px;"/>
-	<a style="margin-top:3px; display:block; position:absolute; bottom:5px; padding-left:15px;right: 10px;" href="javascript:xoa_anh_sp('<?=$val['id']?>','<?=$val['id_sp']?>')" onclick="if(!confirm('Xác nhận xóa?')) return false;"> Xóa ảnh </a>
+	<div class="img_addimage">
+		<img src="../img_data/images/<?php echo @$val['hinh_anh']?>">
+	</div>
+	<div class="icon_deleteimage">
+		<a href="javascript:xoa_anh_sp('<?=$val['id']?>','<?=$val['id_sp']?>')" onclick="if(!confirm('Xác nhận xóa?')) return false;  "><img src="public/images/delete.png" alt="Delete"></a>
+	</div>
 </div>
+
+
 <?php } ?>
