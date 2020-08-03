@@ -14,7 +14,7 @@
             <a href="index.php"><i class="glyphicon glyphicon-home"></i> <span>Trang chủ Admin</span></a>
         </li>
         <?php if($d->checkChildPermission($_SESSION['id_user'],'quan-tri-danh-muc') > 0 || (int)$_SESSION['is_admin'] == 1 ){ ?>
-            <li class="list-group-item <?php if($_GET['p'] == 'category' || $_GET['p'] == 'san-pham' || $_GET['p'] == 'bat-dong-san' || $_GET['p'] == 'bai-viet' ) echo "active" ?>">
+            <li class="list-group-item <?php if($_GET['p'] == 'category' || $_GET['p'] == 'san-pham' || $_GET['p'] == 'bat-dong-san' || $_GET['p'] == 'bai-viet' || $_GET['p'] == 'khu-vuc' ) echo "active" ?>">
                 <a href="#"><i class="glyphicon glyphicon-dashboard"></i> <span>Quản trị Danh mục</span> <i class="caret"></i></a>
                 <ul class="list-group">
                     <?php
@@ -38,7 +38,16 @@
                     <li class="list-group-item <?php if($_GET['p'] == 'bai-viet') echo "active"?>">
                         <a href="?p=bai-viet&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Tin tức</span></a>
                     </li>
-                    <?php } ?>                    
+                    <?php } ?>     
+
+                    <?php
+                        if($d->checkUserPermission($_SESSION['id_user'],'khu-vuc') > 0 || $_SESSION['is_admin'] == 1 ){
+                    ?>
+                    <li class="list-group-item <?php if($_GET['p'] == 'khu-vuc') echo "active"?>">
+                        <a href="?p=khu-vuc&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Khu vực hiển thị</span></a>
+                    </li>
+                    <?php } ?>     
+
                 </ul>
             </li>
 		<?php } ?>
