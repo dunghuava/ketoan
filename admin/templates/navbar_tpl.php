@@ -105,4 +105,10 @@
         td.tv{ display: none; }
         td.td_left{ width: 33%; font-size: 12px; }
     }
+	.navbar-inverse{
+		background-color:#075a63 !important;
+	}
+	.navbar-inverse a{
+		color:#fff !important;
+	}
 </style>
