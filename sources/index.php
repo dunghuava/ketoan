@@ -138,7 +138,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<div class="item_new_big">
+				<div class="item_new_big img-shine-3">
 					<a style="color:#fff" href="<?=$data_tintuc[0]['alias_vn']?>.html" title="<?=$data_tintuc[0]['ten_vn']?>">
 						<div class="img_new_big">
 							<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$data_tintuc[0]['hinh_anh']?>&w=800&h=450&zc=0">
@@ -153,7 +153,7 @@
 			<div class="col-md-6">
 				<div class="slick_news_small">
 					<?php foreach ($data_tintuc as $tin){ ?>
-						<div class="item_news_small">
+						<div class="item_news_small img-shine-4">
 							<a style="display: inline-flex;color: #000" href="<?=$tin['alias_vn']?>.html" title="<?=$tin['ten_vn']?>">
 								<div class="c_left">
 									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tin['hinh_anh']?>&w=200&h=120&zc=0">

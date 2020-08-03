@@ -4,9 +4,9 @@
     foreach ($data as $value){
         ?>
             <div class="col-md-4">
-                <div class="item-project">
+                <div class="item-project img-shine-4">
                     <a style="color: #000" href="" title="">
-                        <div class="img_project">
+                        <div class="img_project img-shine-3">
                             <img src="<?=URLPATH?>img_data/b4838409525722.jpg" alt="">
                         </div>
                         <div class="content_project">
