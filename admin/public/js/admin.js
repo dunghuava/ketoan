@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('ul#menu>li>a[href="#"]').click(function(){
-        $(this).next('ul').toggle();
+        $(this).next('ul').slideToggle();
         return false;
     });
 	
