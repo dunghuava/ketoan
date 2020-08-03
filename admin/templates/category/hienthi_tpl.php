@@ -57,9 +57,9 @@
 			<th style="width:5%">STT</th>
 			<th style="width:40%; text-align:left">Danh mục</th>
 			<th style="width:8%">Hình ảnh</th>
-			<th style="width:8%">Module</th>
-			<th style="width:8%">Trang chủ</th>
-			<th style="width:8%">Danh mục</th>
+			<th style="width:8%">Loại</th>
+			<!-- <th style="width:8%">Trang chủ</th> -->
+			<th style="width:8%">Chọn menu chính</th>
 			<!-- <th style="width:8%">Top Menu</th> -->
 			<th style="width:8%">Hiển thị</th>
 			<th style="width:8%">Tác vụ</th>
@@ -90,9 +90,12 @@
 				<?php } ?>
 			</td>
 			<td><?php $module=$d->simple_fetch("select * from #_module where id={$items[$i]['module']}"); echo $module['title']?></td>
-			<td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','menu','<?=$items[$i]['id']?>')" <?php if($items[$i]['menu'] == 1) echo 'checked="checked"'; ?>>
-			</td>
+
+			<!-- <td>
+				
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','menu','<?=$items[$i]['id']?>')" <?php if($items[$i]['menu'] == 1) echo 'checked="checked"'; ?>> 
+				
+			</td> -->
 			<td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
 			</td>
@@ -138,9 +141,11 @@
 				<?php } ?>
 			</td>
 			<td><?php $module=$d->simple_fetch("select * from #_module where id={$child_items[$j]['module']}"); echo $module['title']?></td>
-			<td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','menu','<?=$child_items[$j]['id']?>')" <?php if($child_items[$j]['menu'] == 1) echo 'checked="checked"'; ?>>
-			</td>
+			<!-- <td>
+				<?php if ($child_items[$j]['module'] ==3) {?>
+					<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','menu','<?=$child_items[$j]['id']?>')" <?php if($child_items[$j]['menu'] == 1) echo 'checked="checked"'; ?>>
+				<?php } ?>
+			</td> -->
 			<td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','tieu_bieu','<?=$child_items[$j]['id']?>')" <?php if($child_items[$j]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
 			</td>

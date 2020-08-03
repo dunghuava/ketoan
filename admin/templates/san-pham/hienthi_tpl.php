@@ -88,8 +88,10 @@
 			<!-- <td><?=$items[$i]['ma_sp']?></td> -->
 			<td style="text-align:left">
 				<?php 
-					$query = $d->simple_fetch("select * from #_category where id={$items[$i]['id_loai']}");					
-					$str = ""; for($k=0;$k<$query['level'];$k++) { $str.="= "; }	
+					$query = $d->simple_fetch("select * from #_category where id={$items[$i]['id_loai']}");
+
+					$menu_parent = $d->simple_fetch("select * from #_category where id={$query['id_loai']}");							
+					$str = ""; for($k=0;$k<$query['level'];$k++) { $str.=$menu_parent['ten_vn']." / "; }	
 					echo $str.$query['ten_vn'] 
 				
 				?>
@@ -114,7 +116,7 @@
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','sp_moi','<?=$items[$i]['id']?>')" <?php if($items[$i]['sp_moi'] == 1) echo 'checked="checked"'; ?>>
 			</td> -->
 			<td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','sp_hot','<?=$items[$i]['id']?>')" <?php if($items[$i]['sp_hot'] == 1) echo 'checked="checked"'; ?>>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
 			</td>
 			<!-- <td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','con_hang','<?=$items[$i]['id']?>')" <?php if($items[$i]['con_hang'] == 1) echo 'checked="checked"'; ?>>

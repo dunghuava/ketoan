@@ -82,8 +82,9 @@
 
 			<td style="text-align:left">
 				<?php 
-					$query = $d->simple_fetch("select * from #_category where id={$items[$i]['id_loai']}");					
-					$str = ""; for($k=0;$k<$query['level'];$k++) { $str.="= "; }	
+					$query = $d->simple_fetch("select * from #_category where id={$items[$i]['id_loai']}");	
+					$menu_parent = $d->simple_fetch("select * from #_category where id={$query['id_loai']}");						
+					$str = ""; for($k=0;$k<$query['level'];$k++) { $str.=$menu_parent['ten_vn']." / "; }	
 					echo $str.$query['ten_vn'] 
 				
 				?>
