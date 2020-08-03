@@ -1223,7 +1223,7 @@
 			else {
 				$query = $this->o_fet("select * from #_category where id_loai=$id_loai $and order by so_thu_tu asc, id desc");
 				echo $d->sql;
-				$plit.="= ";
+				$plit.="|__ ";
 			}
 			
 			foreach($query as $item) {	
