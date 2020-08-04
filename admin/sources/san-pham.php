@@ -71,7 +71,7 @@ function showdulieu(){
 				$items = $d->o_fet("select * from #_duan where ma_sp like '%".$key."%' and style=0");
 			}
 		}
-		else $items = $d->o_fet("select * from #_duan where style=0 order by ngay_dang desc");
+		else $items = $d->o_fet("select * from #_duan where style=0 order by so_thu_tu asc, id desc");
 
 		// foreach ($items as $key => $value) {
 		// 	watermark_image($value['hinh_anh'], '../img_data/images/');

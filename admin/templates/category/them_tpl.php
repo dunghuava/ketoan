@@ -51,7 +51,7 @@
 					Module:
 				</td>
 				<td class="td_right">
-					<select name="module" class="input width400 form-control" style="border-radius:4px">
+					<select name="module" class="input width400 form-control" style="border-radius:4px" required="">
 	    				<!--option value="0">Chọn Module</option-->
 	    				<?php if(count($module)>0){foreach ($module as $item) { ?>
 					    <option value="<?php echo $item['id'] ?>" <?php if($item['id'] == $items[0]['module']) echo "selected"; ?>><?php echo $item['title'] ?></option>					    	
@@ -90,7 +90,7 @@
 						Tiêu đề:
 					</td>
 					<td class="td_right">
-						<input class="input width400 form-control" OnkeyUp="addText(this,'#alias_vn','#title_vn')" id="ten_vn" name="ten_vn" value="<?php echo @$items[0]['ten_vn']?>"  />
+						<input class="input width400 form-control" OnkeyUp="addText(this,'#alias_vn','#title_vn')" id="ten_vn" name="ten_vn" value="<?php echo @$items[0]['ten_vn']?>" required="" />
 					</td>
 				</tr>
 				<tr>
@@ -260,7 +260,7 @@
 		<div class="ar_admin last">
 			<table class="table table-bordered table-hover them_dt" style="border:none">
 				<tbody>
-					<tr>
+					<tr style="display: none">
 						<td class="td_left">
 							Số thứ tự:
 						</td>
@@ -269,7 +269,7 @@
 						</td>
 					</tr>
 
-					<tr>
+					<tr style="display: none">
 						<td class="td_left">
 							Số thứ tự 2 (Trang chủ):
 						</td>

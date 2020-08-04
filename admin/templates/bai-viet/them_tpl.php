@@ -33,7 +33,11 @@
 					Hình ảnh:
 				</td>
 				<td class="td_right">
-					<input type="file" name="file" class="input width400 form-control"/>
+					<?php if(@$items[0]['hinh_anh'] <> ''){ ?>
+						<input type="file" name="file" class="input width400 form-control" />
+					<?php }else{ ?>
+						<input type="file" name="file" class="input width400 form-control" required="" />
+					<?php } ?>
 				</td>
 			</tr>
 			<!-- <tr>
@@ -66,8 +70,8 @@
 					Danh mục:
 				</td>
 				<td class="td_right">
-					<select name="id_loai" class="input width400 form-control" style="border-radius:4px">
-	    				<option value="0">Chọn danh mục</option>
+					<select name="id_loai" class="input width400 form-control" style="border-radius:4px" required="">
+	    				<option value="">Chọn danh mục</option>
 						<?=$loai?>
 					</select>
 				</td>
@@ -103,7 +107,7 @@
 						Tiêu đề:
 					</td>
 					<td class="td_right">
-						<input class="input width400 form-control" OnkeyUp="addText(this,'#alias_vn','#title_vn')" id="ten_vn" name="ten_vn" value="<?php echo @$items[0]['ten_vn']?>"  />
+						<input class="input width400 form-control" OnkeyUp="addText(this,'#alias_vn','#title_vn')" id="ten_vn" name="ten_vn" value="<?php echo @$items[0]['ten_vn']?>" required="" />
 					</td>
 				</tr>
 				<tr>
@@ -121,7 +125,7 @@
 						Mô tả:
 					</td>
 					<td class="td_right">
-						<textarea class="input width400 form-control"  style="height:80px" name="mo_ta_vn" id="mo_ta_vn"><?=@$items[0]['mo_ta_vn']?></textarea>
+						<textarea class="input width400 form-control"  style="height:80px" name="mo_ta_vn" id="mo_ta_vn" required=""><?=@$items[0]['mo_ta_vn']?></textarea>
 					</td>
 				</tr>
 		
@@ -130,7 +134,7 @@
 						Nội dung:
 					</td>
 					<td class="td_right">
-						<textarea  name="noi_dung_vn" id="noi_dung_vn"><?=@$items[0]['noi_dung_vn']?></textarea>
+						<textarea  name="noi_dung_vn" id="noi_dung_vn" required=""><?=@$items[0]['noi_dung_vn']?></textarea>
 						<?php $ckeditor->replace('noi_dung_vn'); ?>
 					</td>
 				</tr>

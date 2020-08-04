@@ -6,14 +6,14 @@
 
 <div class="col-xs-12">
 <div class="form-group tac-vu">
-	<div class="btn-group">
+	<!-- <div class="btn-group">
 		<select id="action" name="action" onclick="form_submit(this)" class="form-control">
 			<option selected>Tác vụ</option>
 			<option value="delete">Xóa</option>
 		</select>
-	</div>
+	</div> -->
 
-	<div class="btn-group">
+	<!-- <div class="btn-group">
 		<input id="search" name="search" type="text" class="form-control" placeholder="Tìm kiếm"/>
 	</div>
 	<div class="btn-group">
@@ -22,7 +22,7 @@
 			<option value="1">ID</option>
 			<option value="2">Tên</option>
 		</select>
-	</div>
+	</div> -->
 	<script type="text/javascript">
 	    jQuery(document).ready(function($) {
 	        $('input#search').keypress(function (e) {
@@ -35,7 +35,7 @@
 	</script>
 	<div class="btn-group">
 		<select id="action" onchange="show(this,'category')" name="action" class="form-control">
-			<option value="0" selected>Số hiển thị</option>
+			<option value="0" selected>Số lượng hiển thị</option>
 			<option value="1" <?php if(@$_GET['hienthi'] == 1) echo 'selected'; ?>>15</option>
 			<option value="2" <?php if(@$_GET['hienthi'] == 2) echo 'selected'; ?>>25</option>
 			<option value="3" <?php if(@$_GET['hienthi'] == 3) echo 'selected'; ?>>50</option>
@@ -53,13 +53,13 @@
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
-			<th style="width:3%"><input class="chk_box checkall" type="checkbox" name="chk" value="0"  id="check_all"></th>
-			<th style="width:5%">STT</th>
+			<!-- <th style="width:3%"><input class="chk_box checkall" type="checkbox" name="chk" value="0"  id="check_all"></th> -->
+			<!-- <th style="width:5%">STT</th> -->
 			<th style="width:40%; text-align:left">Danh mục</th>
 			<th style="width:8%">Hình ảnh</th>
 			<th style="width:8%">Loại</th>
 			<!-- <th style="width:8%">Trang chủ</th> -->
-			<th style="width:8%">Chọn menu chính</th>
+			<th style="width:8%">Menu chính</th>
 			<!-- <th style="width:8%">Top Menu</th> -->
 			<th style="width:8%">Hiển thị</th>
 			<th style="width:8%">Tác vụ</th>
@@ -68,12 +68,12 @@
 	<tbody>
 		<?php $count=count($items); for($i=0; $i<$count; $i++){ ?>
 		<tr>
-			<td>
+			<!-- <td>
 				<input class="chk_box" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
-			</td>
-			<td>
+			</td> -->
+			<!-- <td>
 <input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_category" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" />
-            </td>
+            </td> -->
 			
 			<td style=" text-align:left">
 				<a href="index.php?p=category&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>"><?=$items[$i]['ten_vn']?></a> 
@@ -120,12 +120,12 @@
     		  for($j=0; $j<$count_child; $j++){
     	?>
     	<tr>
-			<td>
+			<!-- <td>
 				<input type="checkbox" class="chk_box" name="chk_child[]" value="<?=$child_items[$j]['id']?>">
-			</td>
-			<td>
+			</td> -->
+			<!-- <td>
                 <input type="number" value="<?=$child_items[$j]['so_thu_tu']?>" class="a_stt" data-table="#_category" data-col="so_thu_tu" data-id="<?=$child_items[$j]['id']?>" />
-			</td>
+			</td> -->
 			<td style="text-align:left">
 				<a style="padding-left:15px" href="index.php?p=category&a=edit&id=<?=$child_items[$j]['id']?>&page=<?=@$_GET['page']?>">|____ <?=$child_items[$j]['ten_vn']?></a>
 				<!--br/>

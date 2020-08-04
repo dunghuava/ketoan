@@ -66,15 +66,19 @@
 			<?php }?>
 			<tr>
 				<td class="td_left">
-					Hình ảnh:
+					Hình ảnh đại hiện:
 				</td>
 				<td class="td_right">
-					<input type="file" name="file2" class="input width400 form-control"/>
+					<?php if($items[0]['hinh_anh'] <> ''){ ?>
+						<input type="file" name="file2" class="input width400 form-control" />
+					<?php }else{ ?>
+						<input type="file" name="file2" class="input width400 form-control" required="" />
+					<?php } ?>
 				</td>
 			</tr>
 			<tr>
 				<td class="td_left">
-					Hình ảnh slide:
+					Hình ảnh chi tiết:
 				</td>
 				<td class="td_right ">
 					<div class="td_hinhanh">
@@ -105,8 +109,8 @@
 					Danh mục:
 				</td>
 				<td class="td_right">
-					<select name="id_loai" class="input width400 form-control" style="border-radius:4px">
-	    				<option value="0">Chọn danh mục</option>
+					<select name="id_loai" class="input width400 form-control" style="border-radius:4px" required="">
+	    				<option value="">Chọn danh mục</option>
 						<?=$loai?>
 					</select>
 				</td>
@@ -141,7 +145,7 @@
 							Tiêu đề :
 						</td>
 						<td class="td_right">
-							<input class="input width400 form-control" OnkeyUp="addText(this,'#alias_vn','#title_vn')"  id="ten_vn" name="ten_vn" value="<?php echo @$items[0]['ten_vn']?>"  />
+							<input class="input width400 form-control" OnkeyUp="addText(this,'#alias_vn','#title_vn')"  id="ten_vn" name="ten_vn" value="<?php echo @$items[0]['ten_vn']?>" required="" />
 						</td>
 					</tr>
 					<tr>
@@ -158,7 +162,7 @@
 							Mô tả:
 						</td>
 						<td class="td_right">
-							<textarea class="input width400 form-control" style="height:80px" name="mo_ta_vn" id="mo_ta_vn"><?=@$items[0]['mo_ta_vn']?></textarea>
+							<textarea class="input width400 form-control" style="height:80px" name="mo_ta_vn" id="mo_ta_vn" required=""><?=@$items[0]['mo_ta_vn']?></textarea>
 						</td>
 					</tr>
 
@@ -166,22 +170,22 @@
 							<td class="td_left">Địa chỉ</td>
 							<td class="td_right">
 								<div >
-									<input style="margin:0px;" name="project_address" value="<?=@$items[0]['address']?>" type="text" class="input width400 form-control">
+									<input style="margin:0px;" name="project_address" value="<?=@$items[0]['address']?>" type="text" class="input width400 form-control" required="">
 								</div>
 								<br>
 								<div>
-									<select name="province_id" id="province_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;">
+									<select name="province_id" id="province_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;" required="">
 										<option value="">Chọn Thành phố - Tỉnh</option>
 										<?php foreach ($list_province as $prv){ ?>
 											<option value="<?=$prv['province_id']?>"><?=$prv['province_name']?></option>
 										<?php } ?>
 									</select>
 									<span>&nbsp;</span>
-									<select name="district_id" id="district_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;">
+									<select name="district_id" id="district_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;" required="">
 										<option value="">Chọn Quận - Huyện</option>
 									</select>
 									<span>&nbsp;</span>
-									<select name="ward_id" id="ward_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;">
+									<select name="ward_id" id="ward_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;" required="">
 										<option value="">Chọn Phường - Xã</option>
 									</select>
 								</div>
@@ -235,6 +239,7 @@
 									<input value="<?=@$extend[0]['extend_key']?>" placeholder="Tên loại" name="extend_key[]" type="text" class="input width400 form-control" style="width: 30%;display: inline-block;">
 									<input value="<?=@$extend[0]['extend_value']?>" placeholder="Nội dung" name="extend_value[]" type="text" class="input width400 form-control" style="width: 30%;display: inline-block;">
 									<input id="btn_add_row" type="button" value="+" class="btn btn-primary" autocomplete="off">
+									<!-- <p style="fonr-size:12px;margin-top:5px;color:#9d9d9d9d;margin-bottom:0px">Ví dụ: Diện tích, Gigamall ... </p> -->
 								</div>
 									<?php foreach ($extend as $key => $ex){
 									  if ($key>0){ 
@@ -255,7 +260,7 @@
 							Thông tin nội dung:
 						</td>
 						<td class="td_right">
-							<textarea  name="thong_tin_vn" id="thong_tin_vn"><?=@$items[0]['thong_tin_vn']?></textarea>
+							<textarea  name="thong_tin_vn" id="thong_tin_vn" required=""><?=@$items[0]['thong_tin_vn']?></textarea>
 							<?php $ckeditor->replace('thong_tin_vn'); ?>
 						</td>
 					</tr>

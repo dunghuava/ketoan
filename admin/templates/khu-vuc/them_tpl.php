@@ -42,7 +42,11 @@
 					Hình ảnh:
 				</td>
 				<td class="td_right">
-					<input type="file" name="file" class="input width400 form-control"/>
+					<?php if(@$items[0]['hinh_anh'] <> ''){ ?>
+						<input type="file" name="file" class="input width400 form-control"/>
+					<?php }else{ ?>
+						<input type="file" name="file" class="input width400 form-control"/ required="">
+					<?php } ?>
 				</td>
 			</tr>
 			<!-- <tr>
@@ -75,10 +79,10 @@
 					Danh mục:
 				</td>
 				<td class="td_right">
-					<select name="id_loai" class="input width400 form-control" style="border-radius:4px">
-	    				<option value="0">Chọn danh mục</option>
+					<select name="id_loai" class="input width400 form-control" style="border-radius:4px" required="">
+	    				<option value="">Chọn danh mục</option>
 	    				<?php foreach ($list_category as $key => $category) {?>
-							<option value="<?php echo $category['id'] ?>"><?php echo $category['ten_vn'] ?></option>
+							<option <?php if (@$items[0]['id_loai'] == $category['id']) echo "selected";?> value="<?php echo $category['id'] ?>"><?php echo $category['ten_vn'] ?></option>
 						<?php } ?>
 					</select>
 				</td>
@@ -89,10 +93,15 @@
 					Chọn khu vực hiển thị:
 				</td>
 				<td class="td_right">
-					<select class="tags-field" name="quan[]" id="quan" class="input width400 form-control" style="border-radius:4px" multiple="multiple">
+					<select class="tags-field" name="quan[]" id="quan" class="input width400 form-control" style="border-radius:4px" multiple="multiple" required="">
 	    				<!-- <option value="0">Chọn khu vực</option> -->
+
+	    				<?php
+							$region = explode(',', @$items[0]['id_district']);	
+						?>
+
 	    				<?php foreach ($list_district as $district) {?>
-							<option value="<?php echo $district['district_id'] ?>"><?php echo $district['district_name'] ?></option>
+							<option  <?php foreach ($region as $key) { if ($key == $district['district_id']) echo "selected"; } ?> value="<?php echo $district['district_id'] ?>"><?php echo $district['district_name'] ?></option>
 						<?php } ?>
 					</select>
 				</td>

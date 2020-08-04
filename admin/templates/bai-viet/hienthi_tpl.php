@@ -13,7 +13,7 @@
 		</select>
 	</div>
 
-	<div class="btn-group">
+	<!-- <div class="btn-group">
 		<input id="search" name="search" type="text" class="form-control" placeholder="Tìm kiếm"/>
 	</div>
 	<div class="btn-group">
@@ -22,7 +22,7 @@
 			<option value="1">ID</option>
 			<option value="2">Tên</option>
 		</select>
-	</div>
+	</div> -->
 	<script type="text/javascript">
 	    jQuery(document).ready(function($) {
 	        $('input#search').keypress(function (e) {
@@ -75,7 +75,7 @@
 		<?php $count=count($items); for($i=0; $i<$count; $i++){ ?>
 		<tr>
 			<td>
-				<input class="chk_box" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
+				<input class="chk_box checkall" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
 			</td>
 			<td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_tintuc" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td>
 

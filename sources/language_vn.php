@@ -139,9 +139,9 @@
 	define('_dangkynhanbantin','Đăng ký nhận bản tin');
 	define('_nhapdiachiemail','Nhập địa chỉ email để nhận thông báo từ website:');
 	define('_huydangky','Hủy đăng ký');
-	define('_sanphamnoibat','Sản phẩm nổi bật');
+	define('_duannoibat','Sản phẩm nổi bật');
 	define('_masp','Mã SP');
-	define('_sanpham','Sản phẩm');
+	define('_duan','Sản phẩm');
 	define('_dichvu','Dịch vụ');
 	define('_tinhtranghang','Tình trạng hàng');
 	define('_conhang','Còn hàng');
