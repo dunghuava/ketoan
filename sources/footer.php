@@ -17,6 +17,12 @@
     border-top: 1px solid #fff;
    }
 </style>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
+<script>
+		$('.img_error').on('error', function () {
+			$(this).attr('src','<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/icon/noimg.png&w=600&h=420&zc=0')
+		});
+</script>
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -36,7 +42,12 @@
              </div>
              <div class="col-md-3">
                 <h3 class="title_footer">Tư vấn luật - vay</h3>
-                <p>ST01, LakeView 1, Đường Ven Hồ Trung Tâm, P. An Khánh, Quận 2, TP. Hồ Chí Minh</p>
+                <ul class="list_footer">
+                    <li>menu</li>
+                    <li>menu</li>
+                    <li>menu</li>
+                    <li>menu</li>
+                </ul> 
              </div>
              <div class="col-md-3">
                 <h3 class="title_footer">Blog</h3>

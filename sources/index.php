@@ -7,8 +7,9 @@
 		</div>
 		<div class="row">
 			<?php
-				$sql= "select * from #_category where hien_thi=1 and id_loai=0  order by id desc";
+				$sql= "select * from #_sanpham where hien_thi=1 order by id desc limit 0,6";
 				$data = $d->o_fet($sql);
+				$col=3;
 				include ('item_project.php') 
 			?>
 		</div>
@@ -60,7 +61,7 @@
 	                <div class="item-area">
 	                	<a href="" title="">
 	                		<div class="img_area">
-	                			<img src="<?=URLPATH?>img_data/g1.jpg" alt="">
+	                			<img class="img_error" src="<?=URLPATH?>img_data/g1.jpg" alt="">
 	                		</div>
 	                		<div class="content_area">
 	                			<h3 class="title_area">Quận <?=$i?></h3>
@@ -170,6 +171,7 @@
 						</div>
 					<?php } } ?>
 				</div>
+				<a style="font-size:12px;color:#000" href="<?=URLPATH?>tin-tuc.html">Xem tất cả <span class="fa fa-angle-right"></span></a>
 			</div>
 		</div>
 	</div>

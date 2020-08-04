@@ -122,7 +122,7 @@ echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 			//echo $source;
 			include _source."header.php"; ?>
 		<?php 
-			if ($source!='tin-tuc-detail'){
+			if ($source!='tin-tuc-detail' && $source!='san-pham-detail' && $source!='tin-tuc' && $source!='san-pham'){
 				$slide=$d->getSlider();
 				include _source.'slider.php';
 			}
