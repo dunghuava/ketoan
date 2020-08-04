@@ -1,7 +1,7 @@
 <?php
 	$t = addslashes($_REQUEST['textsearch']);
 	$s_type = 1;
-	$sanpham = $d->o_fet("select * from #_sanpham where hien_thi = 1 and ten_{$lang} like '%".$t."%' order by id desc");
+	$sanpham = $d->o_fet("select * from #_duan where hien_thi = 1 and ten_{$lang} like '%".$t."%' order by id desc");
 	if($s_type == 1){
 		$sanpham = $d->o_fet("select * from #_tintuc where hien_thi = 1 and ten_{$lang} like '%".$t."%' order by id desc");
 	}

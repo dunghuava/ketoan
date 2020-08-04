@@ -6,7 +6,7 @@
 		$seo_description=$seo['des'];
 	}
 	else if($source=="san-pham-detail") {
-		$seo=$d->simple_fetch("select * from #_sanpham where alias_{$_SESSION['lang']} = '$com' ");
+		$seo=$d->simple_fetch("select * from #_duan where alias_{$_SESSION['lang']} = '$com' ");
 		$seo_title=$seo['title_'.$_SESSION['lang']];
 		$seo_keyword=$seo['keyword'];
 		$seo_description=$seo['des'];
@@ -41,7 +41,7 @@
 		$img_canol = $d->o_sel("hinh_anh","#_tintuc","alias_{$_SESSION['lang']} = '".addslashes($com)."'");
 	}
 	if($source == 'san-pham-detail'){
-		$img_canol = $d->o_sel("hinh_anh","#_sanpham","alias_{$_SESSION['lang']} = '".addslashes($com)."'");
+		$img_canol = $d->o_sel("hinh_anh","#_duan","alias_{$_SESSION['lang']} = '".addslashes($com)."'");
 	}
 	if(!empty($img_canol)) $img_cn = URLPATH."img_data/images/".$img_canol[0]['hinh_anh'];
 	else $img_cn = URLPATH."img_data/icon/".$information['icon_share'];	

@@ -12,8 +12,8 @@ if(!isset($_SESSION))
 
 	
 
-	$hinh_anh = $d->o_fet("select * from #_sanpham_hinhanh where id = '".$id."'");
-	if($d->o_que("delete from #_sanpham_hinhanh where id = '".$id."'")){
+	$hinh_anh = $d->o_fet("select * from #_duan_hinhanh where id = '".$id."'");
+	if($d->o_que("delete from #_duan_hinhanh where id = '".$id."'")){
 		foreach ($hinh_anh as $ha) {
 			@unlink("../../img_data/images/".$ha['hinh_anh']);
 		}
@@ -22,7 +22,7 @@ if(!isset($_SESSION))
 	
 ?>
 <?php 
-	$hinhanh =  $d->o_fet("select * from #_sanpham_hinhanh where id_sp ='".$idsp."'");
+	$hinhanh =  $d->o_fet("select * from #_duan_hinhanh where id_sp ='".$idsp."'");
 	foreach ($hinhanh as $val) {
 ?>
 <div class="dv-img-ad">

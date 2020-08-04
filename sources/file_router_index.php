@@ -56,8 +56,8 @@
 	else if($d->num_rows("select * from #_tintuc where hen_ngay_dang<'".time()."' and alias_{$_SESSION['lang']}='$com' ") > 0 && $com!='') {
 		$source = 'tin-tuc-detail';
 	}
-	else if($d->num_rows("select * from #_sanpham where alias_{$_SESSION['lang']}='$com' ") > 0 && $com!='') {
-		$query = $d->simple_fetch("select * from #_sanpham where alias_{$_SESSION['lang']}='$com' ");
+	else if($d->num_rows("select * from #_duan where alias_{$_SESSION['lang']}='$com' ") > 0 && $com!='') {
+		$query = $d->simple_fetch("select * from #_duan where alias_{$_SESSION['lang']}='$com' ");
 		if($query['style']==0) {
 			$source = 'san-pham-detail';
 		}

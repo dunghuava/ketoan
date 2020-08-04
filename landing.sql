@@ -721,10 +721,10 @@ INSERT INTO `db_question` (`id`, `ten`, `cau_hoi`, `tra_loi`, `ngay`, `hien_thi`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `db_sanpham`
+-- Table structure for table `db_duan`
 --
 
-CREATE TABLE `db_sanpham` (
+CREATE TABLE `db_duan` (
   `id` int(11) NOT NULL,
   `id_loai` int(11) NOT NULL,
   `id_hang` varchar(255) NOT NULL DEFAULT '0',
@@ -786,10 +786,10 @@ CREATE TABLE `db_sanpham` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `db_sanpham`
+-- Dumping data for table `db_duan`
 --
 
-INSERT INTO `db_sanpham` (`id`, `id_loai`, `id_hang`, `alias_vn`, `alias_us`, `alias_ch`, `ma_sp`, `ten_vn`, `ten_us`, `ten_ch`, `mo_ta_vn`, `mo_ta_us`, `mo_ta_ch`, `hinh_anh`, `gia`, `khuyen_mai`, `thong_tin_vn`, `thong_tin_us`, `thong_tin_ch`, `thong_so_vn`, `thong_tai_vn`, `thong_chon_vn`, `ngay_dang`, `tieu_bieu`, `sp_moi`, `sp_hot`, `title_vn`, `title_us`, `title_ch`, `keyword`, `des`, `view`, `thanh_pho`, `quan`, `hien_thi`, `extra0`, `extra1`, `extra2`, `extra3`, `extra4`, `extra5`, `extra6`, `extra7`, `extra8`, `extra9`, `extra10`, `con_hang`, `so_thu_tu`, `style`, `the_tich`, `kich_thuoc`, `tong_cao`, `dung_luong`, `dien_the`, `trong_luong`, `thoi_gian`, `phuong_tien`, `khoi_hanh`) VALUES
+INSERT INTO `db_duan` (`id`, `id_loai`, `id_hang`, `alias_vn`, `alias_us`, `alias_ch`, `ma_sp`, `ten_vn`, `ten_us`, `ten_ch`, `mo_ta_vn`, `mo_ta_us`, `mo_ta_ch`, `hinh_anh`, `gia`, `khuyen_mai`, `thong_tin_vn`, `thong_tin_us`, `thong_tin_ch`, `thong_so_vn`, `thong_tai_vn`, `thong_chon_vn`, `ngay_dang`, `tieu_bieu`, `sp_moi`, `sp_hot`, `title_vn`, `title_us`, `title_ch`, `keyword`, `des`, `view`, `thanh_pho`, `quan`, `hien_thi`, `extra0`, `extra1`, `extra2`, `extra3`, `extra4`, `extra5`, `extra6`, `extra7`, `extra8`, `extra9`, `extra10`, `con_hang`, `so_thu_tu`, `style`, `the_tich`, `kich_thuoc`, `tong_cao`, `dung_luong`, `dien_the`, `trong_luong`, `thoi_gian`, `phuong_tien`, `khoi_hanh`) VALUES
 (218, 1156, '0', 'san-pham-02', '', '', 'YOMS', 'Sản phẩm 02', '', '', '', '', '', 'ghe-2020141965512.jpg', 300000, 0, '', '', '', '', '', '', 1565940525, 0, 0, 1, 'Sản phẩm 02', '', '', '', '', 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', ''),
 (213, 1156, '0', 'san-pham-01-861', '', '', 'LNXF', 'Sản phẩm 01', '', '', '', '', '', 'img_52474529969548.png', 290000, 0, '', '', '', '', '', '', 1565858821, 0, 0, 1, 'Sản phẩm 01', '', '', '', '', 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', ''),
 (214, 1158, '0', 'san-pham-01-801', '', '', 'LNXF', 'Sản phẩm 01', '', '', '', '', '', 'gi1361406851572.jpg', 290000, 0, '', '', '', '', '', '', 1565858821, 0, 0, 1, 'Sản phẩm 01', '', '', '', '', 0, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', ''),
@@ -834,10 +834,10 @@ INSERT INTO `db_sanpham` (`id`, `id_loai`, `id_hang`, `alias_vn`, `alias_us`, `a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `db_sanpham_hinhanh`
+-- Table structure for table `db_duan_hinhanh`
 --
 
-CREATE TABLE `db_sanpham_hinhanh` (
+CREATE TABLE `db_duan_hinhanh` (
   `id` int(11) NOT NULL,
   `id_sp` int(11) NOT NULL,
   `hinh_anh` varchar(255) NOT NULL,
@@ -847,21 +847,21 @@ CREATE TABLE `db_sanpham_hinhanh` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `db_sanpham_phienban`
+-- Table structure for table `db_duan_phienban`
 --
 
-CREATE TABLE `db_sanpham_phienban` (
+CREATE TABLE `db_duan_phienban` (
   `id` int(11) NOT NULL,
-  `id_sanpham` int(11) NOT NULL,
+  `id_duan` int(11) NOT NULL,
   `id_extra` int(11) NOT NULL,
   `type` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `db_sanpham_phienban`
+-- Dumping data for table `db_duan_phienban`
 --
 
-INSERT INTO `db_sanpham_phienban` (`id`, `id_sanpham`, `id_extra`, `type`) VALUES
+INSERT INTO `db_duan_phienban` (`id`, `id_duan`, `id_extra`, `type`) VALUES
 (1, 59, 1, 0),
 (2, 59, 31, 0),
 (3, 59, 33, 1),
@@ -1419,21 +1419,21 @@ ALTER TABLE `db_question`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `db_sanpham`
+-- Indexes for table `db_duan`
 --
-ALTER TABLE `db_sanpham`
+ALTER TABLE `db_duan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `db_sanpham_hinhanh`
+-- Indexes for table `db_duan_hinhanh`
 --
-ALTER TABLE `db_sanpham_hinhanh`
+ALTER TABLE `db_duan_hinhanh`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `db_sanpham_phienban`
+-- Indexes for table `db_duan_phienban`
 --
-ALTER TABLE `db_sanpham_phienban`
+ALTER TABLE `db_duan_phienban`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1657,21 +1657,21 @@ ALTER TABLE `db_question`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `db_sanpham`
+-- AUTO_INCREMENT for table `db_duan`
 --
-ALTER TABLE `db_sanpham`
+ALTER TABLE `db_duan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
--- AUTO_INCREMENT for table `db_sanpham_hinhanh`
+-- AUTO_INCREMENT for table `db_duan_hinhanh`
 --
-ALTER TABLE `db_sanpham_hinhanh`
+ALTER TABLE `db_duan_hinhanh`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=531;
 
 --
--- AUTO_INCREMENT for table `db_sanpham_phienban`
+-- AUTO_INCREMENT for table `db_duan_phienban`
 --
-ALTER TABLE `db_sanpham_phienban`
+ALTER TABLE `db_duan_phienban`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --

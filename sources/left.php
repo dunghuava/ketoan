@@ -3,7 +3,7 @@
     $support    = $d->o_fet("select * from #_hotro where hien_thi=1 order by so_thu_tu asc, id desc");
     $list_id = '1026'.$d->findIdSub(1026);
     $news_left  = $d->o_fet("select * from #_tintuc where hen_ngay_dang<'".time()."' and hien_thi=1 and id_loai in ({$list_id}) order by so_thu_tu asc, id desc limit 0,4");  
-    $xemnhieu  = $d->o_fet("select * from #_sanpham where sp_hot=1 and hien_thi=1 order by so_thu_tu asc, id desc limit 0,10");  
+    $xemnhieu  = $d->o_fet("select * from #_duan where sp_hot=1 and hien_thi=1 order by so_thu_tu asc, id desc limit 0,10");  
     $video = $d->o_fet("select * from #_video where hien_thi=1 order by id desc");
 ?>
 

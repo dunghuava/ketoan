@@ -23,7 +23,7 @@ $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
 $id = (isset($_REQUEST['id'])) ? addslashes($_REQUEST['id']) : "";
 
 
-$d->setTable('#_sanpham');
+$d->setTable('#_duan');
 
 $data =array();
 foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {

@@ -47,24 +47,24 @@ function showdulieu(){
 		if(isset($_GET['id_loai']) && $_GET['id_loai'] <> ''){
 			
 			if($_GET['id_loai'] == 0){
-				$items = $d->o_fet("select * from #_sanpham where style=1 order by so_thu_tu asc, id desc");
+				$items = $d->o_fet("select * from #_duan where style=1 order by so_thu_tu asc, id desc");
 			}else{
 				$id_loai = $_GET['id_loai'].$d->findIdSub($_GET['id_loai']);	
-			    $items = $d->o_fet("select * from #_sanpham where FIND_IN_SET(id_loai,'$id_loai') <> 0 and style=1 order by so_thu_tu asc, id desc");
+			    $items = $d->o_fet("select * from #_duan where FIND_IN_SET(id_loai,'$id_loai') <> 0 and style=1 order by so_thu_tu asc, id desc");
 			}
 		}
 		else if(isset($_GET['seach'])){
 			$seach = addslashes($_GET['seach']);
 			$key = (isset($_GET['key']))? addslashes($_GET['key']):"";
 			if($seach == 'id'){
-				$items = $d->o_fet("select * from #_sanpham where id = '".$key."' and style=1");
+				$items = $d->o_fet("select * from #_duan where id = '".$key."' and style=1");
 			}else if($seach == 'name'){
-				$items = $d->o_fet("select * from #_sanpham where ten_vn like '%".$key."%' and style=1");
+				$items = $d->o_fet("select * from #_duan where ten_vn like '%".$key."%' and style=1");
 			}else{
-				$items = $d->o_fet("select * from #_sanpham where ma_sp like '%".$key."%' and style=1");
+				$items = $d->o_fet("select * from #_duan where ma_sp like '%".$key."%' and style=1");
 			}
 		}
-		else $items = $d->o_fet("select * from #_sanpham where style=1 order by ngay_dang desc");
+		else $items = $d->o_fet("select * from #_duan where style=1 order by ngay_dang desc");
 
 		if(isset($_GET['hienthi'])){
 			$maxR= $d->lay_show_hienthi(addslashes($_GET['hienthi']));
@@ -82,7 +82,7 @@ function showdulieu(){
 		//lay noi dung theo id
 		if(isset($_REQUEST['id'])){
 			@$id = addslashes($_REQUEST['id']);
-			$items = $d->o_fet("select * from #_sanpham where id =  '".$id."'");
+			$items = $d->o_fet("select * from #_duan where id =  '".$id."'");
 			$loai = $d->array_category(0,'',$items[0]['id_loai'],4);
 		}
 	}
@@ -100,7 +100,7 @@ function luudulieu(){
 		if(@$file = $d->upload_image("file2", '', '../img_data/images/',$file_name)){
 
 
-			$hinhanh = $d->o_fet("select * from #_sanpham where id = '".$id."'");
+			$hinhanh = $d->o_fet("select * from #_duan where id = '".$id."'");
 			unlink('../img_data/images/'.$hinhanh[0]['hinh_anh']);
 
 			$data['hinh_anh'] = $file;
@@ -157,7 +157,7 @@ function luudulieu(){
 
 
 		$d->reset();
-		$d->setTable('#_sanpham');
+		$d->setTable('#_duan');
 		$d->setWhere('id',$id);
 		if($d->update($data)){
 			//add thong so
@@ -172,7 +172,7 @@ function luudulieu(){
 						$data_hinh['title'] = $_REQUEST['title'.$i];
 			    		$data_hinh['id_sp'] = $id;
 						$d->reset();
-						$d->setTable('#_sanpham_hinhanh');
+						$d->setTable('#_duan_hinhanh');
 						$d->insert($data_hinh);
 					}
 	    		}
@@ -246,7 +246,7 @@ function luudulieu(){
 		$data['ngay_dang'] = time();
 
 		
-		$d->setTable('#_sanpham');
+		$d->setTable('#_duan');
 		if($d->insert($data))
 		{
 			$idsp = mysql_insert_id();
@@ -260,7 +260,7 @@ function luudulieu(){
 						$data_hinh['title'] = $_REQUEST['title'.$i];
 			    		$data_hinh['id_sp'] = $idsp;
 						$d->reset();
-						$d->setTable('#_sanpham_hinhanh');
+						$d->setTable('#_duan_hinhanh');
 						$d->insert($data_hinh);
 					}
 	    		}
@@ -281,28 +281,28 @@ function xoadulieu(){
 	if(isset($_GET['id'])){
 		$id =  addslashes($_GET['id']);
 		//xoa img
-		$hinhanh = $d->o_fet("select * from #_sanpham where id = '".$id."'");
+		$hinhanh = $d->o_fet("select * from #_duan where id = '".$id."'");
 		foreach ($hinhanh as $ha) {
 			@unlink('../img_data/images/'.$ha['hinh_anh']);
 		}
 		//xoa size
-			$d->o_que("delete from #_sanpham_detail where id_sp = '".$id."'");
+			$d->o_que("delete from #_duan_detail where id_sp = '".$id."'");
 		//
 		// xoa anh chi tiet
-		$hinhanh_chitiet = $d->o_fet("select * from #_sanpham_hinhanh where id_sp = '".$id."'");
-		$d->o_que("delete from #_sanpham_hinhanh where id_sp = '".$id."'");
+		$hinhanh_chitiet = $d->o_fet("select * from #_duan_hinhanh where id_sp = '".$id."'");
+		$d->o_que("delete from #_duan_hinhanh where id_sp = '".$id."'");
 		foreach ($hinhanh_chitiet as $hact) {
 			@unlink('../img_data/images/'.$hact['hinh_anh']);
 		}
 		// end
 		//xoa hinhanh
-		$hinhanh = $d->o_fet("select * from #_sanpham_hinhanh where id_sp = '".$id."'");
+		$hinhanh = $d->o_fet("select * from #_duan_hinhanh where id_sp = '".$id."'");
 		foreach ($hinhanh as $ha) {
 			@unlink('../img_data/images/'.$ha['hinh_anh']);
 			
 		}
 		// end
-		if($d->o_que("delete from #_sanpham where id='".$id."'")){
+		if($d->o_que("delete from #_duan where id='".$id."'")){
 			$d->redirect("index.php?p=bat-dong-san&a=man&page=".@$_REQUEST['page']."");
 		}else
 			$d->transfer("Xóa dữ liệu bị lỗi", "index.php?p=bat-dong-san&a=man");
@@ -318,19 +318,19 @@ function xoadulieu_mang(){
 		}
 		$chuoi = trim($chuoi,',');
 		//lay danh sách idsp theo chuoi
-		$hinhanh = $d->o_fet("select * from #_sanpham where id in ($chuoi)");
-		$hinhanh2 = $d->o_fet("select * from #_sanpham_hinhanh where id_loai in ($chuoi)");
-		if($d->o_que("delete from #_sanpham where id in ($chuoi)")){
+		$hinhanh = $d->o_fet("select * from #_duan where id in ($chuoi)");
+		$hinhanh2 = $d->o_fet("select * from #_duan_hinhanh where id_loai in ($chuoi)");
+		if($d->o_que("delete from #_duan where id in ($chuoi)")){
 			//xoa hình ảnh
 			foreach ($hinhanh as $ha) {
 				@unlink('../img_data/images/'.$ha['hinh_anh']);
 			}
 			//xoa size
-			$d->o_que("delete from #_sanpham_detail where id_sp in ($chuoi)");
+			$d->o_que("delete from #_duan_detail where id_sp in ($chuoi)");
 			//
 			// xoa anh chi tiet
-			$hinhanh_chitiet = $d->o_fet("select * from #_sanpham_hinhanh where id_sp in ($chuoi)");
-			$d->o_que("delete from #_sanpham_hinhanh where id_sp in ($chuoi)");
+			$hinhanh_chitiet = $d->o_fet("select * from #_duan_hinhanh where id_sp in ($chuoi)");
+			$d->o_que("delete from #_duan_hinhanh where id_sp in ($chuoi)");
 			foreach ($hinhanh_chitiet as $hact) {
 				@unlink('../img_data/images/'.$hact['hinh_anh']);
 			}

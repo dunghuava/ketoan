@@ -44,7 +44,7 @@
 	      }
 	      $tongtien = $tongtien + $thanhtien;
 
-	      $sanpham = $d->o_fet("select * from #_sanpham where id = '".$items[$i]['id_sp']."'");
+	      $sanpham = $d->o_fet("select * from #_duan where id = '".$items[$i]['id_sp']."'");
 
 	    ?>
 	<tbody>

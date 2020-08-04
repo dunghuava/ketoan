@@ -1,13 +1,13 @@
 <?php
-$ctsp = $d->o_fet("select * from #_sanpham where hien_thi = 1 and alias_".$_SESSION['lang']." = '".$com."'");
+$ctsp = $d->o_fet("select * from #_duan where hien_thi = 1 and alias_".$_SESSION['lang']." = '".$com."'");
 $property=explode('@1@',$ctsp[0]['property']);
 if(count($ctsp) == 0) $d->location(URLPATH."404.html");
 
-$sanpham = $d->o_fet("select * from #_sanpham where hien_thi = 1  and id <> '".@$ctsp[0]['id']."' and id_loai = '".@$ctsp[0]['id_loai']."' order by id desc limit 0,16");
-$hinh_anh_sp = $d->o_fet("select * from #_sanpham_hinhanh where id_sp = '".@$ctsp[0]['id']."' order by id desc");
+$sanpham = $d->o_fet("select * from #_duan where hien_thi = 1  and id <> '".@$ctsp[0]['id']."' and id_loai = '".@$ctsp[0]['id_loai']."' order by id desc limit 0,16");
+$hinh_anh_sp = $d->o_fet("select * from #_duan_hinhanh where id_sp = '".@$ctsp[0]['id']."' order by id desc");
 
-$list_color = $d->o_fet("select * from #_sanpham_phienban where type = 0 and id_sanpham = '".$ctsp[0]['id']."'");
-$list_size = $d->o_fet("select * from #_sanpham_phienban where type = 1 and id_sanpham = '".$ctsp[0]['id']."'");
+$list_color = $d->o_fet("select * from #_duan_phienban where type = 0 and id_duan = '".$ctsp[0]['id']."'");
+$list_size = $d->o_fet("select * from #_duan_phienban where type = 1 and id_duan = '".$ctsp[0]['id']."'");
 
 ?>
 <section class="detail">

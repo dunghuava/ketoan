@@ -140,9 +140,9 @@
 	define('_dangkynhanbantin','Receive newsletter');
 	define('_nhapdiachiemail','Enter your email address to receive alerts from websites:');
 	define('_huydangky','Cancel registration');
-	define('_sanphamnoibat','Hot Products');
+	define('_duannoibat','Hot Products');
 	define('_masp','Code');
-	define('_sanpham','Products');
+	define('_duan','Products');
 	define('_dichvu','Services');
 	define('_tinhtranghang','Status');
 	define('_conhang','Stocking');
