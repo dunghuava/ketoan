@@ -13,7 +13,7 @@
 		</select>
 	</div>
 
-	<div class="btn-group">
+	<!-- <div class="btn-group">
 		<input id="search" name="search" type="text" class="form-control" placeholder="Tìm kiếm"/>
 	</div>
 	<div class="btn-group">
@@ -22,7 +22,7 @@
 			<option value="1">ID</option>
 			<option value="2">Tên</option>
 		</select>
-	</div>
+	</div> -->
 	<script type="text/javascript">
 	    jQuery(document).ready(function($) {
 	        $('input#search').keypress(function (e) {
@@ -45,13 +45,13 @@
 			<option value="7">300</option>
 		</select>
 	</div>
-	<div class="btn-group">
-		<select id="action" onchange="loc_tin(this,'bai-viet')" name="action" class="form-control">
+	<!-- <div class="btn-group">
+		<select id="action" onchange="loc_tin(this,'khu-vuc')" name="action" class="form-control">
 			<option value="0" selected>Xem tất cả bài viết</option>
 			<?=$loai?>
 		</select>
-	</div>
-	<a href="index.php?p=bai-viet&a=add" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-plus"></i> Thêm mới</a>
+	</div> -->
+	<a href="index.php?p=khu-vuc&a=add" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-plus"></i> Thêm mới</a>
 </div>
 
 <form id="form" method="post" action="index.php?p=bai-viet&a=delete_all" role="form">
@@ -62,11 +62,11 @@
 			<th style="width:3%"><input class="chk_box checkall" type="checkbox" name="chk" value="0"  id="check_all"></th>
 			<th style="width:4%">STT</th>
 			<th style="width:17%; text-align:left">Danh mục</th>
-			<th style="width:18%; text-align:left">Bài viết</th>
+			<th style="width:18%; text-align:left">Quận-Huyện</th>
 			<th style="width:8%">IMG</th>
-			<th style="width:12%">Cập nhật</th>
+			<!-- <th style="width:12%">Cập nhật</th> -->
             <!-- <th style="width:7%">Tiêu biểu</th> -->
-			<th style="width:7%">Nổi bật</th>
+			<!-- <th style="width:7%">Nổi bật</th> -->
 			<th style="width:7%">Hiển thị</th>
 			<th style="width:7%">Tác vụ</th>
 		</tr>
@@ -77,43 +77,48 @@
 			<td>
 				<input class="chk_box" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
 			</td>
-			<td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_tintuc" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td>
+			<td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_show_region" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td>
 
 
 			<td style="text-align:left">
 				<?php 
 					$query = $d->simple_fetch("select * from #_category where id={$items[$i]['id_loai']}");	
-					$menu_parent = $d->simple_fetch("select * from #_category where id={$query['id_loai']}");						
-					$str = ""; for($k=0;$k<$query['level'];$k++) { $str.=$menu_parent['ten_vn']." / "; }	
-					echo $str.$query['ten_vn'] 
+					// $menu_parent = $d->simple_fetch("select * from #_category where id={$query['id_loai']}");						
+					// $str = ""; for($k=0;$k<$query['level'];$k++) { $str.=$menu_parent['ten_vn']." / "; }	
+					echo $query['ten_vn'] 
 				
 				?>
 			</td>
 			<td style="text-align:left">
-				<a href="index.php?p=bai-viet&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>"><?=$items[$i]['ten_vn']?></a>
-				<br/>
-				<a href="index.php?p=bai-viet&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>"><?=$items[$i]['ten_us']?></a>
-				<br/>
-				<a href="index.php?p=bai-viet&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>"><?=$items[$i]['ten_ch']?></a-->
+				<?php 
+
+				$district_format = explode(',', $items[$i]['id_district']);
+				foreach ($district_format as $district) {
+					$query2 = $d->simple_fetch("select * from #_district where district_id={$district}");	
+					echo $query2['district_name'].'<br>' ;
+				}
+					
+				
+				?>
 			</td>
 			<td>
 				<?=($items[$i]['hinh_anh'] <> '')?"<img src='".URLPATH."thumb.php?src=".URLPATH."img_data/images/".$items[$i]['hinh_anh']."&w=70&h=50&zc=2'>":""; ?>
 			</td>
 			<!-- <td><?=$items[$i]['so_thu_tu']?></td> -->
-			<td><?=date('d-m-Y h:i:s', $items[$i]['ngay_dang']) ?></td>
+			<!-- <td><?=date('d-m-Y h:i:s', $items[$i]['ngay_dang']) ?></td> -->
             <!-- <td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_tintuc','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
 			</td> -->
-			<td>
+			<!-- <td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_tintuc','noi_bat','<?=$items[$i]['id']?>')" <?php if($items[$i]['noi_bat'] == 1) echo 'checked="checked"'; ?>>
-			</td>
+			</td> -->
 			
 			<td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_tintuc','hien_thi','<?=$items[$i]['id']?>')" <?php if($items[$i]['hien_thi'] == 1) echo 'checked="checked"'; ?>>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_show_region','hien_thi','<?=$items[$i]['id']?>')" <?php if($items[$i]['hien_thi'] == 1) echo 'checked="checked"'; ?>>
 			</td>
 			<td>
-				<a href="index.php?p=bai-viet&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>&loaitin=<?=@$_GET['loaitin']?>" class="text-danger" title="Sửa"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;&nbsp;
-				<a href="index.php?p=bai-viet&a=delete&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>&loaitin=<?=@$_GET['loaitin']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a>
+				<a href="index.php?p=khu-vuc&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>" class="text-danger" title="Sửa"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;&nbsp;
+				<a href="index.php?p=khu-vuc&a=delete&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a>
 			</td>
 		</tr>
 		<?php } ?>
@@ -127,6 +132,6 @@
 <script type="text/javascript">
 function loc_tin (obj,tenp) {
 	var show = $(obj).val();
-	window.location.href = "index.php?p="+tenp+"&a=man&loaitin="+show;
+	window.location.href = "index.php?p="+tenp+"&a=man&id_loai="+show;
 }
 </script>

@@ -3,10 +3,15 @@ if(!defined('_source')) die("Error");
 $a = (isset($_REQUEST['a'])) ? addslashes($_REQUEST['a']) : "";
 switch($a){
 	case "man":
+		$list_category = getlistCategory();
 		showdulieu();
 		$template = @$_REQUEST['p']."/hienthi";
 		break;
 	case "add":
+		$list_category = getlistCategory();
+		$list_district = getlistDistrict();
+		// echo "<pre>";
+		// print_r($list_category);die();
 		showdulieu();
 		$template = @$_REQUEST['p']."/them";
 		break;
@@ -38,58 +43,72 @@ function show_menu_tintuc_hd($menus = array(), $parrent = 0 ,&$chuoi = '')
       }
       return $chuoi;
 }
+
+function getlistCategory() {
+	global $d;
+	$str = $d->o_fet("select * from #_category where id_loai = '0' ");
+	return $str;
+}
+
+function getlistDistrict() {
+	global $d;
+	$str = $d->o_fet("select * from #_district where province_id = '1' ");
+	return $str;
+}
+
 function showdulieu(){
-	global $d, $items, $paging, $loai, $soluong;
-	$loai = $d->array_category(0,'',$_GET['loaitin'],2);
-	if($_REQUEST['a'] == 'man'){
+	global $d, $items, $paging,$loai;
+	$loai = $d->array_category(0,'',$_GET['id_loai'],3);
 	
+	if($_REQUEST['a'] == 'man'){
+
 		//show du lieu
-		if(isset($_GET['lammoi'])){
-			$d->o_que("update #_tintuc set ngay_dang = '".time()."' where id = '".addslashes($_GET['id'])."'");
-		}
-		if(isset($_GET['loaitin']) && $_GET['loaitin'] <> ''){
+		if(isset($_GET['id_loai']) && $_GET['id_loai'] <> ''){
 			
-			if($_GET['loaitin'] == 0){
-				$items = $d->o_fet("select * from #_tintuc order by so_thu_tu asc, ngay_dang desc, id desc");
+			if($_GET['id_loai'] == 0){
+				$items = $d->o_fet("select * from #_sanpham where style=0 order by so_thu_tu asc, id desc");
 			}else{
-			    $loaitin = $d->o_fet("select id, id_loai from #_category where hien_thi = 1");
-			    $id_loai = show_menu_tintuc_hd($loaitin,@addslashes($_GET['loaitin']));
-			    $id_loai = trim($id_loai,',');
-			    $id_loai = @addslashes($_GET['loaitin']) .','.$id_loai;
-			    $items = $d->o_fet("select * from #_tintuc where FIND_IN_SET(id_loai,'$id_loai') <> 0 order by so_thu_tu asc, ngay_dang desc, id desc");
+				$id_loai = $_GET['id_loai'].$d->findIdSub($_GET['id_loai']);	
+			    $items = $d->o_fet("select * from #_sanpham where FIND_IN_SET(id_loai,'$id_loai') <> 0 and style=0 order by so_thu_tu asc, id desc");
 			}
-		}else if(isset($_GET['seach'])){
+		}
+		else if(isset($_GET['seach'])){
 			$seach = addslashes($_GET['seach']);
 			$key = (isset($_GET['key']))? addslashes($_GET['key']):"";
 			if($seach == 'id'){
-				$items = $d->o_fet("select * from #_tintuc where id = '".$key."'");
+				$items = $d->o_fet("select * from #_sanpham where id = '".$key."' and style=0");
+			}else if($seach == 'name'){
+				$items = $d->o_fet("select * from #_sanpham where ten_vn like '%".$key."%' and style=0");
 			}else{
-				$key = $d->bodautv($key);
-				$items = $d->o_fet("select * from #_tintuc where alias_vn like '%$key%' order by so_thu_tu asc, ngay_dang desc, id desc");
+				$items = $d->o_fet("select * from #_sanpham where ma_sp like '%".$key."%' and style=0");
 			}
 		}
-		else $items = $d->o_fet("select * from #_tintuc order by so_thu_tu asc, ngay_dang desc, id desc");
+		else $items = $d->o_fet("select * from #_show_region order by id_loai asc");
 
-
+		// foreach ($items as $key => $value) {
+		// 	watermark_image($value['hinh_anh'], '../img_data/images/');
+		// }
 		if(isset($_GET['hienthi'])){
 			$maxR= $d->lay_show_hienthi(addslashes($_GET['hienthi']));
 		}
-		else $maxR=35;
+		else $maxR=20;
 		// phan trang
 		$page = isset($_GET['page']) ? addslashes($_GET['page']) : 1;
 		$url=$d->fullAddress();
-		$maxP= $maxR;
+		$maxP=$maxR;
 		$paging=$d->phantrang($items, $url, $page, $maxR, $maxP,'classunlink','classlink','page');
 		$items=$paging['source'];
 		//
 	}else{
+				
 		//lay noi dung theo id
 		if(isset($_REQUEST['id'])){
 			@$id = addslashes($_REQUEST['id']);
-			$items = $d->o_fet("select * from #_tintuc where id =  '".$id."'");
-			$loai = $d->array_category(0,'',$items[0]['id_loai'],2);
+			$items = $d->o_fet("select * from #_sanpham where id =  '".$id."'");
+			$loai = $d->array_category(0,'',$items[0]['id_loai'],3);
 		}
 	}
+
 }
 
 function luudulieu(){
@@ -262,77 +281,19 @@ function luudulieu(){
 		
 		$data['id_loai'] = addslashes($_POST['id_loai']);
 		
-		$data['ten_vn'] = $d->clear(addslashes($_POST['ten_vn']));
-		$data['mo_ta_vn'] = $d->clear(addslashes($_POST['mo_ta_vn']));
-		$data['noi_dung_vn'] = $d->clear(addslashes($_POST['noi_dung_vn']));
-		
-		$data['alias_vn'] = $d->clear(addslashes($_POST['alias_vn']));
-		if($d->checkLink($data['alias_vn'],"alias_vn",$id ) && $data['alias_vn']!='') {
-			$data['alias_vn'].="-".rand(10,999);
-		}
+		$data['id_district'] = implode(',',$_POST['quan']);
+		$data['hien_thi'] = 1;
+		$data['so_thu_tu'] = 0;
 
+		// print_r($data);die();
 		
-		
-		$data['title_vn'] = $d->clear(addslashes($_POST['title_vn']));
-		$data['keyword'] = $d->clear(addslashes($_POST['keyword']));
-		$data['tags_hienthi'] = addslashes($_POST['tags_hienthi']);
-
-		//xu ly tags
-		$tags = addslashes($_POST['tags_hienthi']);
-		$tg2 = explode(',', $tags);
-		$id_tag = "";
-
-		foreach ($tg2 as $value) {
-		   $kiemtra_tags = $d->o_fet("select ten_vn, id from #_tags where ten_vn = '".trim($value)."'");
-		   if(count($kiemtra_tags) == 0  && trim($value) <> ''){
-		   		$dataInsert = array(
-		   			'id' => '',
-		   			'ten_vn' => trim($value),
-		   			'alias' => $d->bodautv($value),
-		   		);
-		   		$d->setTable('#_tags');
-		   		if($idTags = $d->insert($dataInsert)){
-		   			$id_tag  .= $idTags.",";
-		   		}
-		   		
-		   }else{
-	   			$id_tag  .= @$kiemtra_tags[0]['id'].",";
-	   		}
-		}
-		$data['tags'] = trim($id_tag,",");
-		//end tags
-		$data['des'] = addslashes($_POST['des']);
-		$data['ngay_dang'] = time();
-		$data['hien_thi'] = isset($_POST['hien_thi']) ? 1 : 0;
-		//$data['noi_bat'] = isset($_POST['noi_bat']) ? 1 : 0;
-		if(!empty($_POST['hen_ngay'])){
-			$str_ngay = $_POST['hen_ngay'].' '.$_POST['hen_gio'].':0:0';
-			$edate=strtotime($_POST['hen_ngay']); 
-			$edate=date("Y-m-d",$edate);
-			$hen_ngay_dang = strtotime($str_ngay);
-			$data['hen_ngay'] =$edate;
-			$data['hen_gio'] = addslashes($_POST['hen_gio']);
-			$data['hen_ngay_dang'] = $hen_ngay_dang;
-		}
 		// var_dump($data['hen_ngay']); die;
-		$d->setTable('#_tintuc');
+		$d->o_que("delete from #_show_region where id_loai = '".$_POST['id_loai']."'");
+		$d->setTable('#_show_region');
 		if($idsp = $d->insert($data))
 		{
 			/////up hinh
 			
-	    	for ($i=1; $i <= 15; $i++) { 
-	    		$file_name=$d->fns_Rand_digit(0,9,12);
-	    		if(isset($_POST['txt_up_'.$i]) && $_POST['txt_up_'.$i] == 1){
-	    			if(@$file = $d->upload_image("file_".$i, '', '../img_data/images/',$file_name)){
-						$data_hinh['hinh_anh'] = $file;
-						$data_hinh['title'] = $_REQUEST['title'.$i];
-			    		$data_hinh['id_baiviet'] = $idsp;
-						$d->reset();
-						$d->setTable('#_baiviet_hinhanh');
-						$d->insert($data_hinh);
-					}
-	    		}
-	    	}	
 
 	    	// SITEMAP
 	    	$sitemap = '<?xml version="1.0" encoding="UTF-8"?>
@@ -394,7 +355,7 @@ function luudulieu(){
 			fwrite($file, $sitemap);
 			fclose($file);
 					
-			$d->redirect("index.php?p=bai-viet&a=man&loaitin=".@$_GET['loaitin']);
+			$d->redirect("index.php?p=khu-vuc&a=man");
 		}
 		else{
 			$d->alert("Thêm dữ liệu bị lỗi!");
