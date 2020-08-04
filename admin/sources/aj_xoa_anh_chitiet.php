@@ -18,12 +18,12 @@
 
 
 	
-	if($d->o_que("delete from #_sanpham_hinhanh where id = '".$id."'")){
+	if($d->o_que("delete from #_duan_hinhanh where id = '".$id."'")){
 		@unlink("../../img_data/images/".$anh);
 		@unlink("../../img_data/images/".$anh_thumb);
 	}
 
-	$hinh_anh = $d->o_fet("select * from #_sanpham_hinhanh where id_sp = '".$idsp."' and id_mau = '".$id_mau."' order by id desc");
+	$hinh_anh = $d->o_fet("select * from #_duan_hinhanh where id_sp = '".$idsp."' and id_mau = '".$id_mau."' order by id desc");
 	foreach ($hinh_anh as $ha) {
 ?>
 

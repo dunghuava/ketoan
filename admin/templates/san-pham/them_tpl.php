@@ -79,7 +79,7 @@
 				<td class="td_right ">
 					<div class="td_hinhanh">
 					<?php 
-						$hinhanh =  $d->o_fet("select * FROM #_sanpham_hinhanh where id_sp ='".$_GET['id']."'");
+						$hinhanh =  $d->o_fet("select * FROM #_duan_hinhanh where id_sp ='".$_GET['id']."'");
 						foreach ($hinhanh as $val) {
 					?>
 					<div class="dv-img-ad">

@@ -1,11 +1,11 @@
 <?php
-	$ctsp = $d->o_fet("select * from #_sanpham where hien_thi = 1 and alias_".$_SESSION['lang']." = '".$com."'");
+	$ctsp = $d->o_fet("select * from #_duan where hien_thi = 1 and alias_".$_SESSION['lang']." = '".$com."'");
 	$property=explode('@1@',$ctsp[0]['property']);
 	if(count($ctsp) == 0) $d->location(URLPATH."404.html");
 
-	$sanpham = $d->o_fet("select * from #_sanpham where hien_thi = 1  and id <> '".@$ctsp[0]['id']."' and id_loai = '".@$ctsp[0]['id_loai']."' order by id desc limit 0,16");
-	$hinh_anh_sp = $d->o_fet("select * from #_sanpham_hinhanh where id_sp = '".@$ctsp[0]['id']."' order by id desc");
-	$sanpham_extend = $d->o_fet("select * from db_project_extend where project_id='".$ctsp[0]['id']."'");
+	$sanpham = $d->o_fet("select * from #_duan where hien_thi = 1  and id <> '".@$ctsp[0]['id']."' and id_loai = '".@$ctsp[0]['id_loai']."' order by id desc limit 0,16");
+	$hinh_anh_sp = $d->o_fet("select * from #_duan_hinhanh where id_sp = '".@$ctsp[0]['id']."' order by id desc");
+	$sanpham_extend = $d->o_fet("select * from #_tienich where project_id='".$ctsp[0]['id']."'");
 ?>
 
 <div class="hidden-xs">

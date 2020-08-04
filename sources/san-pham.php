@@ -40,7 +40,7 @@
 	}else{
 		$arr_id=$id_loai;
 	}
-	$sql= "select * from #_sanpham where hien_thi=1 and id_loai in ($arr_id) order by id desc";
+	$sql= "select * from #_duan where hien_thi=1 and id_loai in ($arr_id) order by id desc";
 	$data = $d->o_fet($sql);
     if(isset($_GET['page']) && !is_numeric(@$_GET['page'])) $d->location(URLPATH."404.html");
     $curPage = isset($_GET['page']) ? addslashes($_GET['page']) : 1;

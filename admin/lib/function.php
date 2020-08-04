@@ -1070,8 +1070,8 @@
 				$link=$this->o_fet("select * from #_tintuc where alias_{$lang}='$alias'");
 				$str=$link[0]['alias_'.$lang];
 			}
-			else if($this->num_rows("select * from #_sanpham where alias_{$lang}='$alias'") > 0) {
-				$link=$this->o_fet("select * from #_sanpham where alias_{$lang}='$alias'");
+			else if($this->num_rows("select * from #_duan where alias_{$lang}='$alias'") > 0) {
+				$link=$this->o_fet("select * from #_duan where alias_{$lang}='$alias'");
 				$str=$link[0]['alias_'.$lang];			
 			}
 			return $str;
@@ -1121,7 +1121,7 @@
 					}
 				}
 				$query1=$this->o_fet("select id,id_loai from #_tintuc where alias_$lang = '$alias' ");
-				$query2=$this->o_fet("select id,id_loai from #_sanpham where alias_$lang = '$alias' ");
+				$query2=$this->o_fet("select id,id_loai from #_duan where alias_$lang = '$alias' ");
 				if(count($query1)>0 || count($query2)>0) {
 					if(count($query1)>0){
 						$id_loai=$query1[0]['id_loai'];
@@ -1153,7 +1153,7 @@
 			}
 			
 			$count=$this->num_rows("select id from #_category where $field='{$text}' $and");
-			$count1=$this->num_rows("select id from #_sanpham where $field='{$text}' $and");
+			$count1=$this->num_rows("select id from #_duan where $field='{$text}' $and");
 			$count2=$this->num_rows("select id from #_tintuc where $field='{$text}' $and");
 			
 			if($count==0 && $count1==0 && $count2==0) {

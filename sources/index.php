@@ -7,7 +7,7 @@
 		</div>
 		<div class="row">
 			<?php
-				$sql= "select * from #_sanpham where hien_thi=1 order by id desc limit 0,6";
+				$sql= "select * from #_duan where hien_thi=1 order by id desc limit 0,6";
 				$data = $d->o_fet($sql);
 				$col=3;
 				include ('item_project.php') 

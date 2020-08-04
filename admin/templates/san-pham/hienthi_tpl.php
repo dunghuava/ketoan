@@ -83,7 +83,7 @@
 			<td>
 				<input class="chk_box checkall" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
 			</td>
-			<td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_sanpham" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td>
+			<td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_duan" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td>
 			
 			<!-- <td><?=$items[$i]['ma_sp']?></td> -->
 			<td style="text-align:left">
@@ -109,20 +109,20 @@
 			</td>
 						
 			<!-- <td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_duan','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
 			</td> -->
 			
 			<!-- <td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','sp_moi','<?=$items[$i]['id']?>')" <?php if($items[$i]['sp_moi'] == 1) echo 'checked="checked"'; ?>>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_duan','sp_moi','<?=$items[$i]['id']?>')" <?php if($items[$i]['sp_moi'] == 1) echo 'checked="checked"'; ?>>
 			</td> -->
 			<td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_duan','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
 			</td>
 			<!-- <td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','con_hang','<?=$items[$i]['id']?>')" <?php if($items[$i]['con_hang'] == 1) echo 'checked="checked"'; ?>>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_duan','con_hang','<?=$items[$i]['id']?>')" <?php if($items[$i]['con_hang'] == 1) echo 'checked="checked"'; ?>>
 			</td> -->
 			<td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_sanpham','hien_thi','<?=$items[$i]['id']?>')" <?php if($items[$i]['hien_thi'] == 1) echo 'checked="checked"'; ?>>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_duan','hien_thi','<?=$items[$i]['id']?>')" <?php if($items[$i]['hien_thi'] == 1) echo 'checked="checked"'; ?>>
 			</td>			
 			<td>
 				<a href="index.php?p=san-pham&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>" class="text-danger" title="Sửa"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;&nbsp;

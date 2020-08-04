@@ -87,7 +87,7 @@ function luudulieu(){
 		}
 
 
-		$sanpham = $d->o_fet("select * from #_sanpham where hien_thi = 1 order by so_thu_tu asc, id desc");
+		$sanpham = $d->o_fet("select * from #_duan where hien_thi = 1 order by so_thu_tu asc, id desc");
 		foreach ($sanpham as $item) {
 			
 
