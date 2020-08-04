@@ -561,6 +561,15 @@
 	.item_news_small .c_right{
 		width:80% !important;
 	}
+	.panel-body li{
+		list-style:none;
+		display:block !important;
+		width:100% !important;
+	}
+	.extend li{
+		width:40% !important;
+		margin-top: 8px;
+	}
 	.title_nhantin{ font-size: 16px; }
 	.logo-left{ padding-left: 10px; }
 	.img-home{ margin-bottom: 10px; }

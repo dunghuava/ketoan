@@ -23,25 +23,51 @@
 		background:#02AD88;
 	}
 </style>
-<div class="container">
-	<h3 class="title_main_page"><span class="fa fa-home"></span>&nbsp;<?=$loai['ten_vn']?></h3>
+<div class="hidden-xs">
+	<br><br><br>
 </div>
-<?php 
+<div class="container">
+	<div class="page-title">
+		<ul class="breadcrumb">
+			<li><a href="<?=URLPATH ?>" title="<?=_trangchu?>"><i class="fa fa-home"></i></a></li>
+			<?=$d->breadcrumb($id_loai,$_SESSION['lang'],URLPATH)?>
+		</ul>
+	</div>
+</div>
+<?php
 	if ($id_sub!=''){
-		$sql= "select * from #_category where hien_thi=1 and id in ($id_sub) order by so_thu_tu asc";
-		$data = $d->o_fet($sql);
-		include ('item_category.php');
+		$arr_id=$id_sub;
 	}else{
-		$sql= "select * from #_category where hien_thi=1 and id = $id_loai order by id desc";
-        $data = $d->o_fet($sql);
-        ?>
-        <div class="container">
-            <div class="row">
-                <?php
-                    include ('item_project.php');
-                ?>
-            </div>
-        </div>
-        <?php
+		$arr_id=$id_loai;
 	}
+	$sql= "select * from #_sanpham where hien_thi=1 and id_loai in ($arr_id) order by id desc";
+	$data = $d->o_fet($sql);
+    if(isset($_GET['page']) && !is_numeric(@$_GET['page'])) $d->location(URLPATH."404.html");
+    $curPage = isset($_GET['page']) ? addslashes($_GET['page']) : 1;
+    $url= $d->fullAddress();
+    $maxR=9;
+    $maxP=5;
+    $phantrang=$d->phantrang($data, $url, $curPage, $maxR, $maxP,'classunlink','classlink','page');
+	$data=$phantrang['source'];
+	$col=4;
 ?>
+	<div class="container">
+		<div class="row">
+			<?php
+				include ('item_project.php');
+			?>
+		</div>
+	</div>
+<script>
+	$(document).ready(function () {
+		$('#navbar_fix_top').addClass('sticky');
+		$('#navbar_fix_top').css({'box-shadow':'none'});
+		$('#slide_project_img').slick({
+			dots: false,
+			autoplay:true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+		});
+	});
+	window.onscroll = function() {}
+</script>

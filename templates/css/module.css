@@ -999,7 +999,17 @@ label.error{
 	
 }
 
-.style-bt{ position: absolute; top: 50%; margin-top: -25px; z-index: 99; border: 0; background: #a67d53;
-padding: 5px 8px; color: #fff; cursor: pointer; outline: none; }
-.bt-prev{ left: -25px; }
-.bt-next{ right: -25px; }
+.style-bt{
+	position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    z-index: 99;
+    border: 0;
+    background: #89ae6bc2;
+    padding: 12px 14px;
+    color: #fff;
+    cursor: pointer;
+	outline: none;
+}
+.bt-pre{ left: 25px !important; }
+.bt-next{ right: 25px; }

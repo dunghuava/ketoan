@@ -1141,7 +1141,7 @@
 			$query=$this->simple_fetch("select * from #_category where id=$id and hien_thi=1");
 			$str.="<li><a href='".$path.$this->create_long_link($query['alias_'.$lang],$lang).".html' title='{$query['ten_'.$lang]}'>{$query['ten_'.$lang]}</a></li>";
 			if($query['id_loai']>0) {
-				$str=$this->breadcrumb($query['id_loai'],$lang).$str;
+				//$str=$this->breadcrumb($query['id_loai'],$lang).$str;
 			}
 			return $str;
 		}
