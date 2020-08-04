@@ -8,10 +8,6 @@
 	$sanpham_extend = $d->o_fet("select * from #_tienich where project_id='".$ctsp[0]['id']."'");
 ?>
 
-<div class="hidden-xs">
-	<br><br><br>
-</div>
-
 <div class="title_project">
 	<div class="container">
 		<div class="row">
