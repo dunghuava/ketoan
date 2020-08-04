@@ -6,207 +6,187 @@
 				            http://www.sitemaps.org/schemas/sitemap/0.9
 				            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 					<url>
-				       <loc>http://localhost:8080/ketoan/</loc>
+				       <loc>http://localhost/ketoan/</loc>
 				       <priority>1</priority>
 				  	</url>
 						<url>
-						 <loc>http://localhost:8080/ketoan/ghe-tham-ngoi-nha-trieu-do-cua-ty-phu-do-la-trum.html</loc>
-						 <priority>0.571</priority>
+						 <loc>http://localhost/ketoan/ghe-tham-ngoi-nha-trieu-do-cua-ty-phu-do-la-trum.html</loc>
+						 <priority>0.788</priority>
 						</url>
 						<url>
-						 <loc>http://localhost:8080/ketoan/khu-do-thi-phu-my-hung-giau-co-co-nao.html</loc>
-						 <priority>0.668</priority>
+						 <loc>http://localhost/ketoan/khu-do-thi-phu-my-hung-giau-co-co-nao.html</loc>
+						 <priority>0.776</priority>
 						</url>
 						<url>
-						 <loc>http://localhost:8080/ketoan/khanh-thanh-toa-nha-cao-nhat-dong-nam-a-landmrak-81.html</loc>
-						 <priority>0.794</priority>
+						 <loc>http://localhost/ketoan/khanh-thanh-toa-nha-cao-nhat-dong-nam-a-landmrak-81.html</loc>
+						 <priority>0.736</priority>
 						</url>
 						<url>
-						 <loc>http://localhost:8080/ketoan/biet-thu-20-trieu-do-ben-canh-song-sai-gon.html</loc>
-						 <priority>0.722</priority>
+						 <loc>http://localhost/ketoan/biet-thu-20-trieu-do-ben-canh-song-sai-gon.html</loc>
+						 <priority>0.648</priority>
 						</url>
 						<url>
-						 <loc>http://localhost:8080/ketoan/ban-du-an-vinhome-central-park.html</loc>
-						 <priority>0.63</priority>
+						 <loc>http://localhost/ketoan/ban-du-an-vinhome-central-park.html</loc>
+						 <priority>0.544</priority>
 						</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/du-an.html</loc>
-					 <priority>0.656</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/q-1-q-3-q-pn-1.html</loc>
-					 <priority>0.775</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/quan-1.html</loc>
-					 <priority>0.61</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/mua.html</loc>
-					 <priority>0.741</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/can-ho-cho-thue.html</loc>
-					 <priority>0.731</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/cho-thue.html</loc>
-					 <priority>0.523</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/shophouse-cho-thue.html</loc>
-					 <priority>0.568</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/nha-pho-cho-thue.html</loc>
-					 <priority>0.712</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/ky-gui-nha.html</loc>
-					 <priority>0.696</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/biet-thu-cho-thue.html</loc>
+					 <loc>http://localhost/ketoan/cho-thue.html</loc>
 					 <priority>0.799</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/tin-tuc.html</loc>
-					 <priority>0.646</priority>
+					 <loc>http://localhost/ketoan/q-1-q-3-q-pn-1.html</loc>
+					 <priority>0.589</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/van-phong-cho-thue.html</loc>
+					 <loc>http://localhost/ketoan/du-an.html</loc>
+					 <priority>0.549</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/can-ho-cho-thue.html</loc>
+					 <priority>0.702</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/mua.html</loc>
 					 <priority>0.608</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/mat-bang-cho-thue.html</loc>
-					 <priority>0.684</priority>
+					 <loc>http://localhost/ketoan/shophouse-cho-thue.html</loc>
+					 <priority>0.788</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/quan-3.html</loc>
-					 <priority>0.746</priority>
+					 <loc>http://localhost/ketoan/nha-pho-cho-thue.html</loc>
+					 <priority>0.585</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/quan-4.html</loc>
-					 <priority>0.752</priority>
+					 <loc>http://localhost/ketoan/ky-gui-nha.html</loc>
+					 <priority>0.733</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/quan-7.html</loc>
-					 <priority>0.694</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/quan-9.html</loc>
-					 <priority>0.584</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/quan-10.html</loc>
-					 <priority>0.58</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/quan-binh-thanh.html</loc>
-					 <priority>0.729</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/gap-chuyen-vien-tu-van.html</loc>
-					 <priority>0.578</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/danh-sach-chu-dau-tu.html</loc>
-					 <priority>0.633</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/q-1-q-3-q-pn.html</loc>
-					 <priority>0.665</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/can-ho.html</loc>
-					 <priority>0.548</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/shophouse.html</loc>
-					 <priority>0.771</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/nha-pho.html</loc>
-					 <priority>0.757</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/biet-thu.html</loc>
-					 <priority>0.504</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/dat-nen.html</loc>
-					 <priority>0.576</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/vi-sao-chon-gianha-vn.html</loc>
-					 <priority>0.601</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/dang-ban.html</loc>
-					 <priority>0.567</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/dang-cho-thue.html</loc>
-					 <priority>0.738</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/thong-tin-thi-truong.html</loc>
+					 <loc>http://localhost/ketoan/biet-thu-cho-thue.html</loc>
 					 <priority>0.638</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/blog-nhan-dinh.html</loc>
-					 <priority>0.633</priority>
+					 <loc>http://localhost/ketoan/tin-tuc.html</loc>
+					 <priority>0.638</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/bao-cao-phan-tich.html</loc>
-					 <priority>0.615</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/huong-dan-mua-nha.html</loc>
-					 <priority>0.731</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/huong-dan-ban-nha.html</loc>
-					 <priority>0.787</priority>
-					</url>
-					<url>
-					 <loc>http://localhost:8080/ketoan/tu-van-luat.html</loc>
+					 <loc>http://localhost/ketoan/van-phong-cho-thue.html</loc>
 					 <priority>0.604</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/huong-dan-vay-ngan-hang.html</loc>
-					 <priority>0.54</priority>
+					 <loc>http://localhost/ketoan/quan-1.html</loc>
+					 <priority>0.747</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/phong-thuy.html</loc>
+					 <loc>http://localhost/ketoan/mat-bang-cho-thue.html</loc>
+					 <priority>0.708</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/quan-3.html</loc>
+					 <priority>0.664</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/quan-4.html</loc>
+					 <priority>0.62</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/quan-7.html</loc>
+					 <priority>0.525</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/quan-9.html</loc>
+					 <priority>0.8</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/quan-10.html</loc>
+					 <priority>0.606</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/quan-binh-thanh.html</loc>
+					 <priority>0.659</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/gap-chuyen-vien-tu-van.html</loc>
+					 <priority>0.624</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/danh-sach-chu-dau-tu.html</loc>
+					 <priority>0.501</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/q-1-q-3-q-pn.html</loc>
 					 <priority>0.638</priority>
 					</url>
 					<url>
-					 <loc>http://localhost:8080/ketoan/nha-dep.html</loc>
-					 <priority>0.662</priority>
+					 <loc>http://localhost/ketoan/can-ho.html</loc>
+					 <priority>0.699</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/shophouse.html</loc>
+					 <priority>0.664</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/nha-pho.html</loc>
+					 <priority>0.565</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/biet-thu.html</loc>
+					 <priority>0.681</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/dat-nen.html</loc>
+					 <priority>0.541</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/vi-sao-chon-gianha-vn.html</loc>
+					 <priority>0.746</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/dang-ban.html</loc>
+					 <priority>0.641</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/dang-cho-thue.html</loc>
+					 <priority>0.747</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/thong-tin-thi-truong.html</loc>
+					 <priority>0.767</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/blog-nhan-dinh.html</loc>
+					 <priority>0.522</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/bao-cao-phan-tich.html</loc>
+					 <priority>0.645</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/huong-dan-mua-nha.html</loc>
+					 <priority>0.723</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/huong-dan-ban-nha.html</loc>
+					 <priority>0.626</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/tu-van-luat.html</loc>
+					 <priority>0.678</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/huong-dan-vay-ngan-hang.html</loc>
+					 <priority>0.784</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/phong-thuy.html</loc>
+					 <priority>0.755</priority>
+					</url>
+					<url>
+					 <loc>http://localhost/ketoan/nha-dep.html</loc>
+					 <priority>0.783</priority>
 					</url>
 						<url>
-						 <loc>http://localhost:8080/ketoan/mua-quan4-685.html</loc>
-						 <priority>0.778</priority>
-						</url>
-						<url>
-						 <loc>http://localhost:8080/ketoan/sho.html</loc>
-						 <priority>0.532</priority>
-						</url>
-						<url>
-						 <loc>http://localhost:8080/ketoan/quan-3-890.html</loc>
-						 <priority>0.728</priority>
-						</url>
-						<url>
-						 <loc>http://localhost:8080/ketoan/quan-1-742.html</loc>
-						 <priority>0.651</priority>
-						</url>
-						<url>
-						 <loc>http://localhost:8080/ketoan/can-ho-cho-thue-183.html</loc>
-						 <priority>0.787</priority>
-						</url>
-						<url>
-						 <loc>http://localhost:8080/ketoan/du-an-quan-4.html</loc>
-						 <priority>0.636</priority>
+						 <loc>http://localhost/ketoan/du-an-sunshine-horizon.html</loc>
+						 <priority>0.776</priority>
 						</url>
 			</urlset>
