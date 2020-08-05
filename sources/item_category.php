@@ -23,7 +23,14 @@
 							</div>
 							<h3 class="title_cate"><?=$value['ten_vn']?></h3>
 							<p><span class="fa fa-calendar"></span>&nbsp;<?=date('d/m/Y H:i',$value['ngay_dang'])?></p>
-							<p><?=$value['mo_ta_vn']?>&nbsp;&nbsp;[...]</p>
+							<?php 
+                                if(strlen($value['mo_ta_vn']) > 100){
+                                    $trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").'[...]';
+                                        } else {
+                                            $trim_string = $value['mo_ta_vn'];
+                                        }
+                                ?>
+							<p><?=$trim_string?></p>
 						</a>
 					</div>
 				</div>
