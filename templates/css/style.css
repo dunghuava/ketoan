@@ -32,6 +32,8 @@
     font-family: 'uvnkythuat';
     src: url('../fonts/uvnkythuat.ttf');
 }
+
+
 .body-size{
 	max-width:768px;
 }
@@ -663,7 +665,7 @@ section a{
 	padding: 15px;
 }
 .content_project .title{
-	font-size: 18px;
+	font-size: 20px!important;
 	margin-top: 0px;
 }
 .content_project .extends li{

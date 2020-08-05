@@ -93,13 +93,10 @@
 			</td>
 			<td style="text-align:left">
 				<?php 
-
-				$district_format = explode(',', $items[$i]['id_district']);
-				foreach ($district_format as $district) {
-					$query2 = $d->simple_fetch("select * from #_district where district_id={$district}");	
-					echo $query2['district_name'].'<br>' ;
-				}
-					
+					$query = $d->simple_fetch("select * from #_district where district_id={$items[$i]['id_district']}");	
+					// $menu_parent = $d->simple_fetch("select * from #_category where id={$query['id_loai']}");						
+					// $str = ""; for($k=0;$k<$query['level'];$k++) { $str.=$menu_parent['ten_vn']." / "; }	
+					echo $query['district_name'] 
 				
 				?>
 			</td>

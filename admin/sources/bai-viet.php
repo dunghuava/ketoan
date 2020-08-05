@@ -53,9 +53,10 @@ function showdulieu(){
 				$items = $d->o_fet("select * from #_tintuc order by so_thu_tu asc, ngay_dang desc, id desc");
 			}else{
 			    $loaitin = $d->o_fet("select id, id_loai from #_category where hien_thi = 1");
-			    $id_loai = show_menu_tintuc_hd($loaitin,@addslashes($_GET['loaitin']));
-			    $id_loai = trim($id_loai,',');
-			    $id_loai = @addslashes($_GET['loaitin']) .','.$id_loai;
+			    // $id_loai = show_menu_tintuc_hd($loaitin,@addslashes($_GET['loaitin']));
+			    // $id_loai = trim($id_loai,',');
+			    // $id_loai = @addslashes($_GET['loaitin']) .','.$id_loai;
+			    $id_loai = $_GET['loaitin'];
 			    $items = $d->o_fet("select * from #_tintuc where FIND_IN_SET(id_loai,'$id_loai') <> 0 order by so_thu_tu asc, ngay_dang desc, id desc");
 			}
 		}else if(isset($_GET['seach'])){
@@ -152,13 +153,20 @@ function luudulieu(){
 		$data['hien_thi'] = isset($_POST['hien_thi']) ? 1 : 0;
 		//$data['noi_bat'] = isset($_POST['noi_bat']) ? 1 : 0;
 		if(!empty($_POST['hen_ngay'])){
-			$str_ngay = $_POST['hen_ngay'].' '.$_POST['hen_gio'].':0:0';
+
+			if ($_POST['hen_gio']<10) {
+				$time = '0.'.$_POST['hen_gio'];
+			}else{
+				$time = $_POST['hen_gio'];
+			}
+
+			// $str_ngay = $_POST['hen_ngay'].' '.$_POST['hen_gio'].':0:0';
 			$edate=strtotime($_POST['hen_ngay']); 
 			$edate=date("Y-m-d",$edate);
-			$hen_ngay_dang = strtotime($str_ngay);
+			// $hen_ngay_dang = strtotime($str_ngay);
 			$data['hen_ngay'] =$edate;
 			$data['hen_gio'] = addslashes($_POST['hen_gio']);
-			$data['hen_ngay_dang'] = $hen_ngay_dang;
+			$data['hen_ngay_dang'] = date("Ymd",strtotime($_POST['hen_ngay'])).$time;
 		}
 
 		$d->setTable('#_tintuc');
@@ -306,13 +314,19 @@ function luudulieu(){
 		$data['hien_thi'] = isset($_POST['hien_thi']) ? 1 : 0;
 		//$data['noi_bat'] = isset($_POST['noi_bat']) ? 1 : 0;
 		if(!empty($_POST['hen_ngay'])){
-			$str_ngay = $_POST['hen_ngay'].' '.$_POST['hen_gio'].':0:0';
+			if ($_POST['hen_gio']<10) {
+				$time = '0.'.$_POST['hen_gio'];
+			}else{
+				$time = $_POST['hen_gio'];
+			}
+			$str_ngay = $_POST['hen_ngay'].' '.$_POST['hen_gio'];
+			// print_r($_POST['hen_ngay']);die();
 			$edate=strtotime($_POST['hen_ngay']); 
 			$edate=date("Y-m-d",$edate);
 			$hen_ngay_dang = strtotime($str_ngay);
 			$data['hen_ngay'] =$edate;
 			$data['hen_gio'] = addslashes($_POST['hen_gio']);
-			$data['hen_ngay_dang'] = $hen_ngay_dang;
+			$data['hen_ngay_dang'] = date("Ymd",strtotime($_POST['hen_ngay'])).$time;
 		}
 		// var_dump($data['hen_ngay']); die;
 		$d->setTable('#_tintuc');

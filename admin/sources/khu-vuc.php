@@ -135,10 +135,10 @@ function luudulieu(){
 
 		$data['id_loai'] = addslashes($_POST['id_loai']);
 		
-		$data['id_district'] = implode(',',$_POST['quan']);
+		$data['id_district'] = $_POST['id_district'];
 		$data['hien_thi'] = 1;
 		$data['so_thu_tu'] = 0;
-		$d->o_que("delete from #_show_region where id_loai = '".$_POST['id_loai']."'");
+		$d->o_que("delete from #_show_region where id_loai = '".$_POST['id_loai']."' and id_district = '".$_POST['id_district']."'");
 		$d->setTable('#_show_region');
 		if($idsp = $d->insert($data))
 		{
@@ -225,14 +225,13 @@ function luudulieu(){
 		
 		$data['id_loai'] = addslashes($_POST['id_loai']);
 		
-		$data['id_district'] = implode(',',$_POST['quan']);
+		$data['id_district'] = $_POST['id_district'];
 		$data['hien_thi'] = 1;
 		$data['so_thu_tu'] = 0;
 
-		// print_r($data);die();
 		
 		// var_dump($data['hen_ngay']); die;
-		$d->o_que("delete from #_show_region where id_loai = '".$_POST['id_loai']."'");
+		$d->o_que("delete from #_show_region where id_loai = '".$_POST['id_loai']."' and id_district = '".$_POST['id_district']."'");
 		$d->setTable('#_show_region');
 		if($idsp = $d->insert($data))
 		{

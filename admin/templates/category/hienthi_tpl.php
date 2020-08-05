@@ -109,7 +109,7 @@
 			</td>
 			<td>
 				<a href="index.php?p=category&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>" class="text-danger" title="Sửa"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;&nbsp;
-				<a href="index.php?p=category&a=delete&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a>
+				<!-- <a href="index.php?p=category&a=delete&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a> -->
 			</td>
 		</tr>
 		<!-- // cap 1 -->
@@ -157,7 +157,7 @@
 			</td>
 			<td>
 				<a href="index.php?p=category&a=edit&id=<?=$child_items[$j]['id']?>&page=<?=@$_GET['page']?>" class="text-danger" title="Sửa"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;&nbsp;
-				<a href="index.php?p=category&a=delete&id=<?=$child_items[$j]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a>
+				<!-- <a href="index.php?p=category&a=delete&id=<?=$child_items[$j]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a> -->
 			</td>
 		</tr>
 		<!-- cap 2 -->
@@ -202,7 +202,7 @@
 			</td>
 			<td>
 				<a href="index.php?p=category&a=edit&id=<?=$child_items_2[$k]['id']?>&page=<?=@$_GET['page']?>" class="text-danger" title="Sửa"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;&nbsp;
-				<a href="index.php?p=category&a=delete&id=<?=$child_items_2[$k]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a>
+				<!-- <a href="index.php?p=category&a=delete&id=<?=$child_items_2[$k]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a> -->
 			</td>
 		</tr>
 		<!-- cap 3 -->
@@ -245,7 +245,7 @@
 			</td>
 			<td>
 				<a href="index.php?p=category&a=edit&id=<?=$child_items_3[$m]['id']?>&page=<?=@$_GET['page']?>" class="text-danger" title="Sửa"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;&nbsp;
-				<a href="index.php?p=category&a=delete&id=<?=$child_items_3[$m]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a>
+				<!-- <a href="index.php?p=category&a=delete&id=<?=$child_items_3[$m]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a> -->
 			</td>
 		</tr>
         
@@ -286,7 +286,7 @@
 			</td>
 			<td>
 				<a href="index.php?p=category&a=edit&id=<?=$child_items_4[$l]['id']?>&page=<?=@$_GET['page']?>" class="text-danger" title="Sửa"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;&nbsp;
-				<a href="index.php?p=category&a=delete&id=<?=$child_items_4[$l]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a>
+				<!-- <a href="index.php?p=category&a=delete&id=<?=$child_items_4[$l]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa"><i class="glyphicon glyphicon-remove"></i></a> -->
 			</td>
 		</tr>
 

@@ -63,7 +63,7 @@
 	<thead>
 		<tr>
 			<th style="width:3%"><input  type="checkbox" name="chk" value="0" class=" chk_box checkall" id="check_all"></th>
-			<th style="width:3%">STT</th>
+			<!-- <th style="width:3%">STT</th> -->
 			<!-- <th style="width:8%">Mã SP</th> -->
 			<th style="width:18%; text-align:left">Danh mục</th>
 			<th style="width:25%; text-align:left">Tiêu đề</th>
@@ -83,7 +83,7 @@
 			<td>
 				<input class="chk_box checkall" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
 			</td>
-			<td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_duan" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td>
+			<!-- <td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_duan" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td> -->
 			
 			<!-- <td><?=$items[$i]['ma_sp']?></td> -->
 			<td style="text-align:left">

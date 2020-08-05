@@ -10,6 +10,7 @@
 		width: 500px!important;
 	}
 </style>
+<?php print_r($items); ?>
 <ol class="breadcrumb">
   <li><a href="<?=urladmin ?>"><i class="glyphicon glyphicon-home"></i> Trang chủ</a></li>
    <li class="active"><a href="<?=urladmin ?>index.php">Danh mục</a></li>
@@ -93,15 +94,11 @@
 					Chọn khu vực hiển thị:
 				</td>
 				<td class="td_right">
-					<select class="tags-field" name="quan[]" id="quan" class="input width400 form-control" style="border-radius:4px" multiple="multiple" required="">
-	    				<!-- <option value="0">Chọn khu vực</option> -->
-
-	    				<?php
-							$region = explode(',', @$items[0]['id_district']);	
-						?>
-
+					<select name="id_district" id="id_district" class="input width400 form-control" style="border-radius:4px" required="">
+						<!-- <?php foreach ($region as $key) { if ($key == $district['district_id']) echo "selected"; } ?> -->
+	    				<option value="0">Chọn khu vực</option>
 	    				<?php foreach ($list_district as $district) {?>
-							<option  <?php foreach ($region as $key) { if ($key == $district['district_id']) echo "selected"; } ?> value="<?php echo $district['district_id'] ?>"><?php echo $district['district_name'] ?></option>
+							<option <?php if (@$items[0]['id_district'] == $district['district_id']) echo "selected"; ?>  value="<?php echo $district['district_id'] ?>"><?php echo $district['district_name'] ?></option>
 						<?php } ?>
 					</select>
 				</td>

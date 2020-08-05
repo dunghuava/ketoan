@@ -3,11 +3,15 @@
 	<div class="container">
 		<div class="text-center">
 			<h3 class="title_main">Dự án nổi bật</h3>
-			<p>Dự án đang cho thuê, chuyển nhượng giá tốt</p>
+			<p style="font-size: 16px">Danh sách các dự án nổi bật, gia tốt</p>
 		</div>
 		<div class="row">
 			<?php
-				$sql= "select * from #_duan where hien_thi=1 order by id desc limit 0,6";
+
+			//loai du an
+			$loai = '1173';
+
+			$sql = "select #_duan.* from #_duan inner join #_category on #_duan.id_loai=#_category.id where #_duan.hien_thi=1 and #_duan.tieu_bieu = 1 and #_category.id_loai = {$loai}   order by #_duan.id desc limit 0,4";
 				$data = $d->o_fet($sql);
 				$col=3;
 				include ('item_project.php') 
@@ -52,11 +56,25 @@
 		<div class="col-md-2"></div>
 		<div class="text-center col-md-8">
 			<h3 class="title_main">Dự án theo khu vực</h3>
-			<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla mollis dapibus nunc, ut rhoncus turpis sodales quis. Integer sit amet mattis quam.</p>
+			<p>Danh sách các khu vực có các dự án nổi bật nhất hiện nay.</p>
 		</div>
 		<div class="col-md-2"></div>
 		<div class="row">
-			<?php for($i=0;$i<6;$i++){ ?>
+
+			<?php
+				$sql1= "select * from #_show_region where id_loai = {$loai}";
+				$list_district = $d->o_fet($sql1);
+
+				// $list_district = $data[0]['id_district'];
+				// $list_district_format = explode(',', $list_district);
+				include ('item_project_region.php'); 
+			?>
+
+
+
+
+
+			<!-- <?php for($i=0;$i<6;$i++){ ?>
 				<div class="col-md-3">
 	                <div class="item-area">
 	                	<a href="" title="">
@@ -70,7 +88,7 @@
 	                	</a>
 	                </div>
                 </div>
-			<?php } ?>
+			<?php } ?> -->
 		</div>
 	</div>
 </section>
@@ -125,8 +143,18 @@
 	}
 </style>
 <?php 
-	$sql = "select * from #_tintuc where hien_thi=1 order by id desc limit 0,4";
-	$data_tintuc = $d->o_fet($sql);
+	$date = date('Ymd');
+    $hours = (int)date("H");
+    $time = $date.$hours;
+
+    $id_loai_tintuc = '1177';
+    // print_r($time);die();
+
+	$sql1 = "select * from #_tintuc where hien_thi=1 and hen_ngay_dang <= $time and id_loai = {$id_loai_tintuc} order by noi_bat desc, id desc limit 0,4";
+	$tintuc_noibat = $d->o_fet($sql1);
+	$sql2 = "select * from #_tintuc where hien_thi=1 and hen_ngay_dang <= $time and id != {$tintuc_noibat[0]['id']} and id_loai = {$id_loai_tintuc} order by id desc limit 0,4";
+	$data_tintuc = $d->o_fet($sql2);
+
 ?>
 <section class="sec-news">
 	<div class="container">
@@ -134,20 +162,20 @@
 			<div class="col-md-2"></div>
 				<div class="text-center col-md-8">
 					<h3 class="title_main">Tin tức</h3>
-					<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla mollis dapibus nunc, ut rhoncus turpis sodales quis. Integer sit amet mattis quam.</p>
+					<p>Danh sách các tin tức mới nhất, nỗi bật nhất.</p>
 				</div>
 			<div class="col-md-2"></div>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="item_new_big img-shine-3">
-					<a style="color:#fff" href="<?=$data_tintuc[0]['alias_vn']?>.html" title="<?=$data_tintuc[0]['ten_vn']?>">
+					<a style="color:#fff" href="<?=$tintuc_noibat[0]['alias_vn']?>.html" title="<?=$data_tintuc[0]['ten_vn']?>">
 						<div class="img_new_big">
-							<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$data_tintuc[0]['hinh_anh']?>&w=800&h=450&zc=0">
+							<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$tintuc_noibat[0]['hinh_anh']?>&w=800&h=450&zc=0">
 						</div>
 						<div class="content_new_big">
-							<h3 class="title"><?=$data_tintuc[0]['ten_vn']?></h3>
-							<p><?=date('d-m-Y',$data_tintuc[0]['ngay_dang'])?></p>
+							<h3 class="title"><?=$tintuc_noibat[0]['ten_vn']?></h3>
+							<p><?=date('d-m-Y',$tintuc_noibat[0]['ngay_dang'])?></p>
 						</div>
 					</a>
 				</div>
@@ -156,7 +184,6 @@
 			<div class="col-md-6">
 				<div class="slick_news_small_">
 					<?php foreach ($data_tintuc as $key => $tin){ 
-						if ($key>0){	
 					?>
 						<div style="display:flex" class="item_news_small img-shine-4">
 							<a style="color: #000;display:flex" href="<?=$tin['alias_vn']?>.html" title="<?=$tin['ten_vn']?>">
@@ -169,7 +196,7 @@
 								</div>
 							</a>
 						</div>
-					<?php } } ?>
+					<?php } ?>
 				</div>
 				<a style="font-size:12px;color:#000" href="<?=URLPATH?>tin-tuc.html">Xem tất cả <span class="fa fa-angle-right"></span></a>
 			</div>

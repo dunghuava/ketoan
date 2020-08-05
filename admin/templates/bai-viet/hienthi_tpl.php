@@ -60,7 +60,7 @@
 	<thead>
 		<tr>
 			<th style="width:3%"><input class="chk_box checkall" type="checkbox" name="chk" value="0"  id="check_all"></th>
-			<th style="width:4%">STT</th>
+			<!-- <th style="width:4%">STT</th> -->
 			<th style="width:17%; text-align:left">Danh mục</th>
 			<th style="width:18%; text-align:left">Bài viết</th>
 			<th style="width:8%">IMG</th>
@@ -77,7 +77,7 @@
 			<td>
 				<input class="chk_box checkall" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
 			</td>
-			<td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_tintuc" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td>
+			<!-- <td><input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_tintuc" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /></td> -->
 
 
 			<td style="text-align:left">
@@ -85,7 +85,7 @@
 					$query = $d->simple_fetch("select * from #_category where id={$items[$i]['id_loai']}");	
 					$menu_parent = $d->simple_fetch("select * from #_category where id={$query['id_loai']}");						
 					$str = ""; for($k=0;$k<$query['level'];$k++) { $str.=$menu_parent['ten_vn']." / "; }	
-					echo $str.$query['ten_vn'] 
+					echo $query['ten_vn'] 
 				
 				?>
 			</td>

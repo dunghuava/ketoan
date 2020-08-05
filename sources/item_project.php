@@ -10,13 +10,23 @@
                             <img class="img_error" src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$value['hinh_anh']?>&w=600&h=420&zc=0" alt="">
                         </div>
                         <div class="content_project">
-                            <h3 class="title"><?=$value['ten_vn']?></h3>
-                            <p class="price">$ 450,000 $777 m<sup>2</sup></p>
+                            <h3 class="title" style="text-align: center;font-size: 20px"><?=$value['ten_vn']?></h3>
+                            <!-- <p class="price">$ 450,000 $777 m<sup>2</sup></p> -->
                             <hr style="margin: 5px">
-                            <div class="extends">
+                            <!-- <div class="extends">
                                 <li>3 phòng ngủ</li>
                                 <li>2 wc</li>
                                 <li>5 chỗ để xe</li>
+                            </div> -->
+                            <div>
+                                <?php 
+                                    if(strlen($value['mo_ta_vn']) > 100){
+                                        $trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").'[...]';
+                                        } else {
+                                            $trim_string = $value['mo_ta_vn'];
+                                        }
+                                ?>
+                                <?=$trim_string?>
                             </div>
                         </div>
                     </a>

@@ -156,7 +156,7 @@ function luudulieu(){
 		$data['des'] = $d->clear(addslashes($_POST['des']));
 		
 		$data['hien_thi'] = isset($_POST['hien_thi']) ? 1 : 0;
-		$data['tieu_bieu'] = isset($_POST['tieu_bieu']) ? 1 : 0;
+		// $data['tieu_bieu'] = isset($_POST['tieu_bieu']) ? 1 : 0;
 
 		$d->reset();
 		$d->setTable('#_duan');
