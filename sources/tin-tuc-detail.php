@@ -25,6 +25,7 @@
 		bottom:-5px;
 		left:0px;
 	}
+	.contents{font-size: 16px}
 </style>
 <div class="hidden-xs">
 	<br><br><br>
@@ -44,6 +45,7 @@
 			<br>
 		</div>
 		<div class="col-md-3">
+		    <br>
 			<h4 class="title_news">Dự án liên quan</h4>
 			<?php foreach ($tin_lienquan as $tin){ ?>
 				<div class="news_relate" style="margin-bottom:10px">
