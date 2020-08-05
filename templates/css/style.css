@@ -640,7 +640,9 @@ min-width: 100%; background: #ebebeb; border: 0px; display: none;}
 	position: absolute;
     z-index: 9999;
     top: 0;
-    left: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 section a{

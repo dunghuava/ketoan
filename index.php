@@ -49,10 +49,7 @@ $exp_cal = explode("?", $exp_cal[0]);
 echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 }
 ?>
-<?php if(strpos($_SERVER['HTTP_HOST'],"phuongnamvina.vn") <> null ) {  ?>
-<!-- <meta name="robots" content="noindex">
-<meta name="googlebot" content="noindex"> -->
-<?php } ?>
+
 <link href="<?=URLPATH."img_data/icon/".$information['favicon'];?>" rel="shortcut icon" type="image/x-icon" />
 <?php include _source."seo.php" ?>
 <link href="<?=URLPATH?>templates/extra/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -78,15 +75,7 @@ echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 <link href="<?=URLPATH?>templates/css/module.css" rel="stylesheet" />
 <link href="<?=URLPATH?>templates/css/responsive.css" rel="stylesheet" />
 <link href="<?=URLPATH?>templates/css/responsive_module.css" rel="stylesheet" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113229990-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-113229990-1');
-</script>
 
 </head>
 <style>
@@ -117,7 +106,7 @@ echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 </style>
 <body class="<?php if($com!='') echo 'module'?>">
 <div class="fback-top"><i class="fa fa-angle-up"></i></div>
-	<div id="container">
+	<div id="container" >
 		<?php 
 			//echo $source;
 			include _source."header.php"; ?>
