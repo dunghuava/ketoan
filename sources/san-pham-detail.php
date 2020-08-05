@@ -114,7 +114,7 @@
 		</div>
 	</div>
 	<div class="content_ct">
-		<div class="container">
+		<div class="container" style="margin-top: 10px">
 			<div class="row">
 				<div class="col-md-9">
 					<div class="extend">
