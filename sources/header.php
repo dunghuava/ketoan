@@ -28,7 +28,7 @@
 </style>
 <header>
     <div class="top-header" id="navbar_fix_top">
-        <div class="container" style="padding:0px">
+        <div class="container">
             <div class="row">
                 <div class="col-md-2 hidden-xs">
                     <div class="logo-top">

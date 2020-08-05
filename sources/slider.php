@@ -91,6 +91,9 @@
     #form_center_top .btn_type:hover{
         background:orange;
     }
+    #form_center_top .btn_type.active{
+        background:orange;
+    }
     .flex{
         display: flex;
     }
@@ -168,17 +171,18 @@
         </div>
     </div>
     <!-- form-search -->
-        <form id="form_center_top" action="" method="get" accept-charset="utf-8">
+        <form id="form_center_top" action="<?=URLPATH?>search" method="get" accept-charset="utf-8">
              <div class="container">
                  <div class="row">
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
                           <div class="flex">
-                              <button type="button" class="btn_type no-right">Dự án</button>
-                              <button type="button" class="btn_type no-right">Cho thuê</button>
-                              <button type="button" class="btn_type">Mua bán</button>
+                              <input id="type_ip" type="hidden" name="type" value="project">
+                              <button onclick="setType('project',this)" type="button" class="btn_type no-right active">Dự án</button>
+                              <button onclick="setType('forent',this)" type="button" class="btn_type no-right">Cho thuê</button>
+                              <button onclick="setType('buying',this)" type="button" class="btn_type">Mua bán</button>
                           </div>
-                         <input placeholder="Nhập địa điểm từ khóa (Ví dụ : Landmark 81)" type="search" name="">
+                         <input placeholder="Nhập địa điểm từ khóa (Ví dụ : Landmark 81)" type="search" name="q">
                          <button class="btn_search" type="submit"><span class="fa fa-search"></span></button>
                      </div>
                       <div class="col-md-2"></div>
@@ -187,3 +191,10 @@
         </form>
     <!-- form-search -->
 </div>
+<script>
+    function setType(type,me){
+        $('#type_ip').val(type);
+        $('.btn_type').removeClass('active');
+        me.classList.add('active');
+    }
+</script>
