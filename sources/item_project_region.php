@@ -1,6 +1,6 @@
-
-<?php foreach ($list_district as $key => $district) {
-	$sql= "select * from #_district where district_id = {$district[0]['id_district']}";
+<?php
+ foreach ($list_district as $key => $district) {
+	$sql= "select * from #_district where district_id = {$district['id_district']}";
 	$info_district = $d->o_fet($sql);
 	if ($key<4) {
 ?>

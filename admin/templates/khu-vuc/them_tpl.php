@@ -10,7 +10,6 @@
 		width: 500px!important;
 	}
 </style>
-<?php print_r($items); ?>
 <ol class="breadcrumb">
   <li><a href="<?=urladmin ?>"><i class="glyphicon glyphicon-home"></i> Trang chủ</a></li>
    <li class="active"><a href="<?=urladmin ?>index.php">Danh mục</a></li>
