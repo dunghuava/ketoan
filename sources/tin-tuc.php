@@ -1,4 +1,6 @@
 <?php
+	error_reporting(1);
+	
 	$loai = $d->simple_fetch("select * from #_category where hien_thi = 1 and alias_{$lang} = '$com'");
 	if(count($loai) == 0) $d->location(URLPATH."404.html");
 	$id_loai = $loai['id'];

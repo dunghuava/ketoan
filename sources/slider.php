@@ -110,6 +110,9 @@
             border-radius: 8px; */
             display:none;
         }
+        .slide{
+            margin-top:75px;
+        }
     }
 </style>
 <div class="slide">
@@ -177,7 +180,6 @@
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
                           <div class="flex">
-                              <input id="type_ip" type="hidden" name="type" value="project">
                               <button onclick="setType('project',this)" type="button" class="btn_type no-right active">Dự án</button>
                               <button onclick="setType('forent',this)" type="button" class="btn_type no-right">Cho thuê</button>
                               <button onclick="setType('buying',this)" type="button" class="btn_type">Mua bán</button>
@@ -193,7 +195,7 @@
 </div>
 <script>
     function setType(type,me){
-        $('#type_ip').val(type);
+        //$('#type_ip').val(type);
         $('.btn_type').removeClass('active');
         me.classList.add('active');
     }

@@ -69,6 +69,7 @@
         .red{ color: red; }
         #login{
             margin-top: 85px;
+            background:#fff;
         }
         @media(max-width: 767px){
             .control-wrap h4{ text-align: center; }
@@ -115,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" id="login-btn" name="login" onclick="return kiem_tra_login()" class="btn btn-block login-btn" value="Login" />
+            <input style="background:#999999;color:#000" type="submit" id="login-btn" name="login" onclick="return kiem_tra_login()" class="btn btn-block login-btn" value="Login" />
         </form>
         <form id="forgotform" class="form-vertical no-padding no-margin hide" action="" />
         <p class="center">Nhập địa chỉ email đã đăng ký với user.</p>

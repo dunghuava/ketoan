@@ -8,7 +8,7 @@
 	$sanpham_extend = $d->o_fet("select * from #_tienich where project_id='".$ctsp[0]['id']."'");
 ?>
 <div class="hidden-xs">
-	<br><br><br>
+	<br><br><br><br>
 </div>
 <div class="title_project">
 	<div class="container">
@@ -245,6 +245,8 @@
 		</div>
 	</div>
 </section>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
 <script>
 	$('.img_error').on('error', function () {
 		$(this).attr('src','<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/icon/noimg.png&w=450&h=350&zc=0')

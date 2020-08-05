@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-2 hidden-xs">
                     <div class="logo-top">
-                        <a data-aos="fade-down" href="<?=URLPATH?>" title="Home">
+                        <a x-data-aos="fade-down" href="<?=URLPATH?>" title="Home">
                             <img src="<?=URLPATH?>img_data/images/<?=@$banner['hinh_anh']?>" alt="banner">
                         </a>
                     </div>

@@ -71,10 +71,10 @@ echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 <link href="<?=URLPATH?>templates/extra/slick/slick.css" rel="stylesheet" />
 <link href="<?=URLPATH?>templates/extra/wow/animate.css" rel="stylesheet" />
 <link href="<?=URLPATH?>templates/css/aos.css" rel="stylesheet" />
-<link href="<?=URLPATH?>templates/css/style.css" rel="stylesheet" />
-<link href="<?=URLPATH?>templates/css/module.css" rel="stylesheet" />
-<link href="<?=URLPATH?>templates/css/responsive.css" rel="stylesheet" />
-<link href="<?=URLPATH?>templates/css/responsive_module.css" rel="stylesheet" />
+<link href="<?=URLPATH?>templates/css/style.css?v=<?=time()?>" rel="stylesheet" />
+<link href="<?=URLPATH?>templates/css/module.css?v=<?=time()?>" rel="stylesheet" />
+<link href="<?=URLPATH?>templates/css/responsive.css?v=<?=time()?>" rel="stylesheet" />
+<link href="<?=URLPATH?>templates/css/responsive_module.css?v=<?=time()?>" rel="stylesheet" />
 
 
 </head>
@@ -111,8 +111,9 @@ echo '<link rel="canonical" href="'.$exp_cal[0].'" />';
 			//echo $source;
 			include _source."header.php"; ?>
 		<?php 
-			if ($source!='tin-tuc-detail' && $source!='san-pham-detail' && $source!='tin-tuc' && $source!='san-pham'){
+			if ($source!='tin-tuc-detail' && $source!='san-pham-detail' && $source!='tin-tuc' && $source!='san-pham' && $source!='search'){
 				$slide=$d->getSlider();
+
 				include _source.'slider.php';
 			}
 		?>

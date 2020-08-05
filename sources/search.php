@@ -1,63 +1,114 @@
 <?php
-	$t = addslashes($_REQUEST['textsearch']);
-	$s_type = 1;
-	$sanpham = $d->o_fet("select * from #_duan where hien_thi = 1 and ten_{$lang} like '%".$t."%' order by id desc");
-	if($s_type == 1){
-		$sanpham = $d->o_fet("select * from #_tintuc where hien_thi = 1 and ten_{$lang} like '%".$t."%' order by id desc");
-	}
-
-	$name = _ketquatimkiem. " (".count($sanpham).")";
-    if(isset($_GET['page']) && !is_numeric(@$_GET['page'])) $d->location(URLPATH."404.html");
-    
-    $curPage = isset($_GET['page']) ? addslashes($_GET['page']) : 1;
-    $url= $d->fullAddress();
-    $maxR=20;
-    $maxP=5;
-    $phantrang=$d->phantrang($sanpham, $url, $curPage, $maxR, $maxP,'classunlink','classlink','page');
-    $sanpham=$phantrang['source'];
-
+	$q	 ='';
+	$and ='';
+	$url = $d->fullAddress();
+	$url_param = substr($url,strpos($url,'?')+1);
+	$url_param=explode('=',$url_param);
+	$q=$url_param[1];
+	$sql_search = "select id,ten_vn,hinh_anh,alias_vn,mo_ta_vn from #_duan where ten_vn like '%".$q."%' '".$and."' order by id desc";
+	$data = $d->o_fet($sql_search);
 ?>
-<section>	
-	<div class="container bg-white">
-		<div class="row10">			
-			<?php include "left.php"; ?>
-			<div class="col-md-9 plr10">
-				<div class="page-title">
-					<div class="col-md-12 plr0">
-						<ul class="breadcrumb">
-							<li><a href="<?=URLPATH ?>" title="<?=_trangchu?>"><i class="fa fa-home"></i></a></li>
-							<li><a title="<?=_search?>"><?=_search?></a></li>
-						</ul>
-					</div>
-				</div>	
-				<h4 class="title-module"><span><?=$name?></span></h4>
-				<div class="clearfix"></div>
-				<div class="box-item module row10">
-					<?php if($s_type == 1){ ?>
-						<?php foreach ($sanpham  as $i => $item) { ?>					
-							<div class="item-content-row" >
-								<div class="img">
-									<a href="<?=URLPATH.$item['alias_'.$lang]?>.html" title="<?=@$item['ten_'.$lang] ?>">
-									<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$item['hinh_anh']?>&w=150&h=120" alt="<?=@$item['ten_'.$lang] ?>" onerror="this.src='<?=URLPATH ?>templates/error/error.jpg';">
-									</a>
-								</div>
-								<div class="content">
-									<h3 class="name"><a href="<?=URLPATH.$item['alias_'.$lang] ?>.html" title="<?=@$item['ten_'.$lang] ?>"><?=@$item['ten_'.$lang] ?></a></h3>
-									<div class="quote hidden-xs"><?=$d->catchuoi_new(strip_tags($item['mo_ta_'.$lang]),350) ?></div>
-								</div>
-							</div>
-						<?php } ?>
-					<?php } else { ?>
-						<?php include("ct_product.php"); ?>	
-					<?php } ?>										
+
+<style>
+	.nav_search_top{
+		width:100%;
+		padding:5px 0px;
+		border-bottom:1px solid #cccccc;
+		border-top:1px solid #cccccc;
+		background:#F3F4F7;
+	}
+	.mg0{margin:0px;}
+	#frm_search{
+		border:1px solid #cdcdcd;
+		width:fit-content;
+		padding-right:5px;
+	}
+	#frm_search *{
+		border:0px;
+		outline:none !important;
+		border-radius:0px;
+		box-shadow:none;
+		background:#FFFFFF;
+		margin-right:-4px;
+	}
+	#full_width{
+		width:99.5%;
+		margin:auto;
+	}
+	.plr0{
+		padding-left:0px !important;
+		padding-right:0px !important;
+	}
+</style>
+<div class="hidden-xs">
+	<br><br><br><br>
+</div>
+<section class="sec-search">
+	<div id="full_width" class="container">
+		<div class="row">
+			<div class="col-md-12 plr0">
+				<div class="nav_search_top">
+					<form id="frm_search" class="form-group form-inline mg0" action="" method="post">
+						<select name="" id="" class="form-control">
+							<option value="">Dự án</option>
+							<option value="">Cho thuê</option>
+							<option value="">Mua bán</option>
+						</select>
+						<input style="width:400px" type="search" class="form-control" value="<?=$q?>" placeholder="Tìm kiếm dự án">
+						<button style="color:#5F8640" class="btn btn-primary form-control"><span class="fa fa-search"></span></button>
+					</form>
 				</div>
-				<div class="clearfix"></div>
-				<?php if(@$phantrang['paging'] <> ''){ ?>
-					<div class="pagination-page">
-						<?php echo @$phantrang['paging']?>
-					</div>
-				<?php } ?>	
-			</div>	
-		</div>		
-	</div>	
+			</div>
+			<div class="col-md-7" style="height:450px;overflow-y:scroll"><br>
+				<div class="row">
+					<?php
+						$col=6;
+						include ('item_project.php') 
+					?>
+				</div>
+			</div>
+			<div class="col-md-5 plr0">
+				<!-- maps -->
+				<div id="googleMap" style="width:100%;height:450px;"></div>
+				<script>
+					var lat = 100;
+					var lng  = 100;
+					function initMap() {
+						var myLatLng = {lat: lat, lng: lng};
+
+						var map = new google.maps.Map(document.getElementById('googleMap'), {
+							zoom: 15,
+							center: myLatLng,
+						});
+						var marker = new google.maps.Marker({
+							position: myLatLng,
+							map: map,
+						});
+						marker.addListener("click", () => {
+							infowindow.open(map, marker);
+						});
+					}
+				</script>
+				<!-- maps -->
+			</div>
+		</div>
+	</div>
 </section>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
+<script>
+	$('#frm_search').submit(function (e) { 
+		e.preventDefault();
+		
+	});
+	$(document).ready(function () {
+		$('#navbar_fix_top').addClass('sticky');
+		$('#slide_project_img').slick({
+			dots: false,
+			autoplay:true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+		});
+	});
+	window.onscroll = function() {}
+</script>

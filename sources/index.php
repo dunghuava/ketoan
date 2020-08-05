@@ -152,7 +152,7 @@
 
 	$sql1 = "select * from #_tintuc where hien_thi=1 and hen_ngay_dang <= $time and id_loai = {$id_loai_tintuc} order by noi_bat desc, id desc limit 0,4";
 	$tintuc_noibat = $d->o_fet($sql1);
-	$sql2 = "select * from #_tintuc where hien_thi=1 and hen_ngay_dang <= $time and id != {$tintuc_noibat[0]['id']} and id_loai = {$id_loai_tintuc} order by id desc limit 0,4";
+	$sql2 = "select * from #_tintuc where hien_thi=1 and hen_ngay_dang <= $time and id != {$tintuc_noibat[0]['id']} and id_loai = {$id_loai_tintuc} order by id desc limit 0,3";
 	$data_tintuc = $d->o_fet($sql2);
 
 ?>

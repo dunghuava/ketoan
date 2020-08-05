@@ -28,7 +28,7 @@ RewriteRule ^404/$ index.php?p=404 [L]
 RewriteRule ^(vn)$ index.php?com=&lang=vn [L]
 RewriteRule ^(us)$ index.php?com=&lang=us [L]
 
-RewriteRule ^([a-z]+)/$ index.php?com=$1&type=$1&q=$2 [L]
+RewriteRule ^([a-z]+)$ index.php?com=$1
 RewriteRule ^([a-zA-Z0-9_-]+).html$	index.php?com=$1 [L]
 RewriteRule ^([a-zA-Z0-9_-]+).html&page=([0-9]+)$ index.php?com=$1&page=$2 [L]
 

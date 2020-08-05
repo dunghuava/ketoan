@@ -79,13 +79,8 @@
 			<!-- <div class="t_index"> -->
 				<div class="login-header">
 			        <div class="alert alert-success alert-custom">
-			            <h3>Nếu cần hỗ trợ kỹ thuật, quý khách vui lòng thực hiện:</h3>
-			            <div class="huong-dan">
-			                <ul>
-			                    <li>Gửi yêu cầu vào email: <span class="red">kythuat@phuongnamvina.vn</span></li>
-			                    <li>Gọi số Hotline HTKH: <span class="red">0915 101 017, 0912 817 117</span></li>
-			                </ul>
-			            </div>
+                            <h1>myAdmin CPannel</h1>
+                            <p></p>
 			        </div>
 			    </div>
 			<!-- </div> -->
