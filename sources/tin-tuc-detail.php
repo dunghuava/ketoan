@@ -46,7 +46,7 @@
 		</div>
 		<div class="col-md-3">
 		    <br>
-			<h4 class="title_news">Dự án liên quan</h4>
+			<h4 class="title_news">Tin tức liên quan</h4>
 			<?php foreach ($tin_lienquan as $tin){ ?>
 				<div class="news_relate" style="margin-bottom:10px">
 					<a style="color:#000" href="<?=$tin['alias_vn']?>.html" title="<?=$tin['ten_vn']?>">

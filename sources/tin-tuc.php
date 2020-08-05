@@ -56,12 +56,14 @@
 	</div>
 </section>
 <?php 
-	if ($id_sub!=''){
-		$arr_id=$id_sub;
-	}else{
-		$arr_id=$id_loai;
-	}
-	$sql= "select * from #_tintuc where hien_thi=1 and id_loai in ($arr_id) order by id asc";
+	// if ($id_sub!=''){
+	// 	$arr_id=$id_sub;
+	// }else{
+	// 	$arr_id=$id_loai;
+	// }
+	// $sql= "select * from #_tintuc where hien_thi=1 and id_loai in ($arr_id) order by id asc";
+
+	$sql= "select * from #_tintuc where hien_thi=1 and id_loai = {$id_loai} order by id desc";
 	$data = $d->o_fet($sql);
 
     if(isset($_GET['page']) && !is_numeric(@$_GET['page'])) $d->location(URLPATH."404.html");
