@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="text-center">
 			<h3 class="title_main">Dự án nổi bật</h3>
-			<p>Danh sách các dự án nổi bật, gia tốt</p>
+			<p>Danh sách các dự án nổi bật, giá tốt nhất hiện nay.</p>
 		</div>
 		<div class="row">
 			<?php
@@ -162,7 +162,7 @@
 			<div class="col-md-2"></div>
 				<div class="text-center col-md-8">
 					<h3 class="title_main">Tin tức</h3>
-					<p>Danh sách các tin tức mới nhất, nỗi bật nhất.</p>
+					<p>Danh sách các tin tức mới nhất, nổi bật nhất.</p>
 				</div>
 			<div class="col-md-2"></div>
 		</div>
