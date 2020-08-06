@@ -13,7 +13,7 @@
 
 			$sql = "select #_duan.* from #_duan inner join #_category on #_duan.id_loai=#_category.id where #_duan.hien_thi=1 and #_duan.tieu_bieu = 1 and #_category.id_loai = {$loai}   order by #_duan.id desc limit 0,6";
 				$data = $d->o_fet($sql);
-				$col=4;
+				$col=3;
 				include ('item_project.php') 
 			?>
 		</div>
