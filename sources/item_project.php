@@ -11,13 +11,7 @@
                         </div>
                         <div class="content_project">
                             <h3 class="title" style="text-align: center;font-size: 20px"><?=$value['ten_vn']?></h3>
-                            <!-- <p class="price">$ 450,000 $777 m<sup>2</sup></p> -->
                             <hr style="margin: 5px">
-                            <!-- <div class="extends">
-                                <li>3 phòng ngủ</li>
-                                <li>2 wc</li>
-                                <li>5 chỗ để xe</li>
-                            </div> -->
                             <div>
                                 <?php 
                                     if(strlen($value['mo_ta_vn']) > 100){

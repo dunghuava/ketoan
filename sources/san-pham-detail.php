@@ -6,6 +6,7 @@
 	$sanpham = $d->o_fet("select * from #_duan where hien_thi = 1  and id <> '".@$ctsp[0]['id']."' and id_loai = '".@$ctsp[0]['id_loai']."' order by id desc limit 0,16");
 	$hinh_anh_sp = $d->o_fet("select * from #_duan_hinhanh where id_sp = '".@$ctsp[0]['id']."' order by id desc");
 	$sanpham_extend = $d->o_fet("select * from #_tienich where project_id='".$ctsp[0]['id']."'");
+	$sanpham_lancan = $d->o_fet("select * from #_duan where id_loai='".$ctsp[0]['id_loai']."' and id!='".$ctsp[0]['id']."' ");
 ?>
 <div class="hidden-xs">
 	<br><br><br><br>
@@ -242,6 +243,38 @@
 						</div>
 						</div>
 					<!-- tab -->
+					<!-- Dự án lân cận -->
+					<h4><b>Dự án lân cận</b></h4>
+					<div id="slider_project_nearlest">
+						<?php 
+							foreach ($sanpham_lancan as $value){
+								?>
+								<div class="item-project img-shine-4">
+									<a style="color: #000" href="<?=URLPATH.$value['alias_vn']?>.html" title="<?=$value['ten_vn']?>">
+										<div class="img_project img-shine-3">
+											<img class="img_error" src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$value['hinh_anh']?>&w=600&h=420&zc=0" alt="">
+										</div>
+										<div class="content_project">
+											<h3 class="title" style="text-align: center;font-size: 20px"><?=$value['ten_vn']?></h3>
+											<hr style="margin: 5px">
+											<div>
+												<?php 
+													if(strlen($value['mo_ta_vn']) > 100){
+														$trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").'[...]';
+														} else {
+															$trim_string = $value['mo_ta_vn'];
+														}
+												?>
+												<?=$trim_string?>
+											</div>
+										</div>
+									</a>
+								</div>
+								<?php
+							}
+						?>
+					</div>
+					<!-- Dự án lân cận -->
 				</div>
 				<div class="col-md-3">
 					<div action="" id="form-contact">
@@ -274,6 +307,12 @@
 	$(document).ready(function () {
 		$('#navbar_fix_top').addClass('sticky');
 		$('#slide_project_img').slick({
+			dots: false,
+			autoplay:true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+		});
+		$('#slider_project_nearlest').slick({
 			dots: false,
 			autoplay:true,
 			slidesToShow: 3,
