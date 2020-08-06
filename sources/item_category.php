@@ -1,10 +1,21 @@
 <style>
 	.item_category .title_cate{
-		font-size:18px;
-		margin:10px 0px;
+		font-size: 15px;
+		margin: 10px 0px;
+		height: 16px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		font-weight: bold;
 	}
 	.item_category img{
 		border-radius:8px;
+	}
+	.item_category .title_des{
+		height: 40px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: -webkit-fill-available;
 	}
 </style>
 <div class="container">
@@ -25,12 +36,12 @@
 							<p><span class="fa fa-calendar"></span>&nbsp;<?=date('d/m/Y H:i',$value['ngay_dang'])?></p>
 							<?php 
                                 if(strlen($value['mo_ta_vn']) > 100){
-                                    $trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").'[...]';
+                                    $trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").' [...]';
                                         } else {
                                             $trim_string = $value['mo_ta_vn'];
                                         }
                                 ?>
-							<p><?=$trim_string?></p>
+							<p class="title_des"><?=$trim_string?></p>
 						</a>
 					</div>
 				</div>
