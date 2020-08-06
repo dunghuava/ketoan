@@ -1,11 +1,10 @@
 <style>
 	.item_category .title_cate{
-		font-size: 15px;
+		font-size: 18px;
 		margin: 10px 0px;
-		height: 16px;
+		height: 38px;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		white-space: nowrap;
 		font-weight: bold;
 	}
 	.item_category img{
@@ -35,8 +34,8 @@
 							<h3 class="title_cate"><?=$value['ten_vn']?></h3>
 							<p><span class="fa fa-calendar"></span>&nbsp;<?=date('d/m/Y H:i',$value['ngay_dang'])?></p>
 							<?php 
-                                if(strlen($value['mo_ta_vn']) > 100){
-                                    $trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").' [...]';
+                                if(strlen($value['mo_ta_vn']) > 70){
+                                    $trim_string = mb_substr($value['mo_ta_vn'], 0, 70,"UTF-8").' [...]';
                                         } else {
                                             $trim_string = $value['mo_ta_vn'];
                                         }

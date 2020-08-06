@@ -244,6 +244,8 @@
 						</div>
 					<!-- tab -->
 					<!-- Dự án lân cận -->
+					<br>
+				<?php if (!empty($sanpham_lancan)) {?>
 					<h4><b>Dự án lân cận</b></h4><hr>
 					<div id="slider_project_nearlest">
 						<?php 
@@ -274,6 +276,7 @@
 							}
 						?>
 					</div>
+				<?php } ?>
 					<!-- Dự án lân cận -->
 				</div>
 				<div class="col-md-3">

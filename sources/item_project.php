@@ -1,11 +1,10 @@
 <style>
     .item-project .title{
-		font-size: 15px !important;
+		font-size: 18px !important;
 		margin: 0px 0px;
-		height: 16px;
+		height: 38px;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		white-space: nowrap;
 		font-weight: bold;
     }
     .item-project .des_prj{
@@ -30,8 +29,8 @@
                             <hr style="margin: 5px">
                             <div class="des_prj">
                                 <?php 
-                                    if(strlen($value['mo_ta_vn']) > 100){
-                                        $trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").' [...]';
+                                    if(strlen($value['mo_ta_vn']) > 70){
+                                        $trim_string = mb_substr($value['mo_ta_vn'], 0, 70,"UTF-8").' [...]';
                                         } else {
                                             $trim_string = $value['mo_ta_vn'];
                                         }
