@@ -2,6 +2,8 @@
  foreach ($list_district as $key => $district) {
 	$sql= "select * from #_district where district_id = {$district['id_district']}";
 	$info_district = $d->o_fet($sql);
+	$sql2= "select * from #_duan where district_id = {$district['id_district']}";
+	$list_project = $d->o_fet($sql2);
 	if ($key<4) {
 ?>
 	<div class="col-md-3">
@@ -12,7 +14,7 @@
 				</div>
 				<div class="content_area">
 					<h3 class="title_area"><?=@$info_district[0]['district_name']?></h3>
-					<p>4 Dự án</p>
+					<p><?php echo count($list_project) ?> Dự án</p>
 				</div>
 			</a>
 		</div>
