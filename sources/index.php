@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="text-center">
 			<h3 class="title_main">Dự án nổi bật</h3>
-			<p style="font-size: 16px">Danh sách các dự án nổi bật, gia tốt</p>
+			<p>Danh sách các dự án nổi bật, gia tốt</p>
 		</div>
 		<div class="row">
 			<?php
@@ -11,9 +11,9 @@
 			//loai du an
 			$loai = '1173';
 
-			$sql = "select #_duan.* from #_duan inner join #_category on #_duan.id_loai=#_category.id where #_duan.hien_thi=1 and #_duan.tieu_bieu = 1 and #_category.id_loai = {$loai}   order by #_duan.id desc limit 0,4";
+			$sql = "select #_duan.* from #_duan inner join #_category on #_duan.id_loai=#_category.id where #_duan.hien_thi=1 and #_duan.tieu_bieu = 1 and #_category.id_loai = {$loai}   order by #_duan.id desc limit 0,6";
 				$data = $d->o_fet($sql);
-				$col=3;
+				$col=4;
 				include ('item_project.php') 
 			?>
 		</div>
@@ -198,7 +198,7 @@
 						</div>
 					<?php } ?>
 				</div>
-				<a style="font-size:12px;color:#000" href="<?=URLPATH?>tin-tuc.html">Xem tất cả <span class="fa fa-angle-right"></span></a>
+				<a style="color:#000" href="<?=URLPATH?>tin-tuc.html">Xem tất cả <span class="fa fa-angle-right"></span></a>
 			</div>
 		</div>
 	</div>

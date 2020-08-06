@@ -34,6 +34,7 @@
 }
 
 
+
 .body-size{
 	max-width:768px;
 }
@@ -435,6 +436,7 @@ h3.title-contact { text-transform: uppercase; color: #1e3463; font-family: 'Robo
 
 body{
 	font-family: 'Arial';
+	font-size: 16px;
 }
 header{
 	padding:0;
@@ -636,7 +638,7 @@ min-width: 100%; background: #ebebeb; border: 0px; display: none;}
 	float: left;
 	margin:0;
 	padding:10px 0;
-	font-size:14px;
+	font-size:16px;
 }
 .top-header{
 	position: absolute;
@@ -1209,3 +1211,7 @@ border-radius: 50%; background: #fff; color: #000; z-index: 1; }
 }
 .sub-menu li:first-child a{color: #fff;}
 .item-dm .img{margin: auto;}
+
+.dropdown-menu>li>a {
+    font-size: 16px;
+}
