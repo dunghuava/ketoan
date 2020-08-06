@@ -1,3 +1,19 @@
+<style>
+    .item-project .title{
+		font-size: 15px !important;
+		margin: 0px 0px;
+		height: 16px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		font-weight: bold;
+    }
+    .item-project .des_prj{
+        height: 65px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 <?php 
     if (!empty($data))
     {
@@ -10,12 +26,12 @@
                             <img class="img_error" src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$value['hinh_anh']?>&w=600&h=420&zc=0" alt="">
                         </div>
                         <div class="content_project">
-                            <h3 class="title" style="text-align: center;font-size: 20px"><?=$value['ten_vn']?></h3>
+                            <h3 class="title" style="font-size: 16px"><?=$value['ten_vn']?></h3>
                             <hr style="margin: 5px">
-                            <div>
+                            <div class="des_prj">
                                 <?php 
                                     if(strlen($value['mo_ta_vn']) > 100){
-                                        $trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").'[...]';
+                                        $trim_string = mb_substr($value['mo_ta_vn'], 0, 100,"UTF-8").' [...]';
                                         } else {
                                             $trim_string = $value['mo_ta_vn'];
                                         }

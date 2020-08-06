@@ -244,7 +244,7 @@
 						</div>
 					<!-- tab -->
 					<!-- Dự án lân cận -->
-					<h4><b>Dự án lân cận</b></h4>
+					<h4><b>Dự án lân cận</b></h4><hr>
 					<div id="slider_project_nearlest">
 						<?php 
 							foreach ($sanpham_lancan as $value){
