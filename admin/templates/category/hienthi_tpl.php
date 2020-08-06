@@ -54,7 +54,7 @@
 	<thead>
 		<tr>
 			<!-- <th style="width:3%"><input class="chk_box checkall" type="checkbox" name="chk" value="0"  id="check_all"></th> -->
-			<!-- <th style="width:5%">STT</th> -->
+			<th style="width:5%">STT</th>
 			<th style="width:40%; text-align:left">Danh mục</th>
 			<th style="width:8%">Hình ảnh</th>
 			<th style="width:8%">Loại</th>
@@ -71,9 +71,9 @@
 			<!-- <td>
 				<input class="chk_box" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
 			</td> -->
-			<!-- <td>
-<input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_category" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" />
-            </td> -->
+			<td>
+<!-- <input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_category" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /> -->
+            </td>
 			
 			<td style=" text-align:left">
 				<a href="index.php?p=category&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>"><?=$items[$i]['ten_vn']?></a> 
@@ -123,9 +123,9 @@
 			<!-- <td>
 				<input type="checkbox" class="chk_box" name="chk_child[]" value="<?=$child_items[$j]['id']?>">
 			</td> -->
-			<!-- <td>
+			<td>
                 <input type="number" value="<?=$child_items[$j]['so_thu_tu']?>" class="a_stt" data-table="#_category" data-col="so_thu_tu" data-id="<?=$child_items[$j]['id']?>" />
-			</td> -->
+			</td>
 			<td style="text-align:left">
 				<a style="padding-left:15px" href="index.php?p=category&a=edit&id=<?=$child_items[$j]['id']?>&page=<?=@$_GET['page']?>">|____ <?=$child_items[$j]['ten_vn']?></a>
 				<!--br/>
