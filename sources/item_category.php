@@ -11,7 +11,7 @@
 		border-radius:8px;
 	}
 	.item_category .title_des{
-		height: 40px;
+		height: 80px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		width: -webkit-fill-available;
