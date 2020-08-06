@@ -227,7 +227,7 @@
 							<div class="panel-heading">
 							<h4 class="panel-title">
 								<a data-toggle="collapse" data-parent="#accordion" href="#building">
-								Tòa nhà</a>
+								Địa điểm lân cận</a>
 							</h4>
 							</div>
 							<div id="building" class="panel-collapse collapse">

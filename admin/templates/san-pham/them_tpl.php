@@ -213,7 +213,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="td_left">Tòa nhà</td>
+							<td class="td_left">Địa điểm lân cận</td>
 							<td class="td_right">
 								<select multiple="multiple" name="project_building[]" id="project_building" class="input width400 form-control tags-field">
 									<?php
