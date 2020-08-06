@@ -26,14 +26,34 @@
 		<img class="img_error" src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$ctsp[0]['hinh_anh']?>&w=450&h=350&zc=0">
 	</div>
 	<?php 
-		foreach ($hinh_anh_sp as $ha){
-			?>
+		if (count($hinh_anh_sp) >= 2 ) {
+			foreach ($hinh_anh_sp as $ha){
+	?>
 				<div class="item_slider">
 					<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$ha['hinh_anh']?>&w=450&h=350&zc=0">
 				</div>
-			<?php
-		}
+	<?php
+			}
+		}else{
+			if (count($hinh_anh_sp) == 1) {
 	?>
+				<div class="item_slider">
+					<img src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$hinh_anh_sp[0]['hinh_anh']?>&w=450&h=350&zc=0">
+				</div>
+				<div class="item_slider">
+					<img class="img_error" src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$ctsp[0]['hinh_anh']?>&w=450&h=350&zc=0">
+				</div>
+	<?php 
+			}else{ 
+	?>
+				<div class="item_slider">
+					<img class="img_error" src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$ctsp[0]['hinh_anh']?>&w=450&h=350&zc=0">
+				</div>
+				<div class="item_slider">
+					<img class="img_error" src="<?=URLPATH ?>thumb.php?src=<?=URLPATH ?>img_data/images/<?=$ctsp[0]['hinh_anh']?>&w=450&h=350&zc=0">
+				</div>
+
+	<?php } } ?>
 	</div>
 </section>
 
