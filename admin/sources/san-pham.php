@@ -8,7 +8,6 @@ switch($a){
 		$template = @$_REQUEST['p']."/hienthi";
 		break;
 	case "add":
-		$list_province=getlistProvince();
 		showdulieu();
 		$template = @$_REQUEST['p']."/them";
 		break;
@@ -54,24 +53,24 @@ function showdulieu(){
 		if(isset($_GET['id_loai']) && $_GET['id_loai'] <> ''){
 			
 			if($_GET['id_loai'] == 0){
-				$items = $d->o_fet("select * from #_duan where style=0 order by so_thu_tu asc, id desc");
+				$items = $d->o_fet("select * from #_products where style=0 order by so_thu_tu asc, id desc");
 			}else{
 				$id_loai = $_GET['id_loai'].$d->findIdSub($_GET['id_loai']);	
-			    $items = $d->o_fet("select * from #_duan where FIND_IN_SET(id_loai,'$id_loai') <> 0 and style=0 order by so_thu_tu asc, id desc");
+			    $items = $d->o_fet("select * from #_products where FIND_IN_SET(id_loai,'$id_loai') <> 0 and style=0 order by so_thu_tu asc, id desc");
 			}
 		}
 		else if(isset($_GET['seach'])){
 			$seach = addslashes($_GET['seach']);
 			$key = (isset($_GET['key']))? addslashes($_GET['key']):"";
 			if($seach == 'id'){
-				$items = $d->o_fet("select * from #_duan where id = '".$key."' and style=0");
+				$items = $d->o_fet("select * from #_products where id = '".$key."' and style=0");
 			}else if($seach == 'name'){
-				$items = $d->o_fet("select * from #_duan where ten_vn like '%".$key."%' and style=0");
+				$items = $d->o_fet("select * from #_products where ten_vn like '%".$key."%' and style=0");
 			}else{
-				$items = $d->o_fet("select * from #_duan where ma_sp like '%".$key."%' and style=0");
+				$items = $d->o_fet("select * from #_products where ma_sp like '%".$key."%' and style=0");
 			}
 		}
-		else $items = $d->o_fet("select * from #_duan where style=0 order by so_thu_tu asc, id desc");
+		else $items = $d->o_fet("select * from #_products where style=0 order by so_thu_tu asc, id desc");
 
 		// foreach ($items as $key => $value) {
 		// 	watermark_image($value['hinh_anh'], '../img_data/images/');
@@ -92,7 +91,7 @@ function showdulieu(){
 		//lay noi dung theo id
 		if(isset($_REQUEST['id'])){
 			@$id = addslashes($_REQUEST['id']);
-			$items = $d->o_fet("select * from #_duan where id =  '".$id."'");
+			$items = $d->o_fet("select * from #_products where id =  '".$id."'");
 			$loai = $d->array_category(0,'',$items[0]['id_loai'],3);
 		}
 	}
@@ -108,7 +107,7 @@ function luudulieu(){
 	if($id != '')
 	{
 		if(@$file = $d->upload_image("file2", '', '../img_data/images/',$file_name)){
-			$hinhanh = $d->o_fet("select * from #_duan where id = '".$id."'");
+			$hinhanh = $d->o_fet("select * from #_products where id = '".$id."'");
 			unlink('../img_data/images/'.$hinhanh[0]['hinh_anh']);
 			$data['hinh_anh'] = $file;
 			// watermark_image($file, '../img_data/images/');
@@ -159,7 +158,7 @@ function luudulieu(){
 		// $data['tieu_bieu'] = isset($_POST['tieu_bieu']) ? 1 : 0;
 
 		$d->reset();
-		$d->setTable('#_duan');
+		$d->setTable('#_products');
 		$d->setWhere('id',$id);
 		if($d->update($data)){
 			//add thong so
@@ -173,34 +172,11 @@ function luudulieu(){
 						$data_hinh['title'] = $_REQUEST['title'.$i];
 			    		$data_hinh['id_sp'] = $id;
 						$d->reset();
-						$d->setTable('#_duan_hinhanh');
+						$d->setTable('#_products_hinhanh');
 						$d->insert($data_hinh);
 					}
 	    		}
 	    	}
-	    	
-			$count 		  = count($_POST['extend_key']);
-			$extend_key   = $_POST['extend_key'];
-			$extend_value = $_POST['extend_value'];
-			if ($count>0){
-				$d->o_que("delete from #_tienich where project_id = '".$id."'");
-				for ($i=0;$i<$count;$i++){
-					if (!empty($extend_key[$i])){
-						$extend=array(
-							'extend_key'	=>$extend_key[$i],
-							'extend_value'	=>$extend_value[$i],
-							'project_id'	=>$id,
-							'created_at' 	=>date('Ymd'),
-							'updated_at'	=>date('Ymd')
-						);
-
-						$d->reset();
-						$d->setTable('#_tienich');
-						$d->insert($extend);
-					}
-					
-				}
-			}
 
 			$d->redirect("index.php?p=san-pham&a=man&page=".@$_REQUEST['page']."");
 		}
@@ -216,13 +192,9 @@ function luudulieu(){
 			// watermark_image($file, '../img_data/images/');
 		}
 
-		// print_r(implode(',',$_POST['project_extend_text']));die();
-
 		$data['extend_text'] = implode(',',$_POST['project_extend_text']);
 		$data['building'] = implode(',',$_POST['project_building']);
 		$data['address'] = $_POST['project_address'];
-		$data['province_id'] = $d->clear(addslashes($_POST['province_id']));
-		$data['district_id'] = $d->clear(addslashes($_POST['district_id']));
 		$data['ward_id'] = $d->clear(addslashes($_POST['ward_id']));
 
 		$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&address=' . urlencode($_POST['project_address']) . '&sensor=true';
@@ -268,15 +240,10 @@ function luudulieu(){
 		$data['style'] = 0;	
 		$data['hien_thi'] = isset($_POST['hien_thi']) ? 1 : 0;
 		$data['tieu_bieu'] = isset($_POST['tieu_bieu']) ? 1 : 0;
-		
-
-		$data['ngay_dang'] = time();
-
-		
-		$d->setTable('#_duan');
+	
+		$d->setTable('#_products');
 		if($idsp = $d->insert($data))
 		{
-			// $idsp = $idInsert;
 			/////up hinh		
 	    	for ($i=1; $i <= 15; $i++) { 
 	    		$file_name=$d->fns_Rand_digit(0,9,12);
@@ -286,33 +253,12 @@ function luudulieu(){
 						$data_hinh['title'] = $_REQUEST['title'.$i];
 			    		$data_hinh['id_sp'] = $idsp;
 						$d->reset();
-						$d->setTable('#_duan_hinhanh');
+						$d->setTable('#_products_hinhanh');
 						$d->insert($data_hinh);
 					}
 	    		}
 	    	}
-	    	$count 		  = count($_POST['extend_key']);
-			$extend_key   = $_POST['extend_key'];
-			$extend_value = $_POST['extend_value'];
-			if ($count>0){
-				for ($i=0;$i<$count;$i++){
-					if ($extend_key[$i]!=''){
-						$extend=array(
-							'extend_key'	=>$extend_key[$i],
-							'extend_value'	=>$extend_value[$i],
-							'project_id'	=>$idsp,
-							'created_at' 	=>date('Ymd'),
-							'updated_at'	=>date('Ymd')
-						);
 
-						$d->reset();
-						$d->setTable('#_tienich');
-						$d->insert($extend);
-					}
-					
-				}
-			}
-        	///
 			$d->redirect("index.php?p=san-pham&a=man");
 		}
 		else{
@@ -389,30 +335,30 @@ function xoadulieu(){
 	if(isset($_GET['id'])){
 		$id =  addslashes($_GET['id']);
 		//xoa img
-		$hinhanh = $d->o_fet("select * from #_duan where id = '".$id."'");
+		$hinhanh = $d->o_fet("select * from #_products where id = '".$id."'");
 		foreach ($hinhanh as $ha) {
 			@unlink('../img_data/images/'.$ha['hinh_anh']);
 		}
 
 		//xoa size
-			// $d->o_que("delete from #_duan_detail where id_sp = '".$id."'");
+			// $d->o_que("delete from #_products_detail where id_sp = '".$id."'");
 		//
 
 		// xoa anh chi tiet
-		$hinhanh_chitiet = $d->o_fet("select * from #_duan_hinhanh where id_sp = '".$id."'");
-		$d->o_que("delete from #_duan_hinhanh where id_sp = '".$id."'");
+		$hinhanh_chitiet = $d->o_fet("select * from #_products_hinhanh where id_sp = '".$id."'");
+		$d->o_que("delete from #_products_hinhanh where id_sp = '".$id."'");
 		foreach ($hinhanh_chitiet as $hact) {
 			@unlink('../img_data/images/'.$hact['hinh_anh']);
 		}
 		// end
 		//xoa hinhanh
-		$hinhanh = $d->o_fet("select * from #_duan_hinhanh where id_sp = '".$id."'");
+		$hinhanh = $d->o_fet("select * from #_products_hinhanh where id_sp = '".$id."'");
 		foreach ($hinhanh as $ha) {
 			@unlink('../img_data/images/'.$ha['hinh_anh']);
 			
 		}
 		// end
-		if($d->o_que("delete from #_duan where id='".$id."'")){
+		if($d->o_que("delete from #_products where id='".$id."'")){
 			$d->redirect("index.php?p=san-pham&a=man&page=".@$_REQUEST['page']."");
 		}else
 			$d->transfer("Xóa dữ liệu bị lỗi", "index.php?p=san-pham&a=man");
@@ -428,19 +374,19 @@ function xoadulieu_mang(){
 		}
 		$chuoi = trim($chuoi,',');
 		//lay danh sách idsp theo chuoi
-		$hinhanh = $d->o_fet("select * from #_duan where id in ($chuoi)");
-		$hinhanh2 = $d->o_fet("select * from #_duan_hinhanh where id_sp in ($chuoi)");
-		if($d->o_que("delete from #_duan where id in ($chuoi)")){
+		$hinhanh = $d->o_fet("select * from #_products where id in ($chuoi)");
+		$hinhanh2 = $d->o_fet("select * from #_products_hinhanh where id_sp in ($chuoi)");
+		if($d->o_que("delete from #_products where id in ($chuoi)")){
 			//xoa hình ảnh
 			foreach ($hinhanh as $ha) {
 				@unlink('../img_data/images/'.$ha['hinh_anh']);
 			}
 			//xoa size
-			// $d->o_que("delete from #_duan_detail where id_sp in ($chuoi)");
+			// $d->o_que("delete from #_products_detail where id_sp in ($chuoi)");
 			//
 			// xoa anh chi tiet
-			$hinhanh_chitiet = $d->o_fet("select * from #_duan_hinhanh where id_sp in ($chuoi)");
-			$d->o_que("delete from #_duan_hinhanh where id_sp in ($chuoi)");
+			$hinhanh_chitiet = $d->o_fet("select * from #_products_hinhanh where id_sp in ($chuoi)");
+			$d->o_que("delete from #_products_hinhanh where id_sp in ($chuoi)");
 			foreach ($hinhanh_chitiet as $hact) {
 				@unlink('../img_data/images/'.$hact['hinh_anh']);
 			}

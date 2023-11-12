@@ -3,7 +3,7 @@
 	define('_danhmuc','Danh mục');
 	define('_danhmucsp','Danh mục sản phẩm');
 	define('_spnoibat','Sản phẩm nổi bật');
-	define('_duan','Dự án đã thực hiện');
+	define('_products','Dự án đã thực hiện');
 	define('_aboutus','Giới thiệu về chúng tôi');
 	define('_hotrotuvan','Hỗ trợ đăng ký tư vấn');
 	define('_hoten','Họ tên của bạn');
@@ -139,9 +139,9 @@
 	define('_dangkynhanbantin','Đăng ký nhận bản tin');
 	define('_nhapdiachiemail','Nhập địa chỉ email để nhận thông báo từ website:');
 	define('_huydangky','Hủy đăng ký');
-	define('_duannoibat','Sản phẩm nổi bật');
+	define('_productsnoibat','Sản phẩm nổi bật');
 	define('_masp','Mã SP');
-	define('_duan','Sản phẩm');
+	define('_products','Sản phẩm');
 	define('_dichvu','Dịch vụ');
 	define('_tinhtranghang','Tình trạng hàng');
 	define('_conhang','Còn hàng');

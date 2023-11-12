@@ -27,11 +27,6 @@
 
     @include "lib/file_router_admin.php";
 	
-    
-	// if(@$_SESSION['quyen']==2 && ( $_REQUEST['p']!='san-pham' && $_REQUEST['p']!='ql-user' && $_REQUEST['p']!='danh-sach-don-hang' && $_REQUEST['p']!='')) {
-	// 	$d->redirect("index.php");
-	// }
-	
 ?>
 
     <?php @include('templates/header_tpl.php'); ?>

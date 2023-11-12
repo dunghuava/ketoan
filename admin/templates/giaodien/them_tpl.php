@@ -26,26 +26,6 @@
 		<div class="ar_admin">
 		<table class="table table-bordered table-hover them_dt" style="border:none">
 			<tbody>
-				<?php if(isset($_GET['id'])){ ?>
-				<tr>
-					<td class="td_left">
-						Hình ảnh:
-					</td>
-					<td class="td_right">
-						<?php if(@$items[0]['hinh_anh'] <> ''){ ?>
-						<img src="../img_data/images/<?php echo @$items[0]['hinh_anh']?>"  width="120" alt="NO PHOTO" />
-						<?php } ?>
-					</td>
-				</tr>
-				<?php }?>
-				<tr>
-					<td class="td_left">
-						Chọn hình ảnh:
-					</td>
-					<td class="td_right">
-						<input type="file" name="file" class="input width400 form-control"/>
-					</td>
-				</tr>
 				<tr>
 					<td class="td_left">
 						Tiêu đề:
@@ -108,14 +88,6 @@
 		</div>
 		<div class="ar_admin last">
 		<table class="table table-bordered table-hover them_dt" style="border:none">
-			<tr>
-				<td class="td_left">
-					Tác vụ: 
-				</td>
-				<td class="td_right">
-					<input type="checkbox" class="chkbox" name="hien_thi" <?php if(isset($items[0]['hien_thi'])) { if(@$items[0]['hien_thi']==1) echo 'checked="checked"';} else echo'checked="checked"'; ?> id="hien_thi"><label class="lb_nut" for="hien_thi">Hiển thị</label>
-				</td>
-			</tr>
 			<tr>
 				<td class="td_left" style="text-align:right">
 					<input type="submit" value="Lưu" class="btn btn-primary" />

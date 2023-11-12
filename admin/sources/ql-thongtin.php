@@ -38,22 +38,16 @@ function luudulieu(){
 
 	}
 
-	$data['hotline'] = addslashes($_POST['hotline']);
+	if(@$file3 = $d->upload_image("file_3", '', '../img_data/icon/','')){
+		$hinhanh = $d->o_fet("select * from #_thongtin where id = '1'");
+		@unlink('../img_data/icon/'.$hinhanh[0]['logo']);
+		$data['logo'] = $file3;
+
+	}
+
 	$data['company'] = addslashes($_POST['company']);
-	$data['address'] = addslashes($_POST['address']);
-	$data['twitter'] = addslashes($_POST['twitter']);
-	$data['facebook'] = addslashes($_POST['facebook']);
-	$data['google'] = addslashes($_POST['google']);
-	$data['youtube'] = addslashes($_POST['youtube']);
-	$data['pinterest'] = addslashes($_POST['pinterest']);
-	$data['instagram'] = addslashes($_POST['instagram']);
-	$data['dien_thoai'] = addslashes($_POST['dien_thoai']);
-	$data['fax'] = addslashes($_POST['fax']);
-	$data['email'] = addslashes($_POST['email']);
 	$data['coppy_right'] = addslashes($_POST['coppy_right']);
-	$data['map'] = addslashes($_POST['map']);
-	$data['id_facebook'] = addslashes($_POST['id_facebook']);
-	$data['toa_do'] = addslashes($_POST['toa_do']);
+	$data['footer_text'] = addslashes($_POST['footer_text']);
 
 	$d->reset();
 	$d->setWhere("id","1");

@@ -24,7 +24,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a style="color:#fff" class="navbar-brand a-admin" href="index.php"><i class="glyphicon glyphicon-th-large"></i> myAdmin</a>
+			<a style="color:#fff" class="navbar-brand a-admin" href="index.php"><i class="glyphicon glyphicon-th-large"></i> Cpanel</a>
 		</div>
 
 		<div class="class_conghau">

@@ -7,5 +7,6 @@
 	$config['database']['database'] = 'landing';
 	
 	define("URLPATH","http://".$_SERVER["SERVER_NAME"]."/ketoan/");
+	define("ASSET_PATH","http://".$_SERVER["SERVER_NAME"]."/ketoan/templates/images/");
 	define("urladmin","http://".$_SERVER["SERVER_NAME"]."ketoan/admin/");
 ?>

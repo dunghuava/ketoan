@@ -5,7 +5,7 @@ if (isset($_REQUEST['lang'])) {
 
 	$query 		= $d->o_fet("select alias_vn,alias_us from #_category where alias_vn='$langcom' OR alias_us='$langcom' OR alias_ch='$langcom'");
 	$query_news = $d->o_fet("select alias_vn,alias_us from #_tintuc where alias_vn='$langcom' OR alias_us='$langcom' OR alias_ch='$langcom'");
-	$query_pro  = $d->o_fet("select alias_vn,alias_us from #_duan where alias_vn='$langcom' OR alias_us='$langcom' OR alias_ch='$langcom'");
+	$query_pro  = $d->o_fet("select alias_vn,alias_us from #_products where alias_vn='$langcom' OR alias_us='$langcom' OR alias_ch='$langcom'");
 
 	if(count($query)>0 && $langcom!=''){
 		header("Location:".URLPATH.$query['0']['alias_'.$_REQUEST['lang']].'.html');

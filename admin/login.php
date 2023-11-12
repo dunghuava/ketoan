@@ -43,39 +43,10 @@
     <meta content="" name="author" />
     <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="./css/style.min.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
     <link href="./css/style_responsive.css" rel="stylesheet" />
     <link href="./css/style_default.css" rel="stylesheet" id="style_color" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style type="text/css">
-        .login-header{
-            width: 410px;
-            margin: 100px auto 0;
-            border-radius: 5px;
-        }
-        .login-header .alert-custom h3{
-            font-size: 16px;
-            margin-top: 0px;
-        }
-        .login-header .alert-custom{
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .huong-dan{
-            text-align: left;
-            padding-left: 15px;
-            font-size: 14px;
-        }
-        .red{ color: red; }
-        #login{
-            margin-top: 85px;
-            background:#fff;
-        }
-        @media(max-width: 767px){
-            .control-wrap h4{ text-align: center; }
-        }
-        
-    </style>
 </head>
 <body id="login-body">
     <div class="clearfix"></div>
@@ -84,7 +55,7 @@
         <div class="lock">
             <i class="icon-lock"></i>
         </div><div class="control-wrap">
-        <h4 style='margin-top:-3px'>Đăng nhập hệ thống</h4>
+        <h4 style='margin-top:-3px'>Đăng nhập</h4>
         <div class="control-group">
             <div class="controls">
                 <div class="input-prepend">
@@ -108,9 +79,6 @@
                     <div class="mtop10">
                         <div class="block-hint pull-left small">
                             <input type="checkbox" name="checkbox" id="" /> Ghi nhớ </div>
-                            <div class="block-hint pull-right">
-                                <a href="javascript:;" class="" id="forget-password">Quên mật khẩu?</a>
-                            </div>
                         </div>
                         <div class="clearfix space5"></div>
                     </div>
@@ -152,12 +120,7 @@
 
 <style type="text/css">
     @media(max-width: 991px){
-        #login{ margin-top: 110px !important; }
         .login-header{ width: 100%; margin-top: 40px;  }
         .login-header .alert-custom h3{ font-size: 13px; line-height: 20px; }
-        .huong-dan{ padding: 0; font-size: 12px; }
-    }
-    @media(max-width: 320px){
-        .huong-dan{ padding: 0; font-size: 11px; }
     }
 </style>

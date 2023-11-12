@@ -32,10 +32,20 @@
 						</tr>
 						<tr>
 							<td class="td_left">
-								Địa chỉ:
+								Logo:
 							</td>
 							<td class="td_right">
-								<input class="input form-control  width400"  name="address" value="<?php echo @$items[0]['address']?>"  />
+								<?php if($items[0]['logo'] <> ''){ ?>
+								<img src="../img_data/icon/<?php echo @$items[0]['logo']?>"  width="50" alt="NO PHOTO" />
+								<?php } ?>
+							</td>
+						</tr>
+						<tr>
+							<td class="td_left">
+								
+							</td>
+							<td class="td_right">
+								<input type="file" name="file_3" class="input width400 form-control"/>
 							</td>
 						</tr>
 						<tr>
@@ -50,7 +60,7 @@
 						</tr>
 						<tr>
 							<td class="td_left">
-								Icon Trình Duyệt:
+								
 							</td>
 							<td class="td_right">
 								<input type="file" name="file" class="input width400 form-control"/>
@@ -68,131 +78,32 @@
 						</tr>
 						<tr>
 							<td class="td_left">
-								Icon Chia sẻ:
+								
 							</td>
 							<td class="td_right">
 								<input type="file" name="file_2" class="input width400 form-control"/>
 							</td>
 						</tr>
+						<tr>
+							<td class="td_left">
+								Thông tin footer:
+							</td>
+							<td class="td_right">
+								<textarea class="input form-control  width400"  name="footer_text"><?php echo @$items[0]['footer_text']?></textarea>
+								<?php $ckeditor->replace('footer_text'); ?>
+							</td>
+						</tr>
+						<tr>
+							<td class="td_left">
+								Copyright:
+							</td>
+							<td class="td_right">
+								<input class="input form-control"  name="coppy_right" value="<?php echo @$items[0]['coppy_right']?>"/>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
-		</div>
-		<div role="tabpanel" class="tab-pane fade" id="id_us" aria-labelledby="profile-tab">
-			<div class="ar_admin">
-			<table class="table table-bordered table-hover them_dt" style="border:none">
-				<tbody>
-			        <tr>
-						<td class="td_left">
-							Tên công ty (en) :
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="company_us" value="<?php echo @$items[0]['company_us']?>"  />
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left">
-							Địa chỉ (en):
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="address_us" value="<?php echo @$items[0]['address_us']?>"  />
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			</div>
-		</div>
-		<div class="ar_admin">
-			<table class="table table-bordered table-hover them_dt" style="border:none">
-				<tbody>
-					<div class="title_thongtinchung">
-						Thông tin chung
-					</div>
-					<tr>
-						<td class="td_left">
-							Hotline :
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400" name="hotline" value="<?php echo @$items[0]['hotline']?>"  />
-						</td>
-					</tr>
-
-					<tr>
-						<td class="td_left">
-							Email
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="email" value="<?php echo @$items[0]['email']?>"  />
-						</td>
-					</tr>
-
-					<tr>
-						<td class="td_left">
-							Facebook:
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="facebook" value="<?php echo @$items[0]['facebook']?>"  />
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left">
-							Twitter:
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="twitter" value="<?php echo @$items[0]['twitter']?>"  />
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left">
-							G+:
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="google" value="<?=$items[0]['google'] ?>"  />
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left">
-							Youtube:
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="youtube" value="<?=$items[0]['youtube'] ?>"  />
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left">
-							Pinterest:
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="pinterest" value="<?=$items[0]['pinterest'] ?>"  />
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left">
-							Instagram:
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="instagram" value="<?=$items[0]['instagram'] ?>"  />
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left">
-							Iframe Map:
-						</td>
-						<td class="td_right">
-							<textarea class="input width400 form-control"  name="map" id="map" rows="10"><?=$items[0]['map'] ?></textarea>
-							
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left">
-							Copyright :
-						</td>
-						<td class="td_right">
-							<input class="input form-control  width400"  name="toa_do" value="<?=$items[0]['toa_do'] ?>"  />
-						</td>
-					</tr>
-				</tbody>
-			</table>
 		</div>
 		<div class="ar_admin last">
 			<table class="table table-bordered table-hover them_dt" style="border:none">

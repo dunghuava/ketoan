@@ -15,26 +15,6 @@
 	</div>
 	<table class="table table-bordered table-hover them_dt" style="border:none">
 		<tbody>
-		<?php if(isset($_GET['id'])){ ?>
-			<tr>
-				<td class="td_left">
-					Hình ảnh:
-				</td>
-				<td class="td_right">
-					<?php if($items[0]['hinh_anh'] <> ''){ ?>
-					<img src="../img_data/images/<?php echo @$items[0]['hinh_anh']?>"  width="120" alt="NO PHOTO" />
-					<?php } ?>
-				</td>
-			</tr>
-			<?php }?>
-			<tr>
-				<td class="td_left">
-					Hình ảnh:
-				</td>
-				<td class="td_right">
-					<input type="file" name="file" class="input width400 form-control"/>
-				</td>
-			</tr>
 			<tr>
 				<td class="td_left">
 					Danh mục:
@@ -111,97 +91,6 @@
 						<?php $ckeditor->replace('mo_ta_vn'); ?>
 					</td>
 				</tr>
-			</tbody>
-		</table>
-		</div>
-		<!-- end -->
-		</div>
-		<div role="tabpanel" class="tab-pane fade" id="id_us" aria-labelledby="profile-tab">
-		<!-- lang us -->
-		<div class="ar_admin">
-		<table class="table table-bordered table-hover them_dt" style="border:none">
-			<tbody>
-				<tr>
-					<td class="td_left">
-						Tiêu đề (en):
-					</td>
-					<td class="td_right">
-						<input class="input width400 form-control" OnkeyUp="addText(this,'#alias_us','#title_us')" id="ten_us" name="ten_us" value="<?php echo @$items[0]['ten_us']?>"  />
-					</td>
-				</tr>
-
-				<tr>
-					<td class="td_left">
-						Đường dẫn (en):
-					</td>
-					<td class="td_right">
-						<input class="input width400 form-control" name="alias_us" id="alias_us" value="<?php echo @$items[0]['alias_us']?>"  OnkeyUp="addText(this,'#alias_us')"  />
-					</td>
-				</tr>
-				<tr>
-					<td class="td_left">
-						Mô tả (en):
-					</td>
-					<td class="td_right">
-						<textarea class="input width400 form-control" style="height:80px" name="mo_ta_us" id="mo_ta_us"><?=@$items[0]['mo_ta_us']?></textarea>
-						<?php $ckeditor->replace('mo_ta_us'); ?>
-					</td>
-				</tr>
-				<!-- <tr>
-					<td class="td_left">
-						Nội dung chân trang (en):
-					</td>
-					<td class="td_right">
-						<textarea class="input width400 form-control" style="height:80px" name="noi_dung_us" id="noi_dung_us"><?=@$items[0]['noi_dung_us']?></textarea>
-						<?php $ckeditor->replace('noi_dung_us'); ?>
-					</td>
-				</tr> -->	
-			</tbody>
-		</table>
-		</div>
-		<!-- end -->
-		</div>
-		<div role="tabpanel" class="tab-pane fade" id="id_ch" aria-labelledby="profile-tab">
-		<!-- lang ch -->
-		<div class="ar_admin">
-		<table class="table table-bordered table-hover them_dt" style="border:none">
-			<tbody>
-				<tr>
-					<td class="td_left">
-						Tiêu đề (ja):
-					</td>
-					<td class="td_right">
-						<input class="input width400 form-control" OnkeyUp="addText(this,'#alias_ch','#title_ch')"  id="ten_ch" name="ten_ch" value="<?php echo @$items[0]['ten_ch']?>"  />
-					</td>
-				</tr>
-
-				<tr>
-					<td class="td_left">
-						Đường dẫn (ja):
-					</td>
-					<td class="td_right">
-						<input class="input width400 form-control" name="alias_ch" id="alias_ch" value="<?php echo @$items[0]['alias_ch']?>"  OnkeyUp="addText(this,'#alias_ch')"  />
-					</td>
-				</tr>
-				<tr>
-					<td class="td_left">
-						Mô tả (ja):
-					</td>
-					<td class="td_right">
-						<textarea class="input width400 form-control" style="height:80px" name="mo_ta_ch" id="mo_ta_ch"><?=@$items[0]['mo_ta_ch']?></textarea>
-						<?php $ckeditor->replace('mo_ta_ch'); ?>
-					</td>
-				</tr>
-				<!--tr>
-					<td class="td_left">
-						Nội dung chân trang (ch):
-					</td>
-					<td class="td_right">
-						<textarea class="input width400 form-control" style="height:80px" name="noi_dung_ch" id="noi_dung_ch"><?=@$items[0]['noi_dung_ch']?></textarea>
-						<?php $ckeditor->replace('noi_dung_ch'); ?>
-					</td>
-				</tr-->					
-				<!--  -->
 			</tbody>
 		</table>
 		</div>

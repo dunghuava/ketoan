@@ -241,6 +241,13 @@
 			$this->table = $str;
 		}
 
+		function dd($data)
+		{
+			echo '<pre>';
+			echo print_r($data);
+			echo '</pre>';die;
+		}
+
 		function setWhere($col,$dk)
 		{
 			if($this->where == "")
@@ -312,7 +319,7 @@
 
 			$this->sql = "insert into ".$this->table.$into." values ".$values;			
 			$this->sql = str_replace('#_', $this->refix, $this->sql);
-
+			
 			$stmt = $this->db->prepare($this->sql); 
 			$stmt->execute();
 			return $this->db->lastInsertId();
@@ -1070,8 +1077,8 @@
 				$link=$this->o_fet("select * from #_tintuc where alias_{$lang}='$alias'");
 				$str=$link[0]['alias_'.$lang];
 			}
-			else if($this->num_rows("select * from #_duan where alias_{$lang}='$alias'") > 0) {
-				$link=$this->o_fet("select * from #_duan where alias_{$lang}='$alias'");
+			else if($this->num_rows("select * from #_products where alias_{$lang}='$alias'") > 0) {
+				$link=$this->o_fet("select * from #_products where alias_{$lang}='$alias'");
 				$str=$link[0]['alias_'.$lang];			
 			}
 			return $str;
@@ -1120,12 +1127,9 @@
 						$this->getActive($sub['alias_'.$lang],$lang);
 					}
 				}
-				$query1=$this->o_fet("select id,id_loai from #_tintuc where alias_$lang = '$alias' ");
-				$query2=$this->o_fet("select id,id_loai from #_duan where alias_$lang = '$alias' ");
-				if(count($query1)>0 || count($query2)>0) {
-					if(count($query1)>0){
-						$id_loai=$query1[0]['id_loai'];
-					}else if(count($query2)>0){
+				$query2=$this->o_fet("select id,id_loai from #_products where alias_$lang = '$alias' ");
+				if(count($query2)>0) {
+					if(count($query2)>0){
 						$id_loai=$query2[0]['id_loai'];	
 					}					
 					$nav=$this->simple_fetch("select * from #_category where id = $id_loai ");
@@ -1153,10 +1157,9 @@
 			}
 			
 			$count=$this->num_rows("select id from #_category where $field='{$text}' $and");
-			$count1=$this->num_rows("select id from #_duan where $field='{$text}' $and");
-			$count2=$this->num_rows("select id from #_tintuc where $field='{$text}' $and");
+			$count1=$this->num_rows("select id from #_products where $field='{$text}' $and");
 			
-			if($count==0 && $count1==0 && $count2==0) {
+			if($count==0 && $count1==0) {
 				return false;
 			}
 			else {

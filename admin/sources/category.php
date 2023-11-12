@@ -136,7 +136,7 @@ function luudulieu(){
 	{
 
 		if(@$file = $d->upload_image("file", '', '../img_data/images/',$file_name)){
-			$data['hinh_anh'] = $file;
+			// $data['hinh_anh'] = $file;
 		}
 		$level=$d->simple_fetch("select * from #_category where id={$_POST['id_loai']}");
 		$data['level'] = ($level['level']!='') ? $level['level']+1 : 0;
@@ -166,6 +166,7 @@ function luudulieu(){
 		$data['title_vn'] =$d->clear(addslashes($_POST['title_vn']));
 		$data['keyword'] = $d->clear(addslashes($_POST['keyword']));
 		$data['des'] = $d->clear(addslashes($_POST['des']));
+
 
 		$d->setTable('#_category');
 		if($d->insert($data))

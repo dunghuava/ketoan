@@ -342,6 +342,9 @@ a,a:focus, a:hover, a:active {
 #login-body {
     background-color: #f7f7f7  !important;
 	background-image: url("../img/body-bg.png") !important;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 #main-content {
@@ -1625,7 +1628,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     -moz-box-shadow: 1px 0 1px #FFFFFF, 0 0 3px rgba(0, 0, 0, 0.2) inset;
     -webkit-box-shadow: 1px 0 1px #FFFFFF, 0 0 3px rgba(0, 0, 0, 0.2) inset;
     width: 370px;
-    margin: 150px auto 0;
+    margin: 0px auto 0;
     padding: 20px;
 }
 

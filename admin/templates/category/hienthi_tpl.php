@@ -56,9 +56,9 @@
 			<!-- <th style="width:3%"><input class="chk_box checkall" type="checkbox" name="chk" value="0"  id="check_all"></th> -->
 			<th style="width:5%">STT</th>
 			<th style="width:40%; text-align:left">Danh mục</th>
-			<th style="width:8%">Hình ảnh</th>
+			<!-- <th style="width:8%">Hình ảnh</th> -->
 			<th style="width:8%">Loại</th>
-			<!-- <th style="width:8%">Trang chủ</th> -->
+			<th style="width:8%">Trang chủ</th>
 			<th style="width:8%">Menu chính</th>
 			<!-- <th style="width:8%">Top Menu</th> -->
 			<th style="width:8%">Hiển thị</th>
@@ -72,7 +72,7 @@
 				<input class="chk_box" type="checkbox" name="chk_child[]" value="<?=$items[$i]['id']?>">
 			</td> -->
 			<td>
-<!-- <input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_category" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" /> -->
+				<input type="number" value="<?=$items[$i]['so_thu_tu']?>" class="a_stt" data-table="#_category" data-col="so_thu_tu" data-id="<?=$items[$i]['id']?>" />
             </td>
 			
 			<td style=" text-align:left">
@@ -82,22 +82,22 @@
 				 <br/>
 				 <a href="index.php?p=category&a=edit&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>"><?=$items[$i]['ten_ch']?></a-->
 			</td>
-			<td>
+			<!-- <td>
 				<?php if($items[$i]['hinh_anh'] <> ''){ ?>
 					<a href="index.php?p=category&a=delete_image&id=<?=$items[$i]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa">
 						<img src="../img_data/images/<?=$items[$i]['hinh_anh'] ?>" style="width:50px">
 					</a>
 				<?php } ?>
-			</td>
+			</td> -->
 			<td><?php $module=$d->simple_fetch("select * from #_module where id={$items[$i]['module']}"); echo $module['title']?></td>
 
-			<!-- <td>
-				
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','menu','<?=$items[$i]['id']?>')" <?php if($items[$i]['menu'] == 1) echo 'checked="checked"'; ?>> 
-				
-			</td> -->
 			<td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
+				
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>> 
+				
+			</td>
+			<td>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','menu','<?=$items[$i]['id']?>')" <?php if($items[$i]['menu'] == 1) echo 'checked="checked"'; ?>>
 			</td>
 			<!-- <td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','is_top','<?=$items[$i]['id']?>')" <?php if($items[$i]['is_top'] == 1) echo 'checked="checked"'; ?>>
@@ -133,21 +133,12 @@
 				<br/>
 				<a style="padding-left:50px" href="index.php?p=category&a=edit&id=<?=$child_items[$j]['id']?>&page=<?=@$_GET['page']?>"><?=$child_items[$j]['ten_ch']?></a-->
 			</td>
-			<td>
-				<?php if($child_items[$j]['hinh_anh'] <> ''){ ?>
-					<a href="index.php?p=category&a=delete_image&id=<?=$child_items[$j]['id']?>&page=<?=@$_GET['page']?>" onClick="if(!confirm('Xác nhận xóa?')) return false;" class="text-danger" title="Xóa">
-						<img src="../img_data/images/<?=$child_items[$j]['hinh_anh'] ?>" style="width:50px">
-					</a>
-				<?php } ?>
-			</td>
 			<td><?php $module=$d->simple_fetch("select * from #_module where id={$child_items[$j]['module']}"); echo $module['title']?></td>
-			<!-- <td>
-				<?php if ($child_items[$j]['module'] ==3) {?>
-					<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','menu','<?=$child_items[$j]['id']?>')" <?php if($child_items[$j]['menu'] == 1) echo 'checked="checked"'; ?>>
-				<?php } ?>
-			</td> -->
 			<td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','tieu_bieu','<?=$child_items[$j]['id']?>')" <?php if($child_items[$j]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
+			</td>
+			<td>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','menu','<?=$child_items[$j]['id']?>')" <?php if($child_items[$j]['menu'] == 1) echo 'checked="checked"'; ?>>
 			</td>
 			<!-- <td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_category','is_top','<?=$child_items[$j]['id']?>')" <?php if($child_items[$j]['is_top'] == 1) echo 'checked="checked"'; ?>>

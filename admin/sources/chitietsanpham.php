@@ -33,7 +33,7 @@
 			}
 			$chuoi = trim($chuoi,',');
 			//xoa bang ctsp
-			$sel->xoa_mang_chi_tiet_san_pham_mau($chuoi,$idsp);
+			$sel->xoa_mang_chi_tiet_products_mau($chuoi,$idsp);
 			//xoa hinhanh
 			$hinhanh = $sel->lay_danh_sach_hinh_anh_mau_sp($chuoi,$idsp);
 			foreach ($hinhanh as $ha) {

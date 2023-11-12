@@ -2,7 +2,7 @@
 	define('_danhmuc','Category');
 	define('_danhmucsp','Products category');
 	define('_spnoibat','Featured products');
-	define('_duan','Project was implemented');
+	define('_products','Project was implemented');
 	define('_aboutus','About us');
 	define('_hotrotuvan','Support consulting registration');
 	define('_hoten','Fullname');
@@ -140,9 +140,9 @@
 	define('_dangkynhanbantin','Receive newsletter');
 	define('_nhapdiachiemail','Enter your email address to receive alerts from websites:');
 	define('_huydangky','Cancel registration');
-	define('_duannoibat','Hot Products');
+	define('_productsnoibat','Hot Products');
 	define('_masp','Code');
-	define('_duan','Products');
+	define('_products','Products');
 	define('_dichvu','Services');
 	define('_tinhtranghang','Status');
 	define('_conhang','Stocking');
@@ -160,7 +160,7 @@
 
 	define('_banggia','price list');
 	define('_taisao','Why choose us');
-	define('_duannoibat','Featured project');	
+	define('_productsnoibat','Featured project');	
 	define('_vechungtoi','About Us');
 	define('_xemtatca','View All');
 	define('_tuvan','Advisory');

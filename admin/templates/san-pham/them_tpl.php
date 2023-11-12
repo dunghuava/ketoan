@@ -39,7 +39,7 @@
 <ol class="breadcrumb">
   <li><a href="<?=urladmin ?>"><i class="glyphicon glyphicon-home"></i> Trang chủ</a></li>
    <li class="active"><a href="<?=urladmin ?>index.php">Danh mục</a></li>
-  <li class="active"><a href="<?=urladmin ?>index.php?p=san-pham&a=man">Dự án</a></li>
+  <li class="active"><a href="<?=urladmin ?>index.php?p=san-pham&a=man">Sản phẩm</a></li>
   <li class="active"><a href="#"><?php if(isset($_GET['id'])) echo "Sửa"; else echo "Thêm mới" ?></a></li>
 </ol>
 <div class="col-xs-12">
@@ -83,7 +83,7 @@
 				<td class="td_right ">
 					<div class="td_hinhanh">
 					<?php 
-						$hinhanh =  $d->o_fet("select * FROM #_duan_hinhanh where id_sp ='".$_GET['id']."'");
+						$hinhanh =  $d->o_fet("select * FROM #_products_hinhanh where id_sp ='".$_GET['id']."'");
 						foreach ($hinhanh as $val) {
 					?>
 					<div class="dv-img-ad">
@@ -165,96 +165,6 @@
 							<textarea class="input width400 form-control" style="height:80px" name="mo_ta_vn" id="mo_ta_vn" required=""><?=@$items[0]['mo_ta_vn']?></textarea>
 						</td>
 					</tr>
-
-					<tr>
-							<td class="td_left">Địa chỉ</td>
-							<td class="td_right">
-								<div >
-									<input style="margin:0px;" name="project_address" value="<?=@$items[0]['address']?>" type="text" class="input width400 form-control" required="">
-								</div>
-								<br>
-								<div>
-									<select name="province_id" id="province_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;" required="">
-										<option value="">Chọn Thành phố - Tỉnh</option>
-										<?php foreach ($list_province as $prv){ ?>
-											<option value="<?=$prv['province_id']?>"><?=$prv['province_name']?></option>
-										<?php } ?>
-									</select>
-									<span>&nbsp;</span>
-									<select name="district_id" id="district_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;" required="">
-										<option value="">Chọn Quận - Huyện</option>
-									</select>
-									<span>&nbsp;</span>
-									<select name="ward_id" id="ward_id" class="input width400 form-control" style="width: 30%!important;display: inline-block;" required="">
-										<option value="">Chọn Phường - Xã</option>
-									</select>
-								</div>
-							</td>
-						</tr>
-
-
-						<tr>
-							<td class="td_left">Tiện ích</td>
-							<td class="td_right">
-								<select multiple="multiple" name="project_extend_text[]" id="project_extend_text" class="input width400 form-control tags-field">
-									
-									<?php
-										$project_extend_text = explode(',', @$items[0]['extend_text']);
-											foreach ($project_extend_text as $pr){
-											if ($pr!=''){
-									?>
-											<option selected value="<?=$pr?>"><?=$pr?></option>
-									<?php 
-											} 
-										}
-									?>
-								</select>
-								<p style="fonr-size:12px;margin-top:5px;color:#9d9d9d9d;margin-bottom:0px">Ví dụ: Chỗ đậu xe, Hồ bơi, Công viên, Wifi ... </p>
-							</td>
-						</tr>
-						<tr>
-							<td class="td_left">Địa điểm lân cận</td>
-							<td class="td_right">
-								<select multiple="multiple" name="project_building[]" id="project_building" class="input width400 form-control tags-field">
-									<?php
-										$project_building = explode(',',@$items[0]['building']);
-										foreach ($project_building as $pr){
-											if ($pr!=''){
-									?>
-											<option selected value="<?=$pr?>"><?=$pr?></option>
-									<?php 
-											}
-										}
-									?>
-								</select>
-								<p style="fonr-size:12px;margin-top:5px;color:#9d9d9d9d;margin-bottom:0px">Ví dụ: Vinhome, Gigamall ... </p>
-							</td>
-						</tr>
-
-
-						<tr>
-							<td class="td_left">Tổng quan dự án</td>
-							<td class="td_right" id="form_add_row">
-								<div class="form-row">
-									<input value="<?=@$extend[0]['extend_key']?>" placeholder="Tên loại" name="extend_key[]" type="text" class="input width400 form-control" style="width: 30%;display: inline-block;">
-									<input value="<?=@$extend[0]['extend_value']?>" placeholder="Nội dung" name="extend_value[]" type="text" class="input width400 form-control" style="width: 30%;display: inline-block;">
-									<input id="btn_add_row" type="button" value="+" class="btn btn-primary" autocomplete="off">
-									<!-- <p style="fonr-size:12px;margin-top:5px;color:#9d9d9d9d;margin-bottom:0px">Ví dụ: Diện tích, Gigamall ... </p> -->
-								</div>
-									<?php foreach ($extend as $key => $ex){
-									  if ($key>0){ 
-								?>
-										<div class="form-row">
-											<input placeholder="Tên loại" name="extend_key[]" type="text"   value="<?=$ex['extend_key']?>" class="input width400 form-control" style="width: 30%;display: inline-block;">
-											<input placeholder="Nội dung" name="extend_value[]" type="text" value="<?=$ex['extend_value']?>" class="input width400 form-control" style="width: 30%;display: inline-block;">
-											<input type="button" class="btn btn-danger btn_delete_row" value="-">
-										</div>
-								<?php } } ?>
-								
-							</td>
-						</tr>
-
-		
 					<tr>
 						<td class="td_left">
 							Thông tin nội dung:

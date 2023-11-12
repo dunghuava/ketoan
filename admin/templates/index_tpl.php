@@ -79,7 +79,7 @@
 			<!-- <div class="t_index"> -->
 				<div class="login-header">
 			        <div class="alert alert-success alert-custom">
-                            <h1>myAdmin CPannel</h1>
+                            <h1>CPannel</h1>
                             <p></p>
 			        </div>
 			    </div>

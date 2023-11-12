@@ -29,137 +29,30 @@
                         if($d->checkUserPermission($_SESSION['id_user'],'san-pham') > 0 || $_SESSION['is_admin'] == 1 ){
                     ?>
                     <li class="list-group-item <?php if($_GET['p'] == 'san-pham') echo "active"?>">
-                        <a href="?p=san-pham&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Dự án</span></a>
+                        <a href="?p=san-pham&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Sản phẩm</span></a>
                     </li>
-                    <?php } ?>
-                    <?php
-                        if($d->checkUserPermission($_SESSION['id_user'],'bai-viet') > 0 || $_SESSION['is_admin'] == 1 ){
-                    ?>
-                    <li class="list-group-item <?php if($_GET['p'] == 'bai-viet') echo "active"?>">
-                        <a href="?p=bai-viet&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Tin tức</span></a>
-                    </li>
-                    <?php } ?>     
-
-                    <?php
-                        if($d->checkUserPermission($_SESSION['id_user'],'khu-vuc') > 0 || $_SESSION['is_admin'] == 1 ){
-                    ?>
-                    <li class="list-group-item <?php if($_GET['p'] == 'khu-vuc') echo "active"?>">
-                        <a href="?p=khu-vuc&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Khu vực hiển thị</span></a>
-                    </li>
-                    <?php } ?>     
-
+                    <?php } ?>    
                 </ul>
             </li>
 		<?php } ?>
-		<!-- <li class="list-group-item <?php if($_GET['p'] == 'extra0' || $_GET['p'] == 'extra1' || $_GET['p'] == 'extra2' || $_GET['p'] == 'extra3' || $_GET['p'] == 'extra4' || $_GET['p'] == 'extra5' || $_GET['p'] == 'extra6' || $_GET['p'] == 'extra7' || $_GET['p'] == 'extra8' || $_GET['p'] == 'extra9' || $_GET['p'] == 'extra10' || $_GET['p'] == 'extra11') echo "active" ?>">
-            <a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span>Phần mở rộng</span> <i class="caret"></i></a>
-            <ul class="list-group">
-                <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'extra0') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
-				<li class="list-group-item <?php if($_GET['p'] == 'extra0') echo "active"?>">
-                    <a href="?p=extra0&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Trang web liên kết</span></a>
-                </li>
-                <?php } ?>
-            </ul>
-        </li> -->
         <?php if($d->checkChildPermission($_SESSION['id_user'],'quan-tri-giao-dien') > 0 || (int)$_SESSION['is_admin'] == 1 ){ ?>
-        <li class="list-group-item <?php if($_GET['p'] == 'giaodien' || $_GET['p'] == 'video'  || $_GET['p'] == 'ql-thongtin' || $_GET['p'] == 'ho-tro-truc-tuyen' || $_GET['p'] == 'map' || $_GET['p'] == 'lien-ket-website' || $_GET['p'] == 'nhom-ho-tro' || $_GET['p'] == 'gallery' || $_GET['p'] == 'thanh-pho' || $_GET['p'] == 'quan'|| $_GET['p'] == 'upload-file' || $_GET['p'] == 'hinh-thuc-thanh-toan' || $_GET['p'] == 'slider-sp' || $_GET['p'] == 'ql-binhluan' || $_GET['p'] == 'dat-lich') echo "active" ?>">
+        <li class="list-group-item <?php if($_GET['p'] == 'giaodien' || $_GET['p'] == 'video'  || $_GET['p'] == 'ql-thongtin' || $_GET['p'] == 'ho-tro-truc-tuyen' || $_GET['p'] == 'map' || $_GET['p'] == 'lien-ket-website' || $_GET['p'] == 'nhom-ho-tro' || $_GET['p'] == 'gallery' || $_GET['p'] == 'thanh-pho' || $_GET['p'] == 'quan'|| $_GET['p'] == 'upload-file' || $_GET['p'] == 'hinh-thuc-thanh-toan' || $_GET['p'] == 'slider' || $_GET['p'] == 'ql-binhluan' || $_GET['p'] == 'dat-lich') echo "active" ?>">
             <a href="#"><i class="glyphicon glyphicon-th-list"></i> <span>Quản trị giao diện</span> <i class="caret"></i></a>
             <ul class="list-group">
                 <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'slider-sp') > 0 || $_SESSION['is_admin'] == 1 ){
+                    if($d->checkUserPermission($_SESSION['id_user'],'slider') > 0 || $_SESSION['is_admin'] == 1 ){
                 ?>
-                <li class="list-group-item <?php if($_GET['p'] == 'slider-sp') echo "active"?>">
-                    <a href="?p=slider-sp&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Slider</span></a>
+                <li class="list-group-item <?php if($_GET['p'] == 'slider') echo "active"?>">
+                    <a href="?p=slider&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Slider</span></a>
                 </li>
 
                  <?php } ?>
                 <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'gallery') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
-                <li class="list-group-item <?php if($_GET['p'] == 'gallery') echo "active"?>">
-                    <a href="?p=gallery&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Hình ảnh</span></a>
-                </li>
-                <?php } ?>
-                <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'nhom-ho-tro') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
-                <!-- <li class="list-group-item <?php if($_GET['p'] == 'nhom-ho-tro') echo "active"?>">
-                    <a href="?p=nhom-ho-tro&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Nhóm hỗ trợ</span></a>
-                </li> -->
-                <?php } ?>
-                <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'ho-tro-truc-tuyen') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
-<!--                 <li class="list-group-item <?php if($_GET['p'] == 'ho-tro-truc-tuyen') echo "active"?>">
-                    <a href="?p=ho-tro-truc-tuyen&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Hỗ trợ trực tuyến</span></a>
-                </li> -->
-                <?php } ?>
-                <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'video') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
-                <!-- <li class="list-group-item <?php if($_GET['p'] == 'video') echo "active"?>">
-                    <a href="?p=video&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Quản lý video</span></a>
-                </li> -->
-                <?php } ?>
-                <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'upload-file') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
-                <!-- <li class="list-group-item <?php if($_GET['p'] == 'upload-file') echo "active"?>">
-                    <a href="?p=upload-file&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Upload File</span></a>
-                </li> -->
-                <?php } ?>
-                
-                <?php
                     if($d->checkUserPermission($_SESSION['id_user'],'ql-thongtin') > 0 || $_SESSION['is_admin'] == 1 ){
                 ?>
-<!--                 <li class="list-group-item <?php if($_GET['p'] == 'ql-thongtin') echo "active"?>">
-                    <a href="?p=ql-thongtin&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Thông tin</span></a>
-                </li> -->
-                <?php } ?>
-                <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'giaodien') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
                 <li class="list-group-item <?php if($_GET['p'] == '') echo "active"?>">
-                    <a href="?p=giaodien&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Nội dung Khác</span></a>
+                    <a href="?p=ql-thongtin&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>QL Thông tin</span></a>
                 </li>
-                <?php } ?>
-            </ul>
-        </li>
-        <?php } ?>
-     <?php if($d->checkChildPermission($_SESSION['id_user'],'quan-tri-thong-tin') > 0 || (int)$_SESSION['is_admin'] == 1 ){ ?>
-        <li class="list-group-item <?php if($_GET['p'] == 'lien-he' || $_GET['p'] == 'ql-email' || $_GET['p'] == 'danh-sach-don-hang') echo "active" ?>">
-            <a href="#"><i class="glyphicon glyphicon-usd"></i> <span>Quản trị thông tin <i class="caret"></i></span></span>
-            <?php if($total > 0){ ?>
-                <span class="notify"><?=$total?></span>
-            <?php }  ?>
-            </a>
-            <ul class="list-group">
-                <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'danh-sach-don-hang') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
-               <!--  <li class="list-group-item <?php if($_GET['p'] == 'danh-sach-don-hang') echo "active"?>">
-                    <a href="?p=danh-sach-don-hang&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Danh sách đơn hàng</span>
-                    <?php if($c_donhang > 0){ ?>
-                        <span class="notify-2"><?=$c_donhang?></span>
-                    <?php }  ?>
-                    </a>
-                </li> -->
-                <?php } ?>
-                <?php
-                    if($d->checkUserPermission($_SESSION['id_user'],'lien-he') > 0 || $_SESSION['is_admin'] == 1 ){
-                ?>
-                <li class="list-group-item <?php if($_GET['p'] == 'lien-he') echo "active"?>">
-                    <a href="?p=lien-he&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Khách hàng Liên hệ</span>
-                    <?php if($c_lienhe > 0){ ?>
-                        <span class="notify-2"><?=$c_lienhe?></span>
-                    <?php }  ?>
-                    </a>
-                </li>
-                <!-- <li class="list-group-item <?php if($_GET['p'] == 'ql-email') echo "active"?>">
-                    <a href="?p=ql-email&a=man"><i class="glyphicon glyphicon-chevron-right"></i> <span>Danh sách điện thoại</span></a>
-                </li> -->
                 <?php } ?>
             </ul>
         </li>
