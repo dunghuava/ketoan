@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="col-md-10">
-                <h4><?=$information['company']?></h4>
+                <h4 class="mb-0"><?=$information['company']?></h4>
             </div>
         </div>
     </div>

@@ -206,4 +206,22 @@ img {
 .breadcrumb .breadcrumb-item a {
   color: #000;
   text-decoration: none;
+}
+
+#contact-sell {
+  position: fixed;
+  top: 2%;
+  right: 10%;
+  background: #FFF;
+  z-index: 100;
+  text-align: center;
+  box-shadow: 0 0 14px yellow;
+}
+#contact-sell .text {
+  color: blue;
+  font-weight: bold;
+}
+#contact-sell .phone a {
+  color: red;
+  text-decoration: none;
 }/*# sourceMappingURL=style.css.map */

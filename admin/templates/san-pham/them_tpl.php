@@ -102,9 +102,9 @@
 		<!--li role="presentation" class="">
 			<a href="#id_ch" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Ngôn ngữ Japan</a>
 		</li-->
-		<li role="presentation" class="">
+		<!-- <li role="presentation" class="">
 			<a href="#id_seo" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Hỗ trợ SEO</a>
-		</li>
+		</li> -->
 	</ul>
 	<div id="myTabContent" class="tab-content">
 		<div role="tabpanel" class="tab-pane fade active in" id="id_viet" aria-labelledby="home-tab">

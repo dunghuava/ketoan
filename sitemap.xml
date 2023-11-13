@@ -1,192 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
-				<urlset
-				    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-				    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				    xsi:schemaLocation="
-				            http://www.sitemaps.org/schemas/sitemap/0.9
-				            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-					<url>
-				       <loc>http://localhost/ketoan/</loc>
-				       <priority>1</priority>
-				  	</url>
-						<url>
-						 <loc>http://localhost/ketoan/ghe-tham-ngoi-nha-trieu-do-cua-ty-phu-do-la-trum.html</loc>
-						 <priority>0.788</priority>
-						</url>
-						<url>
-						 <loc>http://localhost/ketoan/khu-do-thi-phu-my-hung-giau-co-co-nao.html</loc>
-						 <priority>0.776</priority>
-						</url>
-						<url>
-						 <loc>http://localhost/ketoan/khanh-thanh-toa-nha-cao-nhat-dong-nam-a-landmrak-81.html</loc>
-						 <priority>0.736</priority>
-						</url>
-						<url>
-						 <loc>http://localhost/ketoan/biet-thu-20-trieu-do-ben-canh-song-sai-gon.html</loc>
-						 <priority>0.648</priority>
-						</url>
-						<url>
-						 <loc>http://localhost/ketoan/ban-du-an-vinhome-central-park.html</loc>
-						 <priority>0.544</priority>
-						</url>
-					<url>
-					 <loc>http://localhost/ketoan/cho-thue.html</loc>
-					 <priority>0.799</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/q-1-q-3-q-pn-1.html</loc>
-					 <priority>0.589</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/du-an.html</loc>
-					 <priority>0.549</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/can-ho-cho-thue.html</loc>
-					 <priority>0.702</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/mua.html</loc>
-					 <priority>0.608</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/shophouse-cho-thue.html</loc>
-					 <priority>0.788</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/nha-pho-cho-thue.html</loc>
-					 <priority>0.585</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/ky-gui-nha.html</loc>
-					 <priority>0.733</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/biet-thu-cho-thue.html</loc>
-					 <priority>0.638</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/tin-tuc.html</loc>
-					 <priority>0.638</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/van-phong-cho-thue.html</loc>
-					 <priority>0.604</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/quan-1.html</loc>
-					 <priority>0.747</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/mat-bang-cho-thue.html</loc>
-					 <priority>0.708</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/quan-3.html</loc>
-					 <priority>0.664</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/quan-4.html</loc>
-					 <priority>0.62</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/quan-7.html</loc>
-					 <priority>0.525</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/quan-9.html</loc>
-					 <priority>0.8</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/quan-10.html</loc>
-					 <priority>0.606</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/quan-binh-thanh.html</loc>
-					 <priority>0.659</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/gap-chuyen-vien-tu-van.html</loc>
-					 <priority>0.624</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/danh-sach-chu-dau-tu.html</loc>
-					 <priority>0.501</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/q-1-q-3-q-pn.html</loc>
-					 <priority>0.638</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/can-ho.html</loc>
-					 <priority>0.699</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/shophouse.html</loc>
-					 <priority>0.664</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/nha-pho.html</loc>
-					 <priority>0.565</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/biet-thu.html</loc>
-					 <priority>0.681</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/dat-nen.html</loc>
-					 <priority>0.541</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/vi-sao-chon-gianha-vn.html</loc>
-					 <priority>0.746</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/dang-ban.html</loc>
-					 <priority>0.641</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/dang-cho-thue.html</loc>
-					 <priority>0.747</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/thong-tin-thi-truong.html</loc>
-					 <priority>0.767</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/blog-nhan-dinh.html</loc>
-					 <priority>0.522</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/bao-cao-phan-tich.html</loc>
-					 <priority>0.645</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/huong-dan-mua-nha.html</loc>
-					 <priority>0.723</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/huong-dan-ban-nha.html</loc>
-					 <priority>0.626</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/tu-van-luat.html</loc>
-					 <priority>0.678</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/huong-dan-vay-ngan-hang.html</loc>
-					 <priority>0.784</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/phong-thuy.html</loc>
-					 <priority>0.755</priority>
-					</url>
-					<url>
-					 <loc>http://localhost/ketoan/nha-dep.html</loc>
-					 <priority>0.783</priority>
-					</url>
-						<url>
-						 <loc>http://localhost/ketoan/du-an-sunshine-horizon.html</loc>
-						 <priority>0.776</priority>
-						</url>
-			</urlset>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://demo.pkmatbaoan.com/</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1173</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1174</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1178</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1179</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1181</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1182</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1183</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1176</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1184</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1185</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1186</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1187</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1175</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1188</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1189</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1190</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1180</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/category?id=1177</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=253</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=254</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=251</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=252</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=240</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=242</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=244</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=250</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=241</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=245</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=246</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=249</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=247</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=248</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://demo.pkmatbaoan.com/product?id=243</loc>
+  <lastmod>2023-11-13T15:02:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

@@ -234,3 +234,23 @@ img {
         }
     }
 }
+
+#contact-sell{
+    position: fixed;
+    top: 2%;
+    right: 10%;
+    background: #FFF;
+    z-index: 100;
+    text-align: center;
+    box-shadow: 0 0 14px yellow;
+    .text{
+        color: blue;
+        font-weight: bold;
+    }
+    .phone{
+        a{
+            color: red;
+            text-decoration: none;
+        }
+    }
+}

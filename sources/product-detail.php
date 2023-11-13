@@ -40,7 +40,7 @@ $product_related = $d->o_fet('SELECT * FROM `db_products` WHERE hien_thi = 1 AND
                     </div>
                     <?php if ($product['thong_tin_vn']) { ?>
                         <div class="col-12 mt-4">
-                            <h5>Thông tin chi tiết</h5>
+                            <h5>Thông Tin Chi Tiết</h5>
                             <?=$product['thong_tin_vn']?>
                         </div>
                     <?php } ?>

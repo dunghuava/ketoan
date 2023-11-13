@@ -86,6 +86,14 @@
 						</tr>
 						<tr>
 							<td class="td_left">
+								Liên hệ mua hàng:
+							</td>
+							<td class="td_right">
+								<input class="input form-control width400"  name="dien_thoai" value="<?php echo @$items[0]['dien_thoai']?>"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="td_left">
 								Thông tin footer:
 							</td>
 							<td class="td_right">

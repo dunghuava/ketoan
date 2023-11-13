@@ -60,21 +60,7 @@ function luudulieu(){
 				       <loc>'.@URLPATH.'</loc>
 				       <priority>1</priority>
 				  	</url>';
-
-	
-
-	
-		$tintuc = $d->o_fet("select * from #_tintuc where hien_thi = 1 order by id desc");
-		foreach ($tintuc as $item) {
-			$sitemap .= '
-					<url>
-					 <loc>'.URLPATH.$d->create_long_link($item['alias_vn'],'vn').'.html</loc>
-					 <priority>'.((float)rand(500, 800)/1000).'</priority>
-					</url>';
-
-		}
-
-
+					
 		$category = $d->o_fet("select * from #_category where hien_thi = 1 order by so_thu_tu asc,id desc");
 		foreach ($category as $item) {
 
