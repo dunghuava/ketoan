@@ -58,7 +58,7 @@
 			<th style="width:40%; text-align:left">Danh mục</th>
 			<!-- <th style="width:8%">Hình ảnh</th> -->
 			<th style="width:8%">Loại</th>
-			<th style="width:8%">Trang chủ</th>
+			<th style="width:8%">Menu bên trái</th>
 			<th style="width:8%">Menu chính</th>
 			<!-- <th style="width:8%">Top Menu</th> -->
 			<th style="width:8%">Hiển thị</th>

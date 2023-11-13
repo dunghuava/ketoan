@@ -6,7 +6,7 @@
 		
 	if($com=='category') {
 		$source='category';
-	}else if($com=='chitietsp') {
+	}else if($com=='product') {
 		$source='product-detail';
 	}else{
 		$source='index';

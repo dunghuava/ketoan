@@ -1,7 +1,12 @@
-<?php 
-    $categoryById = $d->simple_fetch('SELECT * FROM `db_category` WHERE hien_thi = 1 AND tieu_bieu = 1 AND id = '.$_GET['cateID'].' LIMIT 1');
+<?php
+$category = $d->simple_fetch('SELECT * FROM `db_category` WHERE hien_thi = 1 AND id = ' . $_GET['id'] . ' LIMIT 1');
+if ($category) {
+    $category_sub_ids = $d->findIdSub($category['id']);
+    $category_sub_ids = trim($category['id'] . $category_sub_ids, ',');
+    $products = $d->o_fet('SELECT * FROM db_products WHERE hien_thi = 1 AND id_loai IN (' . $category_sub_ids . ') ORDER BY so_thu_tu ASC');
+}
 ?>
-<div class="container mt-4">
+<div class="container mt-2">
     <div class="row">
         <div class="col-3">
             <div class="aside">
@@ -14,27 +19,17 @@
                     <div class="col-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                <li class="breadcrumb-item"><a href="<?=URLPATH?>"><i class="fa fa-home"></i></a></li>
+                                <?= $d->breadcrumb($category['id'], 'vn', 'category') ?>
                             </ol>
                         </nav>
                     </div>
-                    <?php for($i=0;$i<10;$i++){ ?>
-                    <div class="col-4 mb-4">
-                        <a href="<?=URLPATH?>chitietsp?id=1">
-                            <div class="card card-product">
-                                <div class="card-body img-shine-2">
-                                    <img src="<?=ASSET_PATH?>va-com.jpg" alt="">
-                                </div>
-                                <div class="card-footer p-2">
-                                    <a href="" class="name text-center d-block">
-                                        Vá Cơm
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <?php foreach ($products as $item) { ?>
+                        <div class="col-4 mb-4">
+                            <a href="<?= URLPATH ?>product?id=<?= $item['id'] ?>">
+                                <?php include _source . '/product-item.php' ?>
+                            </a>
+                        </div>
                     <?php } ?>
                 </div>
             </div>

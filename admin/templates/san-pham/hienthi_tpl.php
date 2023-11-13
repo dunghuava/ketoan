@@ -69,9 +69,9 @@
 			<th style="width:25%; text-align:left">Tiêu đề</th>
 			
 			<th style="width:8%">Ảnh</th>
-			<!-- <th style="width:6%">Bánh khác</th> -->
+			<th style="width:6%">Trang chủ</th>
 			<th style="width:6%">Nổi bật</th>
-			<!-- <th style="width:6%">Bán chạy</th> -->
+			<th style="width:6%">SP mới</th>
 			<!-- <th style="width:6%">Còn hàng</th> -->
 			<th style="width:6%">Hiển thị</th>
 			<th style="width:6%">Tác vụ</th>
@@ -112,15 +112,15 @@
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_products','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
 			</td> -->
 			
-			<!-- <td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_products','sp_moi','<?=$items[$i]['id']?>')" <?php if($items[$i]['sp_moi'] == 1) echo 'checked="checked"'; ?>>
-			</td> -->
 			<td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_products','tieu_bieu','<?=$items[$i]['id']?>')" <?php if($items[$i]['tieu_bieu'] == 1) echo 'checked="checked"'; ?>>
 			</td>
-			<!-- <td>
-				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_products','con_hang','<?=$items[$i]['id']?>')" <?php if($items[$i]['con_hang'] == 1) echo 'checked="checked"'; ?>>
-			</td> -->
+			<td>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_products','sp_hot','<?=$items[$i]['id']?>')" <?php if($items[$i]['sp_hot'] == 1) echo 'checked="checked"'; ?>>
+			</td>
+			<td>
+				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_products','sp_moi','<?=$items[$i]['id']?>')" <?php if($items[$i]['sp_moi'] == 1) echo 'checked="checked"'; ?>>
+			</td>
 			<td>
 				<input class="chk_box" type="checkbox" onclick="on_check(this,'#_products','hien_thi','<?=$items[$i]['id']?>')" <?php if($items[$i]['hien_thi'] == 1) echo 'checked="checked"'; ?>>
 			</td>			

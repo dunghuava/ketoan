@@ -12,11 +12,6 @@ switch($a){
 		$template = @$_REQUEST['p']."/them";
 		break;
 	case "edit":
-		if(isset($_REQUEST['id'])){
-			@$id = addslashes($_REQUEST['id']);
-			$extend = $d->o_fet("select * from #_tienich where project_id =  '".$id."'");
-		}
-		$list_province=getlistProvince();
 		showdulieu();
 		$template = @$_REQUEST['p']."/them";
 		break;
@@ -53,24 +48,24 @@ function showdulieu(){
 		if(isset($_GET['id_loai']) && $_GET['id_loai'] <> ''){
 			
 			if($_GET['id_loai'] == 0){
-				$items = $d->o_fet("select * from #_products where style=0 order by so_thu_tu asc, id desc");
+				$items = $d->o_fet("select * from #_products order by so_thu_tu asc, id desc");
 			}else{
 				$id_loai = $_GET['id_loai'].$d->findIdSub($_GET['id_loai']);	
-			    $items = $d->o_fet("select * from #_products where FIND_IN_SET(id_loai,'$id_loai') <> 0 and style=0 order by so_thu_tu asc, id desc");
+			    $items = $d->o_fet("select * from #_products where FIND_IN_SET(id_loai,'$id_loai') <> 0 order by so_thu_tu asc, id desc");
 			}
 		}
 		else if(isset($_GET['seach'])){
 			$seach = addslashes($_GET['seach']);
 			$key = (isset($_GET['key']))? addslashes($_GET['key']):"";
 			if($seach == 'id'){
-				$items = $d->o_fet("select * from #_products where id = '".$key."' and style=0");
+				$items = $d->o_fet("select * from #_products where id = '".$key."'");
 			}else if($seach == 'name'){
-				$items = $d->o_fet("select * from #_products where ten_vn like '%".$key."%' and style=0");
+				$items = $d->o_fet("select * from #_products where ten_vn like '%".$key."%'");
 			}else{
-				$items = $d->o_fet("select * from #_products where ma_sp like '%".$key."%' and style=0");
+				$items = $d->o_fet("select * from #_products where ma_sp like '%".$key."%'");
 			}
 		}
-		else $items = $d->o_fet("select * from #_products where style=0 order by so_thu_tu asc, id desc");
+		else $items = $d->o_fet("select * from #_products order by so_thu_tu asc, id desc");
 
 		// foreach ($items as $key => $value) {
 		// 	watermark_image($value['hinh_anh'], '../img_data/images/');
@@ -114,25 +109,6 @@ function luudulieu(){
 			// $d->create_thumb($file,200,200,'../img_data/images/',time(),'../img_data/thumb/');
 		}
 
-		$data['extend_text'] = implode(',',$_POST['project_extend_text']);
-		$data['building'] = implode(',',$_POST['project_building']);
-		$data['address'] = $_POST['project_address'];
-		$data['province_id'] = $d->clear(addslashes($_POST['province_id']));
-		$data['district_id'] = $d->clear(addslashes($_POST['district_id']));
-		$data['ward_id'] = $d->clear(addslashes($_POST['ward_id']));
-
-		$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&address=' . urlencode($_POST['project_address']) . '&sensor=true';
-            $json = @file_get_contents($url);
-            $position = json_decode($json);
-            if ($position->status == "OK") {
-                $data['lat'] = $position->results[0]->geometry->location->lat;
-                $data['lng'] = $position->results[0]->geometry->location->lng;
-            } else {
-                // $this->_data['error'] = 'Chúng tôi không tìm thấy địa chỉ này. Vui lòng nhập đúng địa chỉ';
-                $data['lat'] = NULL;
-                $data['lng'] = NULL;
-            }
-
 		$data['id_loai'] = addslashes($_POST['id_loai']);
 
 		$data['ten_vn'] = $d->clear(addslashes($_POST['ten_vn']));
@@ -147,9 +123,6 @@ function luudulieu(){
 		if($d->checkLink($data['alias_vn'],"alias_vn",$id ) && $data['alias_vn']!='') {
 			$data['alias_vn'].="-".rand(10,999);
 		}
-
-
-		$data['title_vn'] = $d->clear(addslashes($_POST['title_vn']));
 
 		$data['keyword'] = $d->clear(addslashes($_POST['keyword']));
 		$data['des'] = $d->clear(addslashes($_POST['des']));
@@ -190,28 +163,9 @@ function luudulieu(){
 		if(@$file = $d->upload_image("file2", '', '../img_data/images/',$file_name)){		
 			$data['hinh_anh'] = $file;
 			// watermark_image($file, '../img_data/images/');
-		}
-
-		$data['extend_text'] = implode(',',$_POST['project_extend_text']);
-		$data['building'] = implode(',',$_POST['project_building']);
-		$data['address'] = $_POST['project_address'];
-		$data['ward_id'] = $d->clear(addslashes($_POST['ward_id']));
-
-		$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&address=' . urlencode($_POST['project_address']) . '&sensor=true';
-            $json = @file_get_contents($url);
-            $position = json_decode($json);
-            if ($position->status == "OK") {
-                $data['lat'] = $position->results[0]->geometry->location->lat;
-                $data['lng'] = $position->results[0]->geometry->location->lng;
-            } else {
-                // $this->_data['error'] = 'Chúng tôi không tìm thấy địa chỉ này. Vui lòng nhập đúng địa chỉ';
-                $data['lat'] = NULL;
-                $data['lng'] = NULL;
-            }
-
+		}		
 
 		$data['id_loai'] = addslashes($_POST['id_loai']);
-		
 
 		$data['ten_vn'] = $d->clear(addslashes($_POST['ten_vn']));
 		
@@ -229,15 +183,10 @@ function luudulieu(){
 			$data['alias_vn'].="-".rand(10,999);
 		}
 
-		
-
-		$data['title_vn'] = $d->clear(addslashes($_POST['title_vn']));
-		
-
+	
 		$data['keyword'] = $d->clear(addslashes($_POST['keyword']));
 		$data['des'] = $d->clear(addslashes($_POST['des']));
 
-		$data['style'] = 0;	
 		$data['hien_thi'] = isset($_POST['hien_thi']) ? 1 : 0;
 		$data['tieu_bieu'] = isset($_POST['tieu_bieu']) ? 1 : 0;
 	

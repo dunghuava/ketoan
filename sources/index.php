@@ -1,4 +1,7 @@
-<div class="container mt-4">
+<?php
+    $spHome = $d->o_fet('SELECT * FROM db_products WHERE hien_thi = 1 AND tieu_bieu = 1 ORDER BY so_thu_tu ASC');
+?>
+<div class="container mt-2">
     <div class="row">
         <div class="col-3">
             <div class="aside">
@@ -8,21 +11,12 @@
         <div class="col-9">
             <div class="main-contain">
                 <div class="row">
-                    <?php for($i=0;$i<10;$i++){ ?>
-                    <div class="col-4 mb-4">
-                        <a href="<?=URLPATH?>chitietsp?id=1">
-                            <div class="card card-product">
-                                <div class="card-body img-shine-2">
-                                    <img src="<?=ASSET_PATH?>va-com.jpg" alt="">
-                                </div>
-                                <div class="card-footer p-2">
-                                    <a href="" class="name text-center d-block">
-                                        Vá Cơm
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <?php foreach ($spHome as $item) { ?>
+                        <div class="col-4 mb-4">
+                            <a href="<?= URLPATH ?>product?id=<?=$item['id']?>">
+                                <?php include _source . '/product-item.php' ?>
+                            </a>
+                        </div>
                     <?php } ?>
                 </div>
             </div>

@@ -78,34 +78,6 @@
 			</tr>
 			<tr>
 				<td class="td_left">
-					Hình ảnh chi tiết:
-				</td>
-				<td class="td_right ">
-					<div class="td_hinhanh">
-					<?php 
-						$hinhanh =  $d->o_fet("select * FROM #_products_hinhanh where id_sp ='".$_GET['id']."'");
-						foreach ($hinhanh as $val) {
-					?>
-					<div class="dv-img-ad">
-						<div class="img_addimage">
-							<img src="../img_data/images/<?php echo @$val['hinh_anh']?>">
-						</div>
-						<div class="icon_deleteimage">
-							<a href="javascript:xoa_anh_sp('<?=$val['id']?>','<?=$val['id_sp']?>')" onclick="if(!confirm('Xác nhận xóa?')) return false;  "><img src="public/images/delete.png" alt="Delete"></a>
-						</div>
-						<div class="name_addimg"><?php echo @$val['title']?></div>
-					</div>
-					<?php } ?>
-					</div>
-					<div class="add_img">
-
-					</div>
-					<div style="clear:both"></div>
-					<div style=""><a href="javascript:them_anh()" style="  background-color: rgb(66, 139, 202);  padding: 5px 22px;  border-radius: 3px;  color: #fff;  text-decoration: none;">Thêm ảnh</a></div>
-				</td>
-			</tr>
-			<tr>
-				<td class="td_left">
 					Danh mục:
 				</td>
 				<td class="td_right">
@@ -162,7 +134,7 @@
 							Mô tả:
 						</td>
 						<td class="td_right">
-							<textarea class="input width400 form-control" style="height:80px" name="mo_ta_vn" id="mo_ta_vn" required=""><?=@$items[0]['mo_ta_vn']?></textarea>
+							<textarea class="input width400 form-control" style="height:80px" name="mo_ta_vn" id="mo_ta_vn"><?=@$items[0]['mo_ta_vn']?></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -170,7 +142,7 @@
 							Thông tin nội dung:
 						</td>
 						<td class="td_right">
-							<textarea  name="thong_tin_vn" id="thong_tin_vn" required=""><?=@$items[0]['thong_tin_vn']?></textarea>
+							<textarea  name="thong_tin_vn" id="thong_tin_vn"><?=@$items[0]['thong_tin_vn']?></textarea>
 							<?php $ckeditor->replace('thong_tin_vn'); ?>
 						</td>
 					</tr>
