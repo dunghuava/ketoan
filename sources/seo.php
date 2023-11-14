@@ -1,14 +1,15 @@
 <?php
 if ($source == 'product-detail') {
 	$seo = $d->simple_fetch("select * from #_products where id = {$_GET['id']}");
-	$seo_title = $seo['title_' . $_SESSION['lang']];
+	$seo_title = $seo['ten_vn'];
 	$seo_keyword = $seo['keyword'];
-	$seo_description = $seo['des'];
+	$seo_description = $seo['mo_ta_vn'];
+
 } else if ($source == "category") {
 	$seo = $d->simple_fetch("select * from #_category where id = {$_GET['id']}");
-	$seo_title = $seo['title_' . $_SESSION['lang']];
+	$seo_title = $seo['ten_vn'];
 	$seo_keyword = $seo['keyword'];
-	$seo_description = $seo['des'];
+	$seo_description = $seo['mo_ta_vn'];
 	if ($com == "tags") {
 		$query = $d->simple_fetch("select * from #_tags where alias = '$alias'");
 		$seo_title = "Từ khóa: " . $query['ten_vn'];
@@ -16,10 +17,10 @@ if ($source == 'product-detail') {
 		$seo_description = "Từ khóa: " . $query['ten_vn'];
 	}
 } else {
-	$seo = $d->simple_fetch("select * from #_seo where id=1");
-	$seo_title = $seo['title_' . $_SESSION['lang']];
-	$seo_keyword = $seo['keyword_' . $_SESSION['lang']];
-	$seo_description = $seo['description_' . $_SESSION['lang']];
+	$seo = $d->simple_fetch("select * from #_seo limit 1");
+	$seo_title = $seo['title_vn'];
+	$seo_keyword = $seo['keyword_vn'];
+	$seo_description = $seo['description_vn'];
 }
 
 //hinh anh
@@ -27,6 +28,7 @@ if ($source == 'product-detail') {
 if (!empty($seo)) $img_cn = URLPATH . "img_data/images/" . $seo['hinh_anh'];
 else $img_cn = URLPATH . "img_data/icon/" . $information['icon_share'];
 
+$img_cn = URLPATH . 'thumb.php?src=' . $img_cn . '&w=527&h=250&zc=2'
 ?>
 <title><?= $seo_title ?></title>
 <meta name="keywords" content="<?= $seo_keyword ?>" />
