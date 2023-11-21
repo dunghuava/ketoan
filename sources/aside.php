@@ -2,7 +2,7 @@
 $category_index = $d->o_fet('SELECT * FROM `db_category` WHERE hien_thi = 1 AND tieu_bieu = 1 ORDER BY so_thu_tu ASC');
 ?>
 <aside>
-    <div class="card card-style-1 mb-3">
+    <div class="card card-style-1 border-0 mb-3">
         <div class="card-body p-3">
             <div class="text-center">
                 <br><br>
